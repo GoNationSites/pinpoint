@@ -1,7 +1,11 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import React from "react"
+import { ThemeProvider } from "styled-components"
+import { GlobalStyles, theme } from "./src/global-styles"
 
-// You can delete this file if you're not using it
+// this needs to be imported into gatsby.
+// at the moment the export in ssr and groswer files isn't taking this export
+export const InsertGlobalStyles = ({ element, props }) => <GlobalStyles />
+
+export const wrapPageElement = ({ element, props }) => (
+  <ThemeProvider theme={theme}>{element}</ThemeProvider>
+)
