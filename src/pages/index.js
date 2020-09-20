@@ -8,6 +8,7 @@ import Hero from "../components/hero"
 import HpContentBlock from "../components/hpContentBlock"
 import ProjectsBox from "../components/projects-component/projectsBox"
 import ButtonBlocks from "../components/ButtonBlocks"
+import Banner from "../components/Banner"
 
 import img from "../assets/cover-video.png"
 
@@ -48,6 +49,8 @@ const IndexPage = () => (
       </HPText>
       <ButtonBlocks />
     </Section>
+
+    <Banner></Banner>
   </Layout>
 )
 

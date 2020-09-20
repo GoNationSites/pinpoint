@@ -16,7 +16,9 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   text-decoration: none;
+  letter-spacing: 3px;
   cursor: pointer;
+  text-transform: uppercase;
 
   .icon {
     padding-left: 0.5rem;
