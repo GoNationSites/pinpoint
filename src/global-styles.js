@@ -5,7 +5,9 @@ import { createGlobalStyle, css } from "styled-components"
 // at the moment the export in ssr and groswer files isn't taking this export
 
 export const GlobalStyles = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;700&family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;700&display=swap');
 
 html,
 body {
@@ -31,8 +33,9 @@ export const theme = {
   secondary: `rgb(202, 54, 37)`,
   tertiary: `rgb(202, 54, 37)`,
   dark: `#231f20`,
-  light: `rgb(196, 191, 182)`,
+  light: `#F7F7F7`,
   text: `#1E242B`,
+  glass: `#5C666F`,
 
   //optional extras but not really used yet
   sizes: {
@@ -47,6 +50,7 @@ export const theme = {
   },
   fonts: {
     bodyFont: `"Raleway", sans-serif;`,
+    headingFont: `"Aleo", cursive;`,
   },
   breakpoints: {
     mobile: "480px",

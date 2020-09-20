@@ -63,7 +63,7 @@ const Navbar = () => {
 
       <Flex>
         {routes.map(route => (
-          <NavItem>
+          <NavItem key={route.title}>
             <Link to={route.link}>{route.title}</Link>
           </NavItem>
         ))}

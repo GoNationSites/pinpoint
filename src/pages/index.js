@@ -1,22 +1,29 @@
 import React from "react"
-import { Link } from "gatsby"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 import Navbar from "../components/navbar"
-import Button from "../components/button"
+import Hero from "../components/hero"
+import HpContentBlock from "../components/hpContentBlock"
+import ProjectsBox from "../components/projects-component/projectsBox"
+
+import img from "../assets/cover-video.png"
+
+const Section = styled.section`
+  padding: ${({ padding }) => padding};
+`
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <Navbar />
-    <Button color="primary">Welcome To Pinpoint</Button>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    <Hero img={img} text="Full Service Agency" />
+    <Section padding="0 0 198px 0">
+      <HpContentBlock />
+    </Section>
+
+    <ProjectsBox />
   </Layout>
 )
 

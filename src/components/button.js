@@ -2,14 +2,25 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
+import Right from "./icons/right"
+
 const Button = styled.button`
   color: ${({ color, theme }) => getColor(color, theme)};
   border-radius: 49px;
-  padding: 33px 63px;
-  border: 4px solid ${({ theme }) => theme.primary};
+  padding: 15px 63px;
+  border: 4px solid ${({ color, theme }) => getColor(color, theme)};
   font-size: 30px;
   background: ${({ variation }) =>
     variation === "hollow" ? "transparent" : ""};
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+
+  .icon {
+    padding-left: 0.5rem;
+  }
 `
 
 const getColor = (color, theme) => {
@@ -26,7 +37,10 @@ const button = ({
   return (
     <Link to={to}>
       <Button variation={variation} color={color}>
-        {children}
+        <span>{children}</span>
+        <span className="icon">
+          <Right fill={color === "primary" ? "#D50032" : color} />
+        </span>
       </Button>
     </Link>
   )
