@@ -7,11 +7,27 @@ import Navbar from "../components/navbar"
 import Hero from "../components/hero"
 import HpContentBlock from "../components/hpContentBlock"
 import ProjectsBox from "../components/projects-component/projectsBox"
+import ButtonBlocks from "../components/ButtonBlocks"
 
 import img from "../assets/cover-video.png"
 
 const Section = styled.section`
   padding: ${({ padding }) => padding};
+`
+
+const HPText = styled.p`
+  color: ${({ theme }) => theme.light2};
+  padding-left: 100px;
+  font-size: 62px;
+  font-family: ${({ theme }) => theme.fonts.headingFont};
+  margin-bottom: 8rem;
+  .primary {
+    color: ${({ theme }) => theme.primary};
+  }
+  .italic {
+    text-decoration: underline;
+    font-style: italic;
+  }
 `
 
 const IndexPage = () => (
@@ -24,6 +40,14 @@ const IndexPage = () => (
     </Section>
 
     <ProjectsBox />
+
+    <Section padding="200px 0">
+      <HPText>
+        Everything we <span className="primary">conceptualize</span> is done{" "}
+        <span className="italic underline">intentionally</span>
+      </HPText>
+      <ButtonBlocks />
+    </Section>
   </Layout>
 )
 
