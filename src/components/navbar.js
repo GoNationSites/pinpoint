@@ -16,6 +16,8 @@ const Nav = styled.nav`
   background: white;
   box-shadow: 2px 5px 10px #00000029;
   padding: 40px 140px;
+  position: relative;
+  z-index: 9;
 `
 
 const NavItem = styled.div`

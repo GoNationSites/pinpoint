@@ -13,6 +13,9 @@ const getColor = (color, theme) => {
   if (color === "text") {
     return theme.text
   }
+  if (color === "secondary") {
+    return theme.secondary
+  }
   if (color) {
     return color
   }

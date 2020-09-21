@@ -3,7 +3,6 @@ import styled from "styled-components"
 
 import Title from "./Title"
 import AboutHeader from "../assets/about-header.png"
-import { theme } from "../global-styles"
 
 const AboutRow = styled.div`
   display: flex;
