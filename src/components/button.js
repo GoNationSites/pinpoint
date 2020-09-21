@@ -1,10 +1,10 @@
-import React from "react"
+import React, { useState, useContext } from "react"
 import { Link } from "gatsby"
-import styled from "styled-components"
+import styled, { ThemeContext } from "styled-components"
 
 import Right from "./icons/right"
 
-const Button = styled.button`
+const Btn = styled.button`
   color: ${({ color, theme }) => getColor(color, theme)};
   border-radius: 49px;
   padding: 15px 63px;
@@ -19,6 +19,14 @@ const Button = styled.button`
   letter-spacing: 3px;
   cursor: pointer;
   text-transform: uppercase;
+  transition: all 0.4s;
+
+  &:hover {
+    background: ${({ color, theme }) => getColor(color, theme)};
+    ${({ color }) => console.log(color)};
+    color: ${({ color, theme }) => (color !== "primary" ? theme.text : "#fff")};
+    transition: all 0.4s;
+  }
 
   .icon {
     padding-left: 0.5rem;
@@ -30,22 +38,42 @@ const getColor = (color, theme) => {
   return color
 }
 
-const button = ({
+const Button = ({
   to = "/",
   children,
   variation = "hollow",
   color = "#111",
 }) => {
+  const [hovered, setHovered] = useState(false)
+  const theme = useContext(ThemeContext)
+
+  const getIconFill = () => {
+    if (hovered) {
+      if (color === "#fff") {
+        return theme.text
+      } else {
+        return "#fff"
+      }
+    } else {
+      return color === "primary" ? theme.primary : color
+    }
+  }
+
   return (
     <Link to={to}>
-      <Button variation={variation} color={color}>
+      <Btn
+        variation={variation}
+        color={color}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
         <span>{children}</span>
         <span className="icon">
-          <Right fill={color === "primary" ? "#D50032" : color} />
+          <Right fill={getIconFill()} />
         </span>
-      </Button>
+      </Btn>
     </Link>
   )
 }
 
-export default button
+export default Button
