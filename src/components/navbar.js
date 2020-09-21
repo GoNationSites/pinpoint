@@ -28,6 +28,12 @@ const NavItem = styled.div`
     text-transform: uppercase;
     text-decoration: none;
     font-weight: 600;
+    transition: all 0.5s;
+
+    &:hover {
+      color: ${({ theme }) => theme.secondary};
+      transition: all 0.5s;
+    }
   }
 `
 
@@ -64,7 +70,9 @@ const Navbar = () => {
       <Flex>
         {routes.map(route => (
           <NavItem key={route.title}>
-            <Link to={route.link}>{route.title}</Link>
+            <Link activeStyle={{ color: `#009CDE` }} to={route.link}>
+              {route.title}
+            </Link>
           </NavItem>
         ))}
       </Flex>

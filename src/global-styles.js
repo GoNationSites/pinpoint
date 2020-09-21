@@ -30,7 +30,7 @@ img {
 
 export const theme = {
   primary: `#D50032`,
-  secondary: `rgb(202, 54, 37)`,
+  secondary: `#009CDE`,
   tertiary: `rgb(202, 54, 37)`,
   dark: `#231f20`,
   light: `#F7F7F7`,
