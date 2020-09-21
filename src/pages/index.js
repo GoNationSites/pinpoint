@@ -9,6 +9,7 @@ import HpContentBlock from "../components/hpContentBlock"
 import ProjectsBox from "../components/projects-component/projectsBox"
 import ButtonBlocks from "../components/ButtonBlocks"
 import Banner from "../components/Banner"
+import Testimonials from "../components/Testimonials"
 
 import img from "../assets/cover-video.png"
 
@@ -51,6 +52,7 @@ const IndexPage = () => (
     </Section>
 
     <Banner></Banner>
+    <Testimonials />
   </Layout>
 )
 
