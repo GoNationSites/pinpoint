@@ -1,5 +1,5 @@
 // globalStyles.js
-import { createGlobalStyle, css } from "styled-components"
+import { createGlobalStyle } from "styled-components"
 
 // this needs to be imported into gatsby.
 // at the moment the export in ssr and groswer files isn't taking this export

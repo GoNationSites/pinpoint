@@ -30,7 +30,7 @@ const Section = styled.section`
     font-weight: bold;
     letter-spacing: 4.5px;
     text-transform: uppercase;
-    margin-bottom: 42px;
+    margin-bottom: 82px;
   }
 `
 
