@@ -43,6 +43,7 @@ const Button = ({
   children,
   variation = "hollow",
   color = "#111",
+  noArrow,
 }) => {
   const [hovered, setHovered] = useState(false)
   const theme = useContext(ThemeContext)
@@ -68,9 +69,13 @@ const Button = ({
         onMouseLeave={() => setHovered(false)}
       >
         <span>{children}</span>
-        <span className="icon">
-          <Right fill={getIconFill()} />
-        </span>
+        {noArrow ? (
+          ""
+        ) : (
+          <span className="icon">
+            <Right fill={getIconFill()} />
+          </span>
+        )}
       </Btn>
     </Link>
   )

@@ -6,6 +6,8 @@ import SEO from "../components/seo"
 import AboutBlock from "../components/AboutBlock"
 import PhilosophyBox from "../components/PhilosophyBox"
 import Title from "../components/Title"
+import Button from "../components/button"
+import Banner from "../components/Banner"
 
 const Section = styled.section`
   padding: ${({ padding }) => (padding ? padding : "8rem 0")};
@@ -22,6 +24,14 @@ const About = () => {
       <Section padding="0 0 8rem 140px">
         <Title color="#D0D2D3">We make the dream a reality</Title>
       </Section>
+      <Banner fillColor="secondary">
+        <Title>Who will be working on your project?</Title>
+        <div style={{ textAlign: "center" }}>
+          <Button noArrow color="#fff">
+            MEET THE TEAM
+          </Button>
+        </div>
+      </Banner>
     </Layout>
   )
 }

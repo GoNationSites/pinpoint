@@ -9,6 +9,8 @@ import ProjectsBox from "../components/projects-component/projectsBox"
 import ButtonBlocks from "../components/ButtonBlocks"
 import Banner from "../components/Banner"
 import Testimonials from "../components/Testimonials"
+import Title from "../components/Title"
+import Button from "../components/Button"
 
 import img from "../assets/cover-video.png"
 
@@ -49,7 +51,12 @@ const IndexPage = () => (
       <ButtonBlocks />
     </Section>
 
-    <Banner></Banner>
+    <Banner>
+      <Title>Ready to make an impact</Title>
+      <div style={{ textAlign: "center" }}>
+        <Button color="#fff">TELL US ABOUT YOUR NEEDS</Button>
+      </div>
+    </Banner>
     <Testimonials />
   </Layout>
 )
