@@ -3,7 +3,6 @@ import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Navbar from "../components/navbar"
 import Hero from "../components/hero"
 import HpContentBlock from "../components/hpContentBlock"
 import ProjectsBox from "../components/projects-component/projectsBox"
@@ -35,7 +34,6 @@ const HPText = styled.p`
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <Navbar />
     <Hero img={img} text="Full Service Agency" />
     <Section padding="0 0 198px 0">
       <HpContentBlock />
