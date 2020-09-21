@@ -27,7 +27,7 @@ const ContentRight = styled.div`
   top: 0;
 
   > div {
-    margin-top: 18rem;
+    margin-top: 9rem;
   }
   img {
     width: 100%;
@@ -71,8 +71,7 @@ const AboutBlock = () => {
         <AboutText>
           And we’re here to help you. We inject some novel ideas to try to kick
           your impact up a notch (or two, or three), and then deliver on it with
-          a crack production and installation team. We’re Pinpoint. We’ve got
-          you. Let’s create Remarkable!
+          a crack production and installation team.
         </AboutText>
         <AboutText color="secondary" weight="bold">
           We’re Pinpoint. We’ve got you. Let’s create Remarkable!

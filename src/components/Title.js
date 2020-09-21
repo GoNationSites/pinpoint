@@ -5,11 +5,23 @@ const T = styled.h2`
   font-family: ${({ theme }) => theme.fonts.headingFont};
   font-weight: bold;
   font-size: 62px;
-  color: white;
+  color: ${({ color, theme }) => getColor(color, theme)};
+  margin: ${({ margin }) => (margin ? margin : 0)};
 `
 
-const Title = ({ children }) => {
-  return <T>{children}</T>
+const getColor = (color, theme) => {
+  if (color === "text") {
+    return theme.text
+  }
+  return "#fff"
+}
+
+const Title = ({ children, color, margin }) => {
+  return (
+    <T color={color} margin={margin}>
+      {children}
+    </T>
+  )
 }
 
 export default Title
