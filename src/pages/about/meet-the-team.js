@@ -1,13 +1,12 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import HeaderBlock from "../../components/HeaderBlock"
 import TeamCard from "../../components/TeamCard"
-import Title from "../../components/Title"
+import ActiveMember from "../../components/ActiveMember"
 import Team from "../../assets/team.png"
-import { theme } from "../../global-styles"
 
 import Steve from "../../assets/steve.png"
 import TJ from "../../assets/tj.png"
@@ -17,7 +16,6 @@ import Arnie from "../../assets/arnie.png"
 import Al from "../../assets/al.png"
 
 const MemberWrapper = styled.div`
-  /* padding: 2rem 1.5rem; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -31,6 +29,7 @@ const Box = styled.div`
 `
 
 const MeetTheTeam = () => {
+  const [activeMember, setActiveMember] = useState(null)
   const content = [
     "You’ll work with a diverse crew of listeners, brainstormers, creatives, go-getters, and implementors with an ownership mentality. Many of us have multidisciplinary backgrounds, which provides a smoother and more efficient project experience.",
   ]
@@ -40,6 +39,13 @@ const MeetTheTeam = () => {
       name: "Steve Gentile",
       position: "Co-Founder, Partner, and Director of Strategy",
       img: Steve,
+      description: [
+        `Steve’s fierce passion for business and a relentless hunger to never stop learning could be credited for much of Pinpoint’s meteoric growth. He holds a B.S. in Advertising from Southern Connecticut State University. Steve has thrived in self-employment since age 18, never having held a “normal” job. His specialties include marketing, ideation, strategy, events, design, and business development.`,
+
+        `He’s always looking out for our clients’ best interests and is energized by thinking up exciting ways to engage their customers. Steve lives out business coach Tony Robbins’ words: “The only limit to your impact is your imagination and commitment.`,
+
+        `When Steve is not developing award-winning brand experiences, Steve takes the time to go on adventures, traveling around the world.`,
+      ],
     },
     {
       name: "TJ Andrews",
@@ -72,10 +78,15 @@ const MeetTheTeam = () => {
     <Layout>
       <SEO title="Meet The Team" />
       <HeaderBlock title="Meet The Team" content={content} img={Team} />
+      {activeMember !== null ? (
+        <ActiveMember setActiveMember={setActiveMember} data={activeMember} />
+      ) : (
+        ""
+      )}
       <MemberWrapper>
         {teamMembers.map(member => (
           <Box>
-            <TeamCard data={member} />
+            <TeamCard data={member} setActiveMember={setActiveMember} />
           </Box>
         ))}
       </MemberWrapper>

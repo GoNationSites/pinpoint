@@ -10,6 +10,7 @@ const Card = styled.div`
   background: #d0d2d3;
   width: 100%;
   position: relative;
+  cursor: pointer;
 `
 
 const ShadowBox = styled.div`
@@ -33,10 +34,12 @@ const ShadowBox = styled.div`
   }
 `
 
-const TeamCard = ({ data }) => {
+const TeamCard = ({ data, setActiveMember }) => {
   const { img, name, position } = data
   return (
-    <Card>
+    <Card
+      onClick={() => (name === "Steve Gentile" ? setActiveMember(data) : "")}
+    >
       <div>
         <img src={img} alt={name} />
       </div>
