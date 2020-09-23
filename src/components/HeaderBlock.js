@@ -42,7 +42,6 @@ const AboutText = styled.p`
     color === "secondary" ? theme.secondary : "white"};
   font-weight: ${({ weight }) => (weight === "bold" ? "bold" : 100)};
   max-width: 675px;
-  min-height: 413px;
 `
 
 const HeaderBlock = ({ title, content, img }) => {
