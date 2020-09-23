@@ -75,7 +75,11 @@ const ProjectsContent = ({ activeTab, setActiveTab, items }) => {
           isActive={isActive}
         >
           <h4>
-            <img src={getIco(item.title)} alt={item.title} />{" "}
+            <img
+              style={{ maxWidth: "40px" }}
+              src={getIco(item.title)}
+              alt={item.title}
+            />{" "}
             <span>{item.title}</span>
           </h4>
           {isActive ? <p>{item.desc}</p> : ""}

@@ -52,6 +52,7 @@ export const device = {
 export const theme = {
   primary: `#D50032`,
   secondary: `#009CDE`,
+  third: "#00BB7E",
   tertiary: `rgb(202, 54, 37)`,
   dark: `#231f20`,
   light: `#F7F7F7`,

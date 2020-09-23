@@ -12,7 +12,7 @@ const AboutRow = styled.div`
 const ContentLeft = styled.div`
   width: 66%;
   background: ${({ theme }) => theme.text};
-  padding: 18rem 0 8rem 12rem;
+  padding: 18rem 0 18rem 12rem;
   overflow: hidden;
 `
 

@@ -40,7 +40,7 @@ const InputWrapper = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
-    right: -18px;
+    right: 15px;
     top: 0;
 
     svg {
