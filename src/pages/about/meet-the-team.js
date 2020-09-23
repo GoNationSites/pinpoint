@@ -4,8 +4,10 @@ import styled from "styled-components"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import HeaderBlock from "../../components/HeaderBlock"
+import TeamCard from "../../components/TeamCard"
 import Title from "../../components/Title"
 import Team from "../../assets/team.png"
+import { theme } from "../../global-styles"
 
 import Steve from "../../assets/steve.png"
 import TJ from "../../assets/tj.png"
@@ -19,37 +21,13 @@ const MemberWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-
-  > div {
-    width: 50%;
-  }
+  margin: auto;
+  justify-content: space-evenly;
+  padding: 8rem 1.5rem;
 `
 
 const Box = styled.div`
-  padding: 2rem;
-  text-align: center;
-
-  > div {
-    position: relative;
-  }
-
-  img {
-    background: #d0d2d3;
-  }
-`
-
-const ShadowBox = styled.div`
-  position: absolute;
-  background: white;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: left;
-  background: transparent
-    linear-gradient(90deg, #ffffff 0%, #ffffff91 100%, #d0d2d300 50%) 0% 0%
-    no-repeat padding-box;
+  margin-bottom: 3rem;
 `
 
 const MeetTheTeam = () => {
@@ -96,17 +74,9 @@ const MeetTheTeam = () => {
       <HeaderBlock title="Meet The Team" content={content} img={Team} />
       <MemberWrapper>
         {teamMembers.map(member => (
-          <div>
-            <Box>
-              <div>
-                <img src={member.img} alt={member.name} />
-                <ShadowBox>
-                  <Title color="secondary">{member.name}</Title>
-                  <p>{member.position}</p>
-                </ShadowBox>
-              </div>
-            </Box>
-          </div>
+          <Box>
+            <TeamCard data={member} />
+          </Box>
         ))}
       </MemberWrapper>
     </Layout>

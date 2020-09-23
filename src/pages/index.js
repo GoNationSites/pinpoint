@@ -51,7 +51,7 @@ const IndexPage = () => (
       <ButtonBlocks />
     </Section>
 
-    <Banner>
+    <Banner fillColor={"primary"}>
       <Title>Ready to make an impact</Title>
       <div style={{ textAlign: "center" }}>
         <Button color="#fff">TELL US ABOUT YOUR NEEDS</Button>

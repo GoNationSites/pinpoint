@@ -15,3 +15,12 @@ a {
 input {
     outline: none;
 }
+
+*,
+div {
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
