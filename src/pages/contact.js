@@ -3,14 +3,23 @@ import styled from "styled-components"
 
 import Layout from "../components/layout"
 import FormBlock from "../components/contact/FormBlock"
+import StyledHeader from "../components/StyledHeader"
+
 import SEO from "../components/seo"
+
+const Section = styled.section`
+  padding: 0 0 9rem 0;
+`
 
 const Contact = () => {
   return (
     <Layout>
       <SEO title="Contact" />
+      <StyledHeader />
 
-      <FormBlock />
+      <Section>
+        <FormBlock />
+      </Section>
     </Layout>
   )
 }

@@ -32,9 +32,9 @@ const getColor = (color, theme) => {
   return "#fff"
 }
 
-const Title = ({ children, color, margin }) => {
+const Title = ({ children, color, margin, style }) => {
   return (
-    <T color={color} margin={margin}>
+    <T color={color} margin={margin} style={style}>
       {children}
     </T>
   )

@@ -39,7 +39,7 @@ const FormBlock = () => {
           <InputContainer padding="0 0 0 4rem">
             <TextArea label="Message" name="phone" />
             <Button
-              iconColor={theme.pink}
+              iconColor={"#fff"}
               variation="fill"
               bg={theme.pink}
               color="white"

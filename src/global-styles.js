@@ -60,6 +60,7 @@ export const theme = {
   glass: `#5C666F`,
   light2: `#D0D2D3`,
   pink: "#C7579A",
+  alternate: "#FFA400",
 
   //optional extras but not really used yet
   sizes: {
