@@ -21,17 +21,12 @@ const Btn = styled.button`
   text-transform: uppercase;
   transition: all 0.4s;
 
-  ${({ noHover }) => {
-    if (noHover) {
-      return ""
-    } else {
-      return `     &:hover {
+  &:hover {
     background: ${({ color, theme }) => getColor(color, theme)};
+    ${({ color }) => console.log(color)};
     color: ${({ color, theme }) => (color !== "primary" ? theme.text : "#fff")};
     transition: all 0.4s;
-  }`
-    }
-  }}
+  }
 
   .icon {
     padding-left: 0.5rem;
@@ -49,14 +44,13 @@ const Button = ({
   variation = "hollow",
   color = "#111",
   noArrow,
+  iconColor,
   bg,
-  noHover,
 }) => {
   const [hovered, setHovered] = useState(false)
   const theme = useContext(ThemeContext)
 
   const getIconFill = () => {
-    if (noHover) return
     if (hovered) {
       if (color === "#fff") {
         return theme.text
@@ -74,7 +68,6 @@ const Button = ({
         bg={bg}
         variation={variation}
         color={color}
-        noHover={noHover}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -83,7 +76,7 @@ const Button = ({
           ""
         ) : (
           <span className="icon">
-            <Right fill={getIconFill()} />
+            <Right fill={iconColor ? iconColor : getIconFill()} />
           </span>
         )}
       </Btn>
