@@ -10,7 +10,7 @@ const AboutRow = styled.div`
   align-items: center;
   flex-direction: column;
 
-  @media ${device.tablet} {
+  @media ${device.laptopL} {
     flex-direction: row;
   }
 `
@@ -20,7 +20,7 @@ const ContentLeft = styled.div`
   background: ${({ theme }) => theme.text};
   padding: 2rem 1.5rem;
   overflow: hidden;
-  @media ${device.tablet} {
+  @media ${device.laptopL} {
     padding: 18rem 0 18rem 12rem;
     width: 66%;
   }
@@ -37,7 +37,7 @@ const ContentRight = styled.div`
   top: 0;
   overflow: hidden;
   width: 100%;
-  @media ${device.tablet} {
+  @media ${device.laptopL} {
     width: auto;
     order: 1;
     position: absolute;
@@ -45,12 +45,13 @@ const ContentRight = styled.div`
 
   > div {
     margin-top: 0;
-    @media ${device.tablet} {
+    @media ${device.laptopL} {
       margin-top: 9rem;
     }
   }
   img {
     width: 100%;
+    max-width: 800px;
   }
 `
 

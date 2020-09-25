@@ -9,7 +9,7 @@ const AboutRow = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  @media ${device.tablet} {
+  @media ${device.laptopL} {
     flex-direction: row;
   }
 `
@@ -18,7 +18,7 @@ const ContentLeft = styled.div`
   width: 100%;
   background: ${({ theme }) => theme.text};
   padding: 2rem 1.5rem;
-  @media ${device.tablet} {
+  @media ${device.laptopL} {
     padding: 8rem 0 8rem 12rem;
     width: 66%;
   }
@@ -35,7 +35,7 @@ const ContentRight = styled.div`
   justify-content: center;
   align-items: center;
   top: 0;
-  @media ${device.tablet} {
+  @media ${device.laptopL} {
     order: 1;
     position: absolute;
     width: auto;
@@ -43,12 +43,13 @@ const ContentRight = styled.div`
 
   > div {
     margin-top: 0;
-    @media ${device.tablet} {
+    @media ${device.laptopL} {
       margin-top: 9rem;
     }
   }
   img {
     width: 100%;
+    max-width: 800px;
   }
 `
 
