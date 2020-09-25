@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { device } from "../global-styles"
 
 import Title from "./Title"
 import AboutHeader from "../assets/about-header.png"
@@ -7,17 +8,27 @@ import AboutHeader from "../assets/about-header.png"
 const AboutRow = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: column;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
 `
 
 const ContentLeft = styled.div`
-  width: 66%;
+  width: 100%;
   background: ${({ theme }) => theme.text};
-  padding: 18rem 0 18rem 12rem;
+  padding: 2rem 1.5rem;
   overflow: hidden;
+  @media ${device.tablet} {
+    padding: 18rem 0 18rem 12rem;
+    width: 66%;
+  }
 `
 
 const ContentRight = styled.div`
-  position: absolute;
+  order: -1;
+  position: static;
   right: 0;
   height: 100%;
   display: flex;
@@ -25,9 +36,18 @@ const ContentRight = styled.div`
   align-items: center;
   top: 0;
   overflow: hidden;
+  width: 100%;
+  @media ${device.tablet} {
+    width: auto;
+    order: 1;
+    position: absolute;
+  }
 
   > div {
-    margin-top: 9rem;
+    margin-top: 0;
+    @media ${device.tablet} {
+      margin-top: 9rem;
+    }
   }
   img {
     width: 100%;

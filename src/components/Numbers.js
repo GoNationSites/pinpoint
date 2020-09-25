@@ -1,29 +1,40 @@
 import React from "react"
 import styled from "styled-components"
+import { device } from "../global-styles"
 
 const Row = styled.div`
-  width: 500px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  margin-bottom: 3rem;
+  @media ${device.tablet} {
+    margin-bottom: 0;
+    width: 500px;
+  }
 `
 
 const Button = styled.button`
   font-family: ${({ theme }) => theme.fonts.headingFont};
-  font-size: 62px;
+  font-size: 20px;
   color: ${({ theme }) => theme.text};
   background: white;
   border: 4px solid ${({ theme }) => theme.text};
   border-radius: 100%;
-  width: ${({ isActive }) => (isActive ? "180px" : "94px")};
-  height: ${({ isActive }) => (isActive ? "180px" : "94px")};
+  width: ${({ isActive }) => (isActive ? "90px" : "34px")};
+  height: ${({ isActive }) => (isActive ? "90px" : "34px")};
   display: flex;
   justify-content: center;
   align-items: center;
   outline: none;
   cursor: pointer;
   transition: all 0.25s;
+  @media ${device.tablet} {
+    width: ${({ isActive }) => (isActive ? "180px" : "94px")};
+    height: ${({ isActive }) => (isActive ? "180px" : "94px")};
+    font-size: 62px;
+  }
   span {
     display: flex;
     justify-content: center;
@@ -31,8 +42,14 @@ const Button = styled.button`
     ${({ isActive, theme, color }) => `
         background: ${isActive ? getColor(color, theme) : ""};
         border-radius: ${isActive ? "100%" : ""};
-        width: ${isActive ? "112px" : "auto"};
-        height: ${isActive ? "112px" : "auto"};
+        width: ${isActive ? "50px" : "auto"};
+        height: ${isActive ? "50px" : "auto"};
+
+        @media ${device.tablet} {
+          width: ${isActive ? "112px" : "auto"};
+          height: ${isActive ? "112px" : "auto"};
+        }
+
     `}
     transition: all .25s;
   }

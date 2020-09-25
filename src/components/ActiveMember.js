@@ -8,10 +8,15 @@ import Close from "./Close"
 
 const MemberContainer = styled.section`
   background: #f7f7f7;
-  padding: 4.5rem;
-  margin-left: 9.5rem;
+  padding: 2rem 1.5rem;
+  margin-left: 0;
   position: relative;
   margin-top: 4rem;
+
+  @media ${device.tablet} {
+    margin-left: 9.5rem;
+    padding: 4.5rem;
+  }
 
   span {
     position: absolute;
@@ -33,9 +38,16 @@ const MemberContainer = styled.section`
 const Flex = styled.div`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
 
   > div {
-    width: 50%;
+    width: 100%;
+    @media ${device.tablet} {
+      width: 50%;
+    }
   }
 `
 
@@ -44,7 +56,10 @@ const ImageWrap = styled.div`
 `
 
 const TextWrap = styled.div`
-  padding: 0 2rem;
+  padding: 2rem 0;
+  @media ${device.tablet} {
+    padding: 0 2rem;
+  }
 `
 
 const ActiveMember = ({ data, setActiveMember }) => {
