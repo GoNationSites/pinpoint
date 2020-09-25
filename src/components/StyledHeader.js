@@ -4,7 +4,7 @@ import { device, theme } from "../global-styles"
 
 import PinpointContactDetails from "../components/PinpointContactDetails"
 import Title from "../components/Title"
-import Right from "../components//icons/Right"
+import Right from "../components/icons/right"
 
 const Header = styled.div`
   position: relative;
