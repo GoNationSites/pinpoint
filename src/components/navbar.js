@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import { device } from "../global-styles"
+import HamburgerMenu from "react-hamburger-menu"
 
 import logo from "../assets/logo.png"
 
@@ -15,22 +17,48 @@ const Nav = styled.nav`
   align-items: center;
   background: white;
   box-shadow: 2px 5px 10px #00000029;
-  padding: 40px 140px;
+  padding: 0.75rem;
   position: relative;
   z-index: 9;
+  @media ${device.tablet} {
+    padding: 40px 140px;
+  }
+
+  img {
+    max-width: 115px;
+    @media ${device.tablet} {
+      max-width: none;
+    }
+  }
 `
 
 const NavItem = styled.div`
   &:not(:last-of-type) {
     padding-right: 90px;
   }
+  .children-route {
+    font-size: 20px;
+    color: ${({ theme }) => theme.glass};
+    margin-left: 1rem;
+    display: block;
+    @media ${device.tablet} {
+      display: none;
+    }
+  }
   a {
-    font-size: 25px;
+    font-size: 20px;
     color: ${({ theme }) => theme.text};
     text-transform: uppercase;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.5s;
+    display: inline-block;
+    margin-bottom: 1rem;
+
+    @media ${device.tablet} {
+      font-size: 25px;
+      margin-bottom: 0;
+    }
 
     &:hover {
       color: ${({ theme }) => theme.secondary};
@@ -47,7 +75,20 @@ const NavItem = styled.div`
 `
 
 const Flex = styled.div`
-  display: flex;
+  flex-direction: column;
+  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  left: 0;
+  background: white;
+  padding: 1rem;
+  @media ${device.tablet} {
+    position: static;
+    flex-direction: row;
+    justify-content: flex-end;
+    display: flex;
+  }
 `
 
 const DropdownContainer = styled.div`
@@ -74,10 +115,31 @@ const DropdownContainer = styled.div`
   }
 `
 
+const HamburgerContainer = styled.div`
+  display: block;
+  @media ${device.tablet} {
+    display: none;
+  }
+`
+
 const routes = [
   {
     title: "about",
     link: "/about",
+    childrenRoutes: [
+      {
+        title: "history",
+        link: "/about",
+      },
+      {
+        title: "philosophy",
+        link: "/about#philosophy",
+      },
+      {
+        title: "meet the team",
+        link: "/about/meet-the-team",
+      },
+    ],
   },
   {
     title: "What we do",
@@ -112,6 +174,7 @@ const dropdownItems = {
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(null)
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <Nav>
       <div>
@@ -120,7 +183,18 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <Flex>
+      <HamburgerContainer>
+        <HamburgerMenu
+          isOpen={isOpen}
+          menuClicked={() => setIsOpen(!isOpen)}
+          width={18}
+          height={15}
+          strokeWidth={1}
+          color="black"
+        />
+      </HamburgerContainer>
+
+      <Flex isOpen={isOpen}>
         {routes.map(route => (
           <NavItem key={route.title} withDropdown={route.title === "about"}>
             <Link
@@ -132,6 +206,13 @@ const Navbar = () => {
             >
               {route.title}
             </Link>
+            {route.childrenRoutes
+              ? route.childrenRoutes.map(route => (
+                  <Link className="children-route" to={route.link}>
+                    {route.title}
+                  </Link>
+                ))
+              : ""}
             {showDropdown && route.title === "about" ? (
               <DropdownContainer onMouseLeave={() => setShowDropdown(null)}>
                 {dropdownItems[showDropdown].map(el => (
