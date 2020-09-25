@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { theme } from "../global-styles"
+import { theme, device } from "../global-styles"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -12,6 +12,7 @@ import Banner from "../components/Banner"
 import Title from "../components/Title"
 import Button from "../components/Button"
 import ButtonBlocks from "../components/ButtonBlocks"
+import HideMobile from "../components/HideMobile"
 import img from "../assets/WhatWeDo.png"
 
 import Apparel from "../assets/what-we-do/apparel.png"
@@ -45,14 +46,23 @@ const Flex = styled.div`
   display: flex;
   flex-wrap: wrap;
   > div {
-    width: 25%;
+    width: 100%;
+    @media ${device.tablet} {
+      width: 25%;
+    }
   }
 `
 
 const Section = styled.section`
-  padding: 4rem 0;
-  padding-top: 190px;
+  padding-top: 0;
+  padding-bottom: 0;
   padding: ${({ padding }) => (padding ? padding : "")};
+  padding: 0;
+  @media ${device.tablet} {
+    padding: 4rem 0;
+    padding-top: 190px;
+    padding: ${({ padding }) => (padding ? padding : "")};
+  }
 `
 
 const WhatWeDo = () => {
@@ -139,10 +149,12 @@ const WhatWeDo = () => {
         />
       </Section>
 
-      <Section padding="4rem 0">
-        <HPText>Project Preview</HPText>
-        <ButtonBlocks />
-      </Section>
+      <HideMobile>
+        <Section padding="4rem 0">
+          <HPText>Project Preview</HPText>
+          <ButtonBlocks />
+        </Section>
+      </HideMobile>
 
       <Section padding="4rem 0 0 0">
         <Banner fillColor={theme.third}>

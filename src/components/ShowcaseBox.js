@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 
-import { theme } from "../global-styles"
+import { theme, device } from "../global-styles"
 
 import Title from "./Title"
 import Subtitle from "./Subtitle"
@@ -12,8 +12,11 @@ const Box = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 81px 140px;
+  padding: 2rem 1.5rem;
   position: relative;
+  @media ${device.tablet} {
+    padding: 81px 140px;
+  }
 `
 
 const Text = styled.p`
@@ -33,8 +36,14 @@ const Text = styled.p`
 const NumbersContainer = styled.div`
   position: absolute;
   bottom: -20px;
-  left: 140px;
+  left: 0;
   z-index: 3;
+  width: 100%;
+  padding: 0 2rem;
+  @media ${device.tablet} {
+    width: auto;
+    left: 140px;
+  }
 `
 
 const TextContainer = styled.div`
