@@ -5,17 +5,22 @@ import logo from "../assets/logo.png"
 
 const Box = styled.div`
   background: ${theme.light2};
-  padding: 6rem;
+  padding: 1.5rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  position: absolute;
+  position: static;
+  width: 100%;
   top: 50px;
   right: 0;
-  width: 50%;
-  width: 50%;
   margin-left: auto;
-  margin-top: 4rem;
+
+  @media ${device.laptopL} {
+    position: absolute;
+    width: 50%;
+    padding: 6rem;
+    margin-top: 4rem;
+  }
 `
 
 const BoldText = styled.span`
@@ -28,15 +33,20 @@ const BoldText = styled.span`
 `
 
 const StyledText = styled.p`
-  font-size: 30px;
+  font-size: 20px;
   margin: 0.75rem 0;
-  font-size: 30px;
   color: ${theme.glass};
   font-weight: 400;
-  a {
+  @media ${device.laptopL} {
     font-size: 30px;
+  }
+  a {
+    font-size: 20px;
     color: ${theme.glass};
     font-weight: 400;
+    @media ${device.laptopL} {
+      font-size: 30px;
+    }
   }
 `
 

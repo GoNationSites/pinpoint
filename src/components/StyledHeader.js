@@ -11,13 +11,19 @@ const Header = styled.div`
 `
 
 const Box = styled.div`
-  width: 75%;
-  height: 915px;
+  width: 100%;
+  height: 370px;
   display: flex;
   align-items: center;
-  padding: 0 6rem;
+  padding: 2rem 1.5rem;
   background: ${theme.text};
   color: white;
+
+  @media ${device.laptopL} {
+    width: 75%;
+    height: 915px;
+    padding: 0 6rem;
+  }
 `
 
 const Circle = styled.span`

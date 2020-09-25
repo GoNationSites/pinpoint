@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { theme } from "../../global-styles"
+import { theme, device } from "../../global-styles"
 
 import Input from "../forms/Input"
 import TextArea from "../forms/TextArea"
@@ -11,12 +11,20 @@ import Button from "../button"
 const FormsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  @media ${device.laptopL} {
+    flex-direction: row;
+  }
 `
 
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
+  ${({ textArea }) => (textArea ? "padding: 0 0 0 2rem" : "")};
+  @media ${device.laptopL} {
+    width: 50%;
+  }
 
   padding: ${({ padding }) => (padding ? padding : "")};
 `
@@ -36,7 +44,7 @@ const FormBlock = () => {
             <Input label="Email" type="email" name="email" />
             <Input label="Phone" type="phone" name="phone" />
           </InputContainer>
-          <InputContainer padding="0 0 0 4rem">
+          <InputContainer textArea>
             <TextArea label="Message" name="phone" />
             <Button
               iconColor={"#fff"}

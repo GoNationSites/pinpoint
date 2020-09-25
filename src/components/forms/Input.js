@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { device } from "../../global-styles"
 
 const Label = styled.label`
   color: #5c666f;
@@ -13,13 +14,16 @@ const Label = styled.label`
 `
 
 const StyledInput = styled.input`
-  height: 93px;
+  height: 45px;
   width: 100%;
   border: 1px solid #d0d2d3;
   border-radius: 15px;
   background: white;
   font-size: 25px;
   padding: 0 1rem;
+  @media ${device.laptopL} {
+    height: 93px;
+  }
 `
 
 const InputWrapper = styled.div`
