@@ -8,6 +8,7 @@ import CreateAbout from "../assets/create_about.png"
 import Title from "./Title"
 import Subtitle from "./Subtitle"
 import Numbers from "./Numbers"
+import { theme } from "../global-styles"
 
 const Box = styled.div`
   background: url(${({ activeImage }) => activeImage});
@@ -139,7 +140,11 @@ const PhilosophyBox = () => {
       {getActiveContent()}
 
       <NumbersContainer>
-        <Numbers setActiveBox={setActiveBox} activeBox={activeBox} />
+        <Numbers
+          color={theme.secondary}
+          setActiveBox={setActiveBox}
+          activeBox={activeBox}
+        />
       </NumbersContainer>
     </Box>
   )

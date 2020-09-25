@@ -38,7 +38,10 @@ const Button = styled.button`
   }
 `
 
-const getColor = (color, theme) => (color ? color : theme.primary)
+const getColor = (color, theme) => {
+  console.log(color)
+  return color ? color : theme.primary
+}
 
 const Line = styled.div`
   position: absolute;
@@ -72,13 +75,25 @@ const Numbers = ({ activeBox, setActiveBox, data, color }) => {
         ))
       ) : (
         <>
-          <Button onClick={() => setActiveBox(1)} isActive={activeBox === 1}>
+          <Button
+            color={color}
+            onClick={() => setActiveBox(1)}
+            isActive={activeBox === 1}
+          >
             <span>1</span>
           </Button>
-          <Button onClick={() => setActiveBox(2)} isActive={activeBox === 2}>
+          <Button
+            color={color}
+            onClick={() => setActiveBox(2)}
+            isActive={activeBox === 2}
+          >
             <span>2</span>
           </Button>
-          <Button onClick={() => setActiveBox(3)} isActive={activeBox === 3}>
+          <Button
+            color={color}
+            onClick={() => setActiveBox(3)}
+            isActive={activeBox === 3}
+          >
             <span>3</span>
           </Button>
         </>
