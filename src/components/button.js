@@ -1,25 +1,32 @@
 import React, { useState, useContext } from "react"
 import { Link } from "gatsby"
 import styled, { ThemeContext } from "styled-components"
+import { device } from "../global-styles"
 
 import Right from "./icons/right"
 
 const Btn = styled.button`
   color: ${({ color, theme }) => getColor(color, theme)};
   border-radius: 49px;
-  padding: 15px 63px;
+  padding: 15px 23px;
   border: 4px solid ${({ color, theme }) => getColor(color, theme)};
-  font-size: 30px;
+  font-size: 20px;
   background: ${({ variation, bg }) =>
     variation === "hollow" ? "transparent" : bg};
   font-weight: 600;
   display: flex;
   align-items: center;
   text-decoration: none;
-  letter-spacing: 3px;
+  letter-spacing: 0.5px;
   cursor: pointer;
   text-transform: uppercase;
   transition: all 0.4s;
+
+  @media ${device.tablet} {
+    font-size: 30px;
+    padding: 15px 63px;
+    letter-spacing: 3px;
+  }
 
   &:hover {
     background: ${({ color, theme }) => getColor(color, theme)};

@@ -1,20 +1,29 @@
 import React from "react"
 import styled from "styled-components"
 
+import { device } from "../global-styles"
+
 import Button from "./button"
 
 const Container = styled.div`
   background: ${({ theme }) => theme.light};
-  padding: 100px 140px;
+  padding: 2rem 1.5rem;
   max-width: 1200px;
   margin: auto;
+
+  @media ${device.tablet} {
+    padding: 100px 14px;
+  }
 
   p {
     color: ${({ theme }) => theme.text};
     font-weight: normal;
     margin-bottom: 84.5px;
-    font-size: 30px;
+    font-size: 18px;
     line-height: 1.75;
+    @media ${device.tablet} {
+      font-size: 30px;
+    }
   }
 `
 
