@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { theme } from "../global-styles"
+import { theme, device } from "../global-styles"
 
 import Title from "./Title"
 import Up from "./icons/Up"
@@ -9,7 +9,10 @@ const Box = styled.div`
   max-width: 1600px;
   margin: auto;
   background: #f7f7f7;
-  padding: 4rem 5rem;
+  padding: 2rem 1.5rem;
+  @media ${device.tablet} {
+    padding: 4rem 5rem;
+  }
 `
 
 const CategoriesContainer = styled.div`

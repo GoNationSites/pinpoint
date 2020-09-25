@@ -10,7 +10,7 @@ import Title from "../components/Title"
 import Button from "../components/button"
 
 const VideoContainer = styled.div`
-  height: 914px;
+  height: 550px;
   background: gray;
   margin: 0;
   color: white;
@@ -19,6 +19,10 @@ const VideoContainer = styled.div`
   align-items: center;
   font-size: 4rem;
   text-transform: uppercase;
+
+  @media ${device.tablet} {
+    height: 914px;
+  }
 `
 
 const Section = styled.div`
@@ -27,7 +31,11 @@ const Section = styled.div`
 
 const ProjectImage = styled.div`
   flex: 0 1 33%;
-  padding: 1.5rem;
+  padding: 0 0 1.5rem 0;
+
+  @media ${device.tablet} {
+    padding: 1.5rem;
+  }
 `
 
 const Flex = styled.div`
@@ -35,6 +43,11 @@ const Flex = styled.div`
   flex-wrap: wrap;
   max-width: calc(1600px + 3rem);
   margin: auto;
+  flex-direction: column;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
 `
 
 const TheWork = ({ data }) => {
