@@ -1,16 +1,21 @@
 import React from "react"
 import styled from "styled-components"
+import { device } from "../global-styles"
 
 import Button from "./button"
 import Title from "./Title"
 
 const BannerWrapper = styled.section`
-  padding: 119px 0;
+  padding: 119px 1.5rem;
   background: ${({ theme, fillColor }) => getBG(theme, fillColor)};
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media ${device.tablet} {
+    padding: 119 0;
+  }
 
   h2 {
     text-align: center;

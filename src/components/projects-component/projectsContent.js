@@ -78,7 +78,6 @@ const ProjectsContent = ({ activeTab, setActiveTab, items }) => {
 
   const renderItems = () =>
     items.map(item => {
-      console.log("active tab: ", activeTab, "item: ", item)
       const isActive = activeTab.title === item.title
       return (
         <ItemBox

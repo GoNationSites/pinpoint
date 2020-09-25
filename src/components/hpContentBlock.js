@@ -12,8 +12,7 @@ const Container = styled.div`
   margin: auto;
 
   @media ${device.tablet} {
-    padding: 2rem 1.5rem;
-    padding: 100px 14px;
+    padding: 100px 50px;
   }
 
   p {

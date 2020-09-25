@@ -29,6 +29,7 @@ const HPText = styled.p`
   margin-bottom: 8rem;
   padding: 1.5rem;
   @media ${device.tablet} {
+    margin-bottom: 0;
     font-size: 62px;
     padding-left: 100px;
   }

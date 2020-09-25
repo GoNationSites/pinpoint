@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import { device } from "../global-styles"
 
 import FooterLogoBlock from "./footerLogoBlock"
 import FooterContentSquare from "./FooterContentSquare"
@@ -8,7 +9,10 @@ import Right from "./icons/right"
 
 const FooterContainer = styled.footer`
   background: ${({ theme }) => theme.text};
-  padding: 8rem 1.5rem;
+  padding: 4rem 1.5rem;
+  @media ${device.tablet} {
+    padding: 8rem 1.5rem;
+  }
 `
 
 const Container = styled.div`
@@ -16,9 +20,18 @@ const Container = styled.div`
   margin: auto;
   display: flex;
   justify-content: space-evenly;
+  flex-direction: column;
+
+  @media ${device.laptop} {
+    flex-direction: row;
+  }
 
   > div {
     flex: 1;
+    margin-bottom: 2rem;
+    @media ${device.laptop} {
+      margin-bottom: 0;
+    }
   }
 `
 
