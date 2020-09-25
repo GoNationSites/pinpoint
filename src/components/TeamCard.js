@@ -11,6 +11,13 @@ const Card = styled.div`
   width: 100%;
   position: relative;
   cursor: pointer;
+
+  max-width: 485px;
+  margin: auto;
+
+  img {
+    width: 100%;
+  }
 `
 
 const ShadowBox = styled.div`
@@ -35,17 +42,17 @@ const ShadowBox = styled.div`
 `
 
 const TeamCard = ({ data, setActiveMember }) => {
-  const { img, name, position } = data
+  const { memberName } = data
+  const { position, bio } = data.person
+  const img = data.person.image.asset.fluid.src
   return (
-    <Card
-      onClick={() => (name === "Steve Gentile" ? setActiveMember(data) : "")}
-    >
+    <Card onClick={() => setActiveMember(data)}>
       <div>
-        <img src={img} alt={name} />
+        <img src={img} alt={memberName} />
       </div>
       <ShadowBox>
         <Title margin="0 0 .5rem 0" color="secondary">
-          {name}
+          {memberName}
         </Title>
 
         <Subtitle

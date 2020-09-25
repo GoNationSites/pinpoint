@@ -63,6 +63,9 @@ const TextWrap = styled.div`
 `
 
 const ActiveMember = ({ data, setActiveMember }) => {
+  const { memberName } = data
+  const { position, bio } = data.person
+  const img = data.person.image.asset.fluid.src
   return (
     <MemberContainer>
       <span onClick={() => setActiveMember(null)}>
@@ -70,18 +73,16 @@ const ActiveMember = ({ data, setActiveMember }) => {
       </span>
       <Flex>
         <ImageWrap>
-          <img src={data.img} alt={data.name} />
+          <img src={img} alt={memberName} />
         </ImageWrap>
         <TextWrap>
           <Title color="secondary" margin="0 0 .5rem 0">
-            {data.name}
+            {memberName}
           </Title>
           <Subtitle color="text" style={{ margin: 0, marginBottom: "2rem" }}>
-            {data.position}
+            {position}
           </Subtitle>
-          {data.description.map(txt => (
-            <p>{txt}</p>
-          ))}
+          <p>{bio}</p>
         </TextWrap>
       </Flex>
     </MemberContainer>
