@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
+import { device } from "../../global-styles"
 
 import Button from "../button"
 import ProjectsContent from "./projectsContent"
@@ -13,17 +14,29 @@ const Flex = styled.div`
 
   .projects__left {
     width: auto;
-    position: absolute;
+    position: static;
     left: 0;
+    @media ${device.tablet} {
+      position: absolute;
+    }
   }
   .projects__right {
     margin-left: auto;
     position: relative;
+    display: none;
+
+    @media ${device.tablet} {
+      display: block;
+    }
   }
   .meet-the-team-container {
-    position: absolute;
+    position: static;
     bottom: 4rem;
     right: 4rem;
+
+    @media ${device.tablet} {
+      position: absolute;
+    }
   }
 `
 

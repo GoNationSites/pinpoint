@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
+import { device } from "../../global-styles"
 
 import Lets from "../../assets/lets-ico.png"
 import Remarkable from "../../assets/remarkable.png"
@@ -13,7 +14,11 @@ const Box = styled.div`
   background: ${({ theme }) => theme.text};
   position: relative;
   z-index: 99;
-  padding: 2rem 7rem;
+  padding: 2rem 1.5rem;
+
+  @media ${device.tablet} {
+    padding: 2rem 7rem;
+  }
 `
 
 const ItemBox = styled.div`
@@ -25,13 +30,16 @@ const ItemBox = styled.div`
   padding: 2rem 0;
   h4 {
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 500;
     letter-spacing: 4.5px;
     display: flex;
     align-items: center;
     color: ${({ isActive, theme }) => (isActive ? theme.primary : "white")};
     margin: 0;
+    @media ${device.tablet} {
+      font-size: 30px;
+    }
     span {
       padding-left: 1rem;
     }
@@ -48,7 +56,11 @@ const Title = styled.h3`
   font-size: 2rem;
   color: white;
   font-family: ${({ theme }) => theme.fonts.headingFont};
-  font-size: 62px;
+  font-size: 30px;
+
+  @media ${device.tablet} {
+    font-size: 62px;
+  }
 `
 
 const ProjectsContent = ({ activeTab, setActiveTab, items }) => {

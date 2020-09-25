@@ -7,11 +7,12 @@ import Button from "./button"
 
 const Container = styled.div`
   background: ${({ theme }) => theme.light};
-  padding: 2rem 1.5rem;
+  padding: 4rem 1.5rem;
   max-width: 1200px;
   margin: auto;
 
   @media ${device.tablet} {
+    padding: 2rem 1.5rem;
     padding: 100px 14px;
   }
 

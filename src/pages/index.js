@@ -11,19 +11,27 @@ import Banner from "../components/Banner"
 import Testimonials from "../components/Testimonials"
 import Title from "../components/Title"
 import Button from "../components/Button"
+import { device } from "../global-styles"
 
 import img from "../assets/cover-video.png"
 
 const Section = styled.section`
-  padding: ${({ padding }) => padding};
+  /* padding: 2rem 0; */
+  @media ${device.tablet} {
+    padding: ${({ padding }) => padding};
+  }
 `
 
 const HPText = styled.p`
   color: ${({ theme }) => theme.light2};
-  padding-left: 100px;
-  font-size: 62px;
+  font-size: 30px;
   font-family: ${({ theme }) => theme.fonts.headingFont};
   margin-bottom: 8rem;
+  padding: 1.5rem;
+  @media ${device.tablet} {
+    font-size: 62px;
+    padding-left: 100px;
+  }
   .primary {
     color: ${({ theme }) => theme.primary};
   }
@@ -48,7 +56,7 @@ const IndexPage = () => (
         Everything we <span className="primary">conceptualize</span> is done{" "}
         <span className="italic underline">intentionally</span>
       </HPText>
-      <ButtonBlocks />
+      {/* <ButtonBlocks /> */}
     </Section>
 
     <Banner fillColor={"primary"}>
