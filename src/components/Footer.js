@@ -81,13 +81,13 @@ const Footer = () => {
               <Link to="/about">About</Link>
             </p>
             <p>
-              <Link to="/about#team">Meet the team</Link>
+              <Link to="/about/meet-the-team">Meet the team</Link>
             </p>
             <p>
               <Link to="/what-we-do">What we do</Link>
             </p>
             <p>
-              <Link to="/work">The Work</Link>
+              <Link to="/the-work">The Work</Link>
             </p>
             <p>
               <Link to="/contact">Contact</Link>

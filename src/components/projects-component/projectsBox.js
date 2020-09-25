@@ -70,7 +70,7 @@ const ProjectsBox = () => {
       <div className="projects__right">
         <img src={getImg(activeTab.title)} alt="Meet The Team" />
         <div className="meet-the-team-container">
-          <Button to="/team" color="#fff">
+          <Button to="/about/meet-the-team" color="#fff">
             Meet The Team
           </Button>
         </div>

@@ -54,7 +54,7 @@ const routes = [
   },
   {
     title: "the work",
-    link: "/work",
+    link: "/the-work",
   },
   {
     title: "contact",
@@ -66,7 +66,9 @@ const Navbar = () => {
   return (
     <Nav>
       <div>
-        <img src={logo} alt="" />
+        <Link to="/">
+          <img src={logo} alt="" />
+        </Link>
       </div>
 
       <Flex>

@@ -25,6 +25,10 @@ exports.createPages = async ({ graphql, actions }) => {
                 url
               }
             }
+            stats {
+              headingTitle
+              bulletPoints
+            }
           }
         }
       }
@@ -32,7 +36,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
   result.data.allSanityProject.edges.forEach(({ node }) => {
     createPage({
-      path: node.slug.current,
+      path: `the-work/${node.slug.current}`,
       component: path.resolve(`./src/templates/project.js`),
       context: {
         // Data passed to context is available

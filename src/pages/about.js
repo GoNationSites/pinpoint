@@ -31,7 +31,7 @@ const About = () => {
       <Banner fillColor="secondary">
         <Title>Who will be working on your project?</Title>
         <div style={{ textAlign: "center" }}>
-          <Button noArrow color="#fff">
+          <Button to="/about/meet-the-team" noArrow color="#fff">
             MEET THE TEAM
           </Button>
         </div>

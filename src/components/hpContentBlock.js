@@ -26,7 +26,7 @@ const HpContentBlock = () => {
         and customize almost any product or space to help create unforgettable,
         share-worthy experiences that connect people with your brand.
       </p>
-      <Button color="primary" withIcon>
+      <Button to="/what-we-do" color="primary" withIcon>
         What Else Do We Do?
       </Button>
     </Container>

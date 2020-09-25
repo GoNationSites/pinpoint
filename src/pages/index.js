@@ -54,7 +54,9 @@ const IndexPage = () => (
     <Banner fillColor={"primary"}>
       <Title>Ready to make an impact</Title>
       <div style={{ textAlign: "center" }}>
-        <Button color="#fff">TELL US ABOUT YOUR NEEDS</Button>
+        <Button to="/contact" color="#fff">
+          TELL US ABOUT YOUR NEEDS
+        </Button>
       </div>
     </Banner>
     <Testimonials />

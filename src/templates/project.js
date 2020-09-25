@@ -5,6 +5,7 @@ import { theme } from "../global-styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ProjectsHeader from "../components/ProjectsHeader"
+import ProjectFooter from "../components/ProjectFooter"
 
 const ContainerSmall = styled.div`
   max-width: 1068px;
@@ -66,7 +67,8 @@ const Project = ({ pageContext }) => {
       <ContainerSmall>
         <p>{data.footerBlurb}</p>
       </ContainerSmall>
-      <pre>{JSON.stringify(data, 2, 2)}</pre>
+      <ProjectFooter data={data.stats} />
+      {/* <pre>{JSON.stringify(data, 2, 2)}</pre> */}
     </Layout>
   )
 }
