@@ -30,10 +30,11 @@ const InputContainer = styled.div`
     }
   }
 
-  @media ${device.laptop} {
+  /* @media ${device.laptop} {
     width: 50%;
-    ${({ textArea }) => (textArea ? "padding: 0 0 0 2rem" : "")};
-  }
+    ${({ textArea }) =>
+    textArea ? "padding: 0 0 0 2rem" : ""};
+  } */
 
   @media ${device.laptopL} {
     width: 100%;
