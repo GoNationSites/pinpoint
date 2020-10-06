@@ -25,6 +25,7 @@ const Flex = styled.div`
     }
     @media ${device.laptopL} {
       position: absolute;
+      width: 44%;
     }
   }
   .projects__right {

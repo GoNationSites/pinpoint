@@ -27,7 +27,7 @@ const Nav = styled.nav`
   img {
     max-width: 115px;
     @media ${device.laptop} {
-      max-width: none;
+      max-width: 175px;
     }
   }
 `
@@ -56,7 +56,11 @@ const NavItem = styled.div`
     margin-bottom: 1rem;
 
     @media ${device.laptop} {
-      font-size: 25px;
+      font-size: 18px;
+      margin-bottom: 0;
+    }
+    @media ${device.laptopL} {
+      font-size: 22px;
       margin-bottom: 0;
     }
 

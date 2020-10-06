@@ -19,17 +19,22 @@ const Container = styled.div`
   max-width: 1600px;
   margin: auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   flex-direction: column;
 
-  @media ${device.laptop} {
+  @media ${device.mobileL} {
     flex-direction: row;
   }
 
   > div {
     flex: 1;
     margin-bottom: 2rem;
+    @media ${device.mobileL} {
+      flex: 1 1 50%;
+    }
     @media ${device.laptop} {
+      flex: 1;
       margin-bottom: 0;
     }
   }
@@ -39,6 +44,7 @@ const InputWrapper = styled.div`
   position: relative;
   max-width: 300px;
   width: 100%;
+  margin-top: 1.5rem;
   input {
     width: 100%;
     background: transparent;

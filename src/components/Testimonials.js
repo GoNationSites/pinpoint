@@ -29,7 +29,7 @@ const Section = styled.section`
       margin-bottom: 60px;
     }
     @media ${device.laptopL} {
-      font-size: 62px;
+      font-size: 50px;
     }
   }
 
@@ -65,6 +65,15 @@ const Flex = styled.div`
     flex-direction: row;
     > div {
       flex: 1 1 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @media ${device.laptop} {
+    > div {
+      flex: 1 1;
       display: flex;
       justify-content: center;
       align-items: center;

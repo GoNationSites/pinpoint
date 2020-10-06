@@ -24,6 +24,9 @@ const HeroHeader = styled.header`
     @media ${device.mobileL} {
       font-size: 65px;
     }
+    @media ${device.laptop} {
+      font-size: 84px;
+    }
   }
 `
 

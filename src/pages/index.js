@@ -28,6 +28,19 @@ const Section = styled.section`
   @media ${device.mobileL} {
     padding: 2rem 1rem;
   }
+  @media ${device.laptop} {
+    padding: 0 1rem 2rem 1rem;
+  }
+
+  /* gross... */
+  ${({ tagline }) =>
+    tagline
+      ? `
+    @media ${device.laptop} {
+    padding: 2rem 1.5rem;
+  }
+   `
+      : ""}
 `
 
 const HPText = styled.p`
@@ -42,6 +55,12 @@ const HPText = styled.p`
   @media ${device.tablet} {
     margin-bottom: 0;
     font-size: 38px;
+  }
+  @media ${device.laptopL} {
+    padding: 4rem 1.5rem;
+    margin-bottom: 0;
+    font-size: 42px;
+    text-align: center;
   }
   .primary {
     color: ${({ theme }) => theme.primary};
@@ -62,7 +81,7 @@ const IndexPage = () => (
 
     <ProjectsBox />
 
-    <Section>
+    <Section tagline>
       <HPText>
         Everything we <span className="primary">conceptualize</span> is done{" "}
         <span className="italic underline">intentionally</span>
