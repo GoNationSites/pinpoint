@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { device } from "../global-styles"
 
 const Box = styled.div`
   display: flex;
@@ -11,10 +12,13 @@ const Box = styled.div`
     margin: auto;
   }
   p {
-    font-size: 30px;
+    font-size: 20px;
     letter-spacing: 0.3px;
     color: #1e242b;
     text-align: center;
+    @media ${device.laptop} {
+      font-size: 30px;
+    }
   }
 `
 

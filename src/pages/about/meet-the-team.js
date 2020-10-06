@@ -17,7 +17,10 @@ const MemberWrapper = styled.div`
   justify-content: center;
   margin: auto;
   justify-content: space-evenly;
-  padding: 8rem 1.5rem;
+  padding: 2rem 1.5rem;
+  @media ${device.laptop} {
+    padding: 8rem 1.5rem;
+  }
 `
 
 const Box = styled.div`

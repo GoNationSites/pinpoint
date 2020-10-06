@@ -20,8 +20,13 @@ const ContentLeft = styled.div`
   background: ${({ theme }) => theme.text};
   padding: 2rem 1.5rem;
   overflow: hidden;
+
+  @media ${device.mobileL} {
+    padding: 3rem 2rem;
+  }
+
   @media ${device.laptopL} {
-    padding: 18rem 0 18rem 12rem;
+    padding: 18rem 0 18rem 5rem;
     width: 66%;
   }
 `
@@ -51,7 +56,14 @@ const ContentRight = styled.div`
   }
   img {
     width: 100%;
-    max-width: 800px;
+    max-width: none;
+    display: flex;
+    @media ${device.laptopL} {
+      max-width: 650px;
+    }
+    @media ${device.laptopXL} {
+      max-width: 950px;
+    }
   }
 `
 
@@ -63,6 +75,13 @@ const AboutText = styled.p`
     color === "secondary" ? theme.secondary : "white"};
   font-weight: ${({ weight }) => (weight === "bold" ? "bold" : 100)};
   max-width: 675px;
+
+  @media ${device.laptop} {
+    max-width: 500px;
+  }
+  @media ${device.laptopL} {
+    max-width: 575px;
+  }
 `
 
 const HeaderBlock = ({ title, content, img }) => {

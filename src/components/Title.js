@@ -10,12 +10,20 @@ const T = styled.h2`
   color: ${({ color, theme }) => getColor(color, theme)};
   margin: ${({ margin }) => (margin ? margin : 0)};
 
+  @media ${device.mobileS} {
+    font-size: 30px;
+  }
+
   @media ${device.mobileM} {
-    font-size: 42px;
+    font-size: 30px;
+  }
+
+  @media ${device.mobileL} {
+    font-size: 38px;
   }
 
   @media ${device.tablet} {
-    font-size: 62px;
+    font-size: 42px;
   }
 `
 

@@ -4,18 +4,29 @@ import styled from "styled-components"
 import Presence from "../assets/presence.png"
 import Annual from "../assets/annual.png"
 import Activation from "../assets/activation.png"
+import { device } from "../global-styles"
 
 const Row = styled.div`
   display: flex;
   overflow: hidden;
+  flex-wrap: wrap;
 
   > div {
     flex: 1 1;
-    &:not(:last-of-type) {
-      padding-right: 1rem;
+    padding: 1rem;
+    @media ${device.tablet} {
+      flex: 1 1 50%;
     }
+    @media ${device.tablet} {
+      flex: 1 1;
+    }
+
+    /* &:not(:last-of-type) {
+      padding-right: 1rem;
+    } */
     img {
       height: 100%;
+      display: flex;
     }
   }
 `
@@ -29,7 +40,7 @@ const Content = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: calc(100% - 1rem);
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -70,10 +81,12 @@ const AboutButtonRow = () => {
     <Row>
       {data.map(btn => (
         <Box>
-          <img src={btn.bg} alt={btn.title} />
-          <Content>
-            <p>{btn.title}</p>
-          </Content>
+          <div style={{ position: "relative" }}>
+            <img src={btn.bg} alt={btn.title} />
+            <Content>
+              <p>{btn.title}</p>
+            </Content>
+          </div>
         </Box>
       ))}
     </Row>

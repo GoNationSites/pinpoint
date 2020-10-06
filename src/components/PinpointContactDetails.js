@@ -25,7 +25,7 @@ const Box = styled.div`
 
 const BoldText = styled.span`
   color: #5c666f;
-  font-size: 30px;
+  font-size: 18px;
   font-weight: bold;
   letter-spacing: 0.3px;
   color: ${theme.glass};
@@ -53,7 +53,7 @@ const StyledText = styled.p`
 const PinpointContactDetails = () => {
   const renderContactDetails = () => (
     <>
-      <div style={{ marginBottom: "4rem" }}>
+      <div>
         <StyledText>
           <BoldText>Phone:</BoldText>
           <a href={`tel:203-535-0333`}>203-535-0333</a>

@@ -47,8 +47,8 @@ const Flex = styled.div`
   flex-wrap: wrap;
   > div {
     width: 100%;
-    @media ${device.tablet} {
-      width: 25%;
+    @media ${device.mobileL} {
+      width: 50%;
     }
   }
 `
@@ -58,7 +58,7 @@ const Section = styled.section`
   padding-bottom: 0;
   padding: ${({ padding }) => (padding ? padding : "")};
   padding: 0;
-  @media ${device.tablet} {
+  @media ${device.laptopL} {
     padding: 4rem 0;
     padding-top: 190px;
     padding: ${({ padding }) => (padding ? padding : "")};
@@ -160,7 +160,7 @@ const WhatWeDo = () => {
         <Banner fillColor={theme.third}>
           <Title>We're here to listen.</Title>
           <div style={{ textAlign: "center" }}>
-            <Button noArrow color="#fff">
+            <Button centerText noArrow color="#fff">
               Tell us about your project
             </Button>
           </div>

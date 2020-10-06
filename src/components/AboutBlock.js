@@ -19,7 +19,7 @@ const ContentLeft = styled.div`
   background: ${({ theme }) => theme.text};
   padding: 2rem 1.5rem;
   @media ${device.laptopL} {
-    padding: 8rem 0 8rem 12rem;
+    padding: 8rem 0 8rem 3rem;
     width: 66%;
   }
 `
@@ -49,7 +49,11 @@ const ContentRight = styled.div`
   }
   img {
     width: 100%;
-    max-width: 800px;
+    max-width: 678px;
+    display: flex;
+    @media ${device.laptopL} {
+      max-width: 950px;
+    }
   }
 `
 

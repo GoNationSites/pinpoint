@@ -21,9 +21,23 @@ const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  ${({ textArea }) => (textArea ? "padding: 0 0 0 2rem" : "")};
-  @media ${device.laptopL} {
+
+  @media ${device.mobileL} {
+    flex-direction: row;
+    flex-wrap: wrap;
+    > div {
+      padding-right: 0.75rem;
+    }
+  }
+
+  @media ${device.laptop} {
     width: 50%;
+    ${({ textArea }) => (textArea ? "padding: 0 0 0 2rem" : "")};
+  }
+
+  @media ${device.laptopL} {
+    width: 100%;
+    ${({ textArea }) => (textArea ? "padding: 0 " : "")};
   }
 
   padding: ${({ padding }) => (padding ? padding : "")};
@@ -46,16 +60,20 @@ const FormBlock = () => {
           </InputContainer>
           <InputContainer textArea>
             <TextArea label="Message" name="phone" />
-            <Button
-              iconColor={"#fff"}
-              variation="fill"
-              bg={theme.pink}
-              color="white"
-              noHover
-            >
-              Submit
-            </Button>
           </InputContainer>
+          <Button
+            iconColor={"#fff"}
+            variation="fill"
+            bg={theme.pink}
+            color="white"
+            noHover
+            style={{
+              width: "100%",
+              justifyContent: "center",
+            }}
+          >
+            Submit
+          </Button>
         </FormsContainer>
       </form>
     </GrayBox>

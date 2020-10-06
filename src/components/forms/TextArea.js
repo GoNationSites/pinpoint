@@ -24,6 +24,7 @@ const StyledInput = styled.textarea`
 
 const InputWrapper = styled.div`
   padding: 1.5rem 0;
+  width: 100%;
 `
 
 const TextArea = ({ label = "", name }) => {

@@ -15,7 +15,12 @@ import HideMobile from "../components/HideMobile"
 const Section = styled.section`
   /* padding: ${({ padding }) => (padding ? padding : "8rem 0")}; */
   @media ${device.tablet} {
-    padding: ${({ padding }) => (padding ? padding : "8rem 0")};
+    padding: ${({ padding }) => (padding ? padding : "2rem 1.5rem")};
+  }
+
+  @media ${device.laptop} {
+    padding: ${({ padding }) =>
+      padding ? padding : "4rem 1.5rem 2rem 1.5rem"};
   }
 `
 
@@ -24,12 +29,12 @@ const About = () => {
     <Layout>
       <SEO title="About" />
       <AboutBlock />
-      <Section>
+      <Section padding="0">
         <PhilosophyBox />
       </Section>
 
       <HideMobile>
-        <Section padding="0 0 8rem 140px">
+        <Section>
           <Title color="#D0D2D3">We make the dream a reality</Title>
         </Section>
 

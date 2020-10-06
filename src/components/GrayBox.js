@@ -8,7 +8,7 @@ const Container = styled.section`
   margin-left: 0;
   position: relative;
   margin-top: 0;
-  @media ${device.tablet} {
+  @media ${device.laptopL} {
     margin-top: 4rem;
     padding: 4.5rem;
     margin-left: 9.5rem;

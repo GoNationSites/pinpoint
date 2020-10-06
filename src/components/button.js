@@ -21,8 +21,7 @@ const Btn = styled.button`
   cursor: pointer;
   text-transform: uppercase;
   transition: all 0.4s;
-  text-align: left;
-
+  text-align: ${({ centerText }) => (centerText ? "center" : "left")};
   @media ${device.tablet} {
     font-size: 30px;
     padding: 15px 63px;
@@ -63,6 +62,8 @@ const Button = ({
   noArrow,
   iconColor,
   bg,
+  centerText,
+  style = {},
 }) => {
   const [hovered, setHovered] = useState(false)
   const theme = useContext(ThemeContext)
@@ -87,6 +88,8 @@ const Button = ({
         color={color}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        centerText
+        style={style}
       >
         <span>{children}</span>
         {noArrow ? (

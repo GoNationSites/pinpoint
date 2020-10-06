@@ -35,6 +35,7 @@ const size = {
   tablet: "769px",
   laptop: "1024px",
   laptopL: "1440px",
+  laptopXL: "1900px",
   desktop: "2560px",
 }
 
@@ -47,6 +48,7 @@ export const device = {
   laptopL: `(min-width: ${size.laptopL})`,
   desktop: `(min-width: ${size.desktop})`,
   desktopL: `(min-width: ${size.desktop})`,
+  laptopXL: `(min-width: ${size.laptopXL})`,
 }
 
 export const theme = {

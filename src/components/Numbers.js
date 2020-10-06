@@ -9,7 +9,7 @@ const Row = styled.div`
   align-items: center;
   position: relative;
   margin-bottom: 3rem;
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     margin-bottom: 0;
     width: 500px;
   }
@@ -24,6 +24,10 @@ const Button = styled.button`
   border-radius: 100%;
   width: ${({ isActive }) => (isActive ? "90px" : "34px")};
   height: ${({ isActive }) => (isActive ? "90px" : "34px")};
+  @media ${device.mobileL} {
+    width: ${({ isActive }) => (isActive ? "110px" : "54px")};
+  height: ${({ isActive }) => (isActive ? "110px" : "54px")};v
+  }
   display: flex;
   justify-content: center;
   align-items: center;

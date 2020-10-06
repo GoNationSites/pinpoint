@@ -12,19 +12,30 @@ const Box = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  position: relative;
   padding: 2rem 1.5rem;
   position: relative;
-  @media ${device.tablet} {
+  padding-bottom: 9rem;
+  @media ${device.laptopL} {
     padding: 81px 140px;
   }
 `
 
 const Text = styled.p`
-  font-size: 30px;
+  font-size: 1.25rem;
   letter-spacing: 0.3px;
   max-width: 700px;
-  margin-bottom: 129px;
+  margin-bottom: 1rem;
+  line-height: 1.75;
 
+  @media ${device.tablet} {
+    font-size: 30px;
+    margin-bottom: 129px;
+  }
+  @media ${device.laptop} {
+    font-size: 1.25rem;
+    padding-right: 1.25rem;
+  }
   .italic {
     font-style: italic;
   }
@@ -39,15 +50,20 @@ const NumbersContainer = styled.div`
   left: 0;
   z-index: 3;
   width: 100%;
-  padding: 0 2rem;
-  @media ${device.tablet} {
-    width: auto;
+  padding: 0 1rem;
+  @media ${device.laptop} {
+    padding: 0;
+    width: 100%;
     left: 140px;
   }
 `
 
 const TextContainer = styled.div`
   display: flex;
+  flex-direction: column;
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
 
   > div {
     flex: 1 1;

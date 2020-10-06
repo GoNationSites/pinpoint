@@ -22,12 +22,15 @@ const StyledInput = styled.input`
   font-size: 25px;
   padding: 0 1rem;
   @media ${device.laptopL} {
-    height: 93px;
+    height: 73px;
   }
 `
 
 const InputWrapper = styled.div`
   padding: 1.5rem 0;
+  @media ${device.mobileL} {
+    width: 50%;
+  }
 `
 
 const Input = ({ label = "", type = "text", name = { name } }) => {

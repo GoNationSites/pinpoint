@@ -30,10 +30,14 @@ const Section = styled.div`
 `
 
 const ProjectImage = styled.div`
-  flex: 0 1 33%;
   padding: 0 0 1.5rem 0;
+  @media ${device.mobileL} {
+    flex: 0 1 50%;
+    padding: 1.5rem;
+  }
 
-  @media ${device.tablet} {
+  @media ${device.laptopL} {
+    flex: 0 1 33%;
     padding: 1.5rem;
   }
 `
@@ -45,7 +49,7 @@ const Flex = styled.div`
   margin: auto;
   flex-direction: column;
 
-  @media ${device.tablet} {
+  @media ${device.mobileL} {
     flex-direction: row;
   }
 `

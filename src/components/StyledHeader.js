@@ -39,7 +39,7 @@ const StyledHeader = () => {
     <Header>
       <Box>
         <div>
-          <Title>Let's get started</Title>
+          <Title style={{ marginBottom: "1.5rem" }}>Let's get started</Title>
           <Circle>
             <Right fill={theme.pink} />
           </Circle>
