@@ -26,7 +26,6 @@ const HPText = styled.p`
   color: ${({ theme }) => theme.light2};
   font-size: 30px;
   font-family: ${({ theme }) => theme.fonts.headingFont};
-  margin-bottom: 8rem;
   padding: 1.5rem;
   @media ${device.tablet} {
     margin-bottom: 0;

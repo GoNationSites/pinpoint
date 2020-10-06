@@ -7,7 +7,7 @@ import Button from "./button"
 
 const Container = styled.div`
   background: ${({ theme }) => theme.light};
-  padding: 4rem 1.5rem;
+  padding: 2rem 1.5rem;
   max-width: 1200px;
   margin: auto;
 
@@ -18,11 +18,12 @@ const Container = styled.div`
   p {
     color: ${({ theme }) => theme.text};
     font-weight: normal;
-    margin-bottom: 84.5px;
+    margin-bottom: 30px;
     font-size: 18px;
     line-height: 1.75;
     @media ${device.tablet} {
       font-size: 30px;
+      margin-bottom: 84.5px;
     }
   }
 `

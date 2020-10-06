@@ -10,7 +10,7 @@ const Btn = styled.button`
   border-radius: 49px;
   padding: 15px 23px;
   border: 4px solid ${({ color, theme }) => getColor(color, theme)};
-  font-size: 20px;
+  font-size: 18px;
   background: ${({ variation, bg }) =>
     variation === "hollow" ? "transparent" : bg};
   font-weight: 600;
@@ -21,8 +21,15 @@ const Btn = styled.button`
   cursor: pointer;
   text-transform: uppercase;
   transition: all 0.4s;
+  text-align: left;
 
   @media ${device.tablet} {
+    font-size: 30px;
+    padding: 15px 63px;
+    letter-spacing: 3px;
+  }
+
+  @media ${device.laptop} {
     font-size: 30px;
     padding: 15px 63px;
     letter-spacing: 3px;
@@ -36,7 +43,10 @@ const Btn = styled.button`
   }
 
   .icon {
-    padding-left: 0.5rem;
+    padding-left: 0.1rem;
+    @media ${device.tablet} {
+      padding-left: 0.5rem;
+    }
   }
 `
 
