@@ -18,10 +18,14 @@ const Container = styled.div`
   p {
     color: ${({ theme }) => theme.text};
     font-weight: normal;
-    margin-bottom: 30px;
     font-size: 18px;
     line-height: 1.75;
+    margin: 0 0 30px 0;
     @media ${device.tablet} {
+      font-size: 25px;
+      margin-bottom: 40.5px;
+    }
+    @media ${device.laptop} {
       font-size: 30px;
       margin-bottom: 84.5px;
     }

@@ -25,6 +25,10 @@ const Section = styled.section`
     margin: 0 auto 42px auto;
 
     @media ${device.tablet} {
+      font-size: 42px;
+      margin-bottom: 60px;
+    }
+    @media ${device.laptopL} {
       font-size: 62px;
     }
   }
@@ -57,8 +61,14 @@ const Flex = styled.div`
   margin: auto;
   align-items: center;
   text-align: center;
-  @media ${device.tablet} {
+  @media ${device.mobileL} {
     flex-direction: row;
+    > div {
+      flex: 1 1 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   img {

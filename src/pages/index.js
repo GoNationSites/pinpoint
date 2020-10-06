@@ -20,6 +20,14 @@ const Section = styled.section`
   @media ${device.tablet} {
     padding: ${({ padding }) => padding};
   }
+
+  @media ${device.mobileL} {
+    padding: 2rem 1.5rem;
+  }
+
+  @media ${device.mobileL} {
+    padding: 2rem 1rem;
+  }
 `
 
 const HPText = styled.p`
@@ -27,10 +35,13 @@ const HPText = styled.p`
   font-size: 30px;
   font-family: ${({ theme }) => theme.fonts.headingFont};
   padding: 1.5rem;
+  margin: 0;
+  @media ${device.mobileL} {
+    font-size: 32px;
+  }
   @media ${device.tablet} {
     margin-bottom: 0;
-    font-size: 62px;
-    padding-left: 100px;
+    font-size: 38px;
   }
   .primary {
     color: ${({ theme }) => theme.primary};
@@ -45,13 +56,13 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <Hero img={img} text="Full Service Agency" />
-    <Section padding="0 0 198px 0">
+    <Section>
       <HpContentBlock />
     </Section>
 
     <ProjectsBox />
 
-    <Section padding="200px 0">
+    <Section>
       <HPText>
         Everything we <span className="primary">conceptualize</span> is done{" "}
         <span className="italic underline">intentionally</span>

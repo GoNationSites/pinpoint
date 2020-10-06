@@ -12,11 +12,18 @@ const Flex = styled.div`
   display: flex;
   align-items: center;
 
+  @media ${device.mobileL} {
+    display: block;
+  }
+
   .projects__left {
     width: auto;
     position: static;
     left: 0;
     @media ${device.tablet} {
+      position: relative;
+    }
+    @media ${device.laptopL} {
       position: absolute;
     }
   }
@@ -25,17 +32,22 @@ const Flex = styled.div`
     position: relative;
     display: none;
 
-    @media ${device.tablet} {
+    @media ${device.mobileL} {
       display: block;
     }
   }
   .meet-the-team-container {
     position: static;
-    bottom: 4rem;
-    right: 4rem;
 
-    @media ${device.tablet} {
+    @media ${device.mobileL} {
       position: absolute;
+      bottom: 3rem;
+      right: 3rem;
+    }
+    @media ${device.laptopL} {
+      position: absolute;
+      bottom: 4rem;
+      right: 4rem;
     }
   }
 `

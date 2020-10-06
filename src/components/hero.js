@@ -21,8 +21,8 @@ const HeroHeader = styled.header`
     font-size: 30px;
     font-weight: bold;
     text-shadow: 2px 5px 10px #0000004d;
-    @media ${device.tablet} {
-      font-size: 82px;
+    @media ${device.mobileL} {
+      font-size: 65px;
     }
   }
 `

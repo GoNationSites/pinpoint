@@ -16,7 +16,7 @@ const Box = styled.div`
   z-index: 99;
   padding: 2rem 1.5rem;
 
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     padding: 2rem 7rem;
   }
 `

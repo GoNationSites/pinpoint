@@ -20,13 +20,13 @@ const Nav = styled.nav`
   padding: 0.75rem;
   position: relative;
   z-index: 9;
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     padding: 40px 140px;
   }
 
   img {
     max-width: 115px;
-    @media ${device.tablet} {
+    @media ${device.laptop} {
       max-width: none;
     }
   }
@@ -41,7 +41,7 @@ const NavItem = styled.div`
     color: ${({ theme }) => theme.glass};
     margin-left: 1rem;
     display: block;
-    @media ${device.tablet} {
+    @media ${device.laptop} {
       display: none;
     }
   }
@@ -55,7 +55,7 @@ const NavItem = styled.div`
     display: inline-block;
     margin-bottom: 1rem;
 
-    @media ${device.tablet} {
+    @media ${device.laptop} {
       font-size: 25px;
       margin-bottom: 0;
     }
@@ -83,7 +83,7 @@ const Flex = styled.div`
   left: 0;
   background: white;
   padding: 1rem;
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     position: static;
     flex-direction: row;
     justify-content: flex-end;
@@ -117,7 +117,7 @@ const DropdownContainer = styled.div`
 
 const HamburgerContainer = styled.div`
   display: block;
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     display: none;
   }
 `
