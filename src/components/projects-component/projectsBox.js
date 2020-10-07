@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { device } from "../../global-styles"
+import Img from "react-cloudinary-lazy-image"
 
+import { device } from "../../global-styles"
 import Button from "../button"
 import ProjectsContent from "./projectsContent"
 import Lets from "../../assets/lets.png"
@@ -11,6 +12,7 @@ import RemarkableBG from "../../assets/remarkable-bg.png"
 const Flex = styled.div`
   display: flex;
   align-items: center;
+  position: relative;
 
   @media ${device.mobileL} {
     display: block;
@@ -77,11 +79,11 @@ const ProjectsBox = () => {
   const getImg = () => {
     switch (activeTab.title) {
       case "Let's":
-        return Lets
+        return "lets.png"
       case "Create":
-        return CreateBG
+        return "create-bg.png"
       case "Remarkable":
-        return RemarkableBG
+        return "remarkable-bg.png"
     }
   }
   return (
@@ -94,7 +96,21 @@ const ProjectsBox = () => {
         />
       </div>
       <div className="projects__right">
-        <img src={getImg(activeTab.title)} alt="Meet The Team" />
+        <Img
+          cloudName={"gonation"}
+          imageName={`sites/pinpoint/${getImg(activeTab.title)}`}
+          fluid={{
+            maxWidth: 1205,
+            // height: 700,
+          }}
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+          }}
+          urlParams={"g_face,c_lfill"}
+          alt="Meet The Team"
+        />
         <div className="meet-the-team-container">
           <Button to="/about/meet-the-team" color="#fff">
             Meet The Team

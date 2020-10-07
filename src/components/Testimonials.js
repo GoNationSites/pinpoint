@@ -1,5 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
+import Carousel from "react-multi-carousel"
+import "react-multi-carousel/lib/styles.css"
 
 import Down from "./icons/down"
 
@@ -7,7 +9,11 @@ import { device } from "../global-styles"
 import Jags from "../assets/jags.png"
 import LiveNation from "../assets/live-nation.png"
 import Mastercard from "../assets/mastercard.png"
-import Yale from "../assets/yale-logo-sprite.svg"
+import Yale from "../assets/yale.png"
+
+import Comcast from "../assets/comcast.svg"
+import AEW from "../assets/aew.svg"
+import IHeart from "../assets/iheart.png"
 
 const Section = styled.section`
   padding: 2rem 1.5rem;
@@ -53,7 +59,7 @@ const Section = styled.section`
 `
 
 const Flex = styled.div`
-  display: flex;
+  display: block;
   justify-content: space-between;
   flex-direction: column;
   flex-wrap: wrap;
@@ -81,9 +87,13 @@ const Flex = styled.div`
   }
 
   img {
-    max-width: 300px;
+    max-width: 200px;
     width: 100%;
     margin-bottom: 2.5rem;
+
+    @media ${device.laptopXL} {
+      max-width: 300px;
+    }
 
     @media ${device.tablet} {
       margin-bottom: 0;
@@ -91,13 +101,54 @@ const Flex = styled.div`
   }
 `
 
+const Logo = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  @media ${device.laptop} {
+    padding: 2rem;
+  }
+  img {
+    filter: grayscale(1);
+    &:hover {
+      filter: grayscale(0);
+      transition: all 0.5s;
+    }
+  }
+`
+
 const Testimonials = () => {
+  const [hovered, setHovered] = useState(false)
   const logos = [
     { image: Jags, seo: "Jacksonville Jaguars" },
     { image: LiveNation, seo: "LiveNation" },
     { image: Mastercard, seo: "Mastercard" },
     { image: Yale, seo: "Yale" },
+    { image: Comcast, seo: "Comcast" },
+    { image: AEW, seo: "AEW" },
+    { image: IHeart, seo: "iHeart" },
   ]
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 4,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  }
   return (
     <Section>
       <h3>
@@ -107,16 +158,28 @@ const Testimonials = () => {
       <p>
         Don’t believe us? Ask them{" "}
         <span>
-          <Down fill="#D50032"></Down>
+          <Down fill="#D50032" />
         </span>
       </p>
-      <Flex>
-        {logos.map(({ image, seo }) => (
-          <div>
-            <img src={image} alt={seo} />
-          </div>
-        ))}
-      </Flex>
+      <div
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        style={{ maxWidth: "1600px", margin: "auto" }}
+      >
+        <Carousel
+          responsive={responsive}
+          autoPlay={!hovered}
+          autoPlaySpeed={2000}
+          infinite={true}
+          arrows={false}
+        >
+          {logos.map(({ image, seo }) => (
+            <Logo>
+              <img src={image} alt={seo} />
+            </Logo>
+          ))}
+        </Carousel>
+      </div>
     </Section>
   )
 }

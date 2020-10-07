@@ -45,7 +45,7 @@ const FooterLogoBlock = () => {
   return (
     <>
       <div>
-        <img style={{ maxWidth: "300px" }} src={Logo} alt="Pinpoint" />
+        <img style={{ maxWidth: "220px" }} src={Logo} alt="Pinpoint" />
       </div>
       <FlexSocials>
         {socials.map(social => (

@@ -50,6 +50,9 @@ const Flex = styled.div`
     @media ${device.mobileL} {
       width: 50%;
     }
+    @media ${device.laptopL} {
+      width: 25%;
+    }
   }
 `
 
@@ -60,7 +63,7 @@ const Section = styled.section`
   padding: 0;
   @media ${device.laptopL} {
     padding: 4rem 0;
-    padding-top: 190px;
+    /* padding-top: 190px; */
     padding: ${({ padding }) => (padding ? padding : "")};
   }
 `
@@ -128,7 +131,7 @@ const WhatWeDo = () => {
   return (
     <Layout>
       <SEO title="What We Do" />
-      <HeaderBlock title="What We Do" content={content} img={img} />
+      <HeaderBlock title="What We Do" content={content} img={"WhatWeDo.png"} />
       <Section>
         <GrayBox>
           <Flex>

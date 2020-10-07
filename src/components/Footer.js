@@ -16,7 +16,7 @@ const FooterContainer = styled.footer`
 `
 
 const Container = styled.div`
-  max-width: 1600px;
+  max-width: none;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -25,6 +25,10 @@ const Container = styled.div`
 
   @media ${device.mobileL} {
     flex-direction: row;
+  }
+
+  @media ${device.desktop} {
+    padding: 0 3rem;
   }
 
   > div {

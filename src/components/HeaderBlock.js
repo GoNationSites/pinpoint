@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import Img from "react-cloudinary-lazy-image"
 import { device } from "../global-styles"
 
 import Title from "./Title"
@@ -51,7 +52,7 @@ const ContentRight = styled.div`
   > div {
     margin-top: 0;
     @media ${device.laptopL} {
-      margin-top: 9rem;
+      margin-top: 12rem;
     }
   }
   img {
@@ -59,7 +60,7 @@ const ContentRight = styled.div`
     max-width: none;
     display: flex;
     @media ${device.laptopL} {
-      max-width: 650px;
+      max-width: 600px;
     }
     @media ${device.laptopXL} {
       max-width: 950px;
@@ -80,7 +81,7 @@ const AboutText = styled.p`
     max-width: 500px;
   }
   @media ${device.laptopL} {
-    max-width: 575px;
+    max-width: 725px;
   }
 `
 
@@ -95,7 +96,22 @@ const HeaderBlock = ({ title, content, img }) => {
       </ContentLeft>
       <ContentRight>
         <div>
-          <img src={img} alt={title} />
+          <Img
+            cloudName={"gonation"}
+            imageName={`sites/pinpoint/${img}`}
+            fluid={{
+              maxWidth: 1205,
+              // height: 700,
+            }}
+            style={{
+              width: "100%",
+              height: "100%",
+              display: "flex",
+            }}
+            urlParams={"g_face,c_lfill"}
+            alt="What We Do"
+          />
+          {/* <img src={img} alt={title} /> */}
         </div>
       </ContentRight>
     </AboutRow>

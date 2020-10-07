@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import { device } from "../global-styles"
 import HamburgerMenu from "react-hamburger-menu"
 
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.svg"
 
 const MyText = styled.p`
   color: red;
@@ -79,8 +79,6 @@ const NavItem = styled.div`
 `
 
 const Flex = styled.div`
-  flex-direction: column;
-  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   position: absolute;
   top: 60px;
   width: 100%;
@@ -116,6 +114,22 @@ const DropdownContainer = styled.div`
     &:not(:last-of-type) {
       margin-bottom: 1.5rem;
     }
+  }
+`
+
+const Box = styled.div`
+  flex-direction: column;
+  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1600px;
+  margin: auto;
+  @media ${device.laptop} {
+    position: static;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
   }
 `
 
@@ -181,54 +195,56 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <Nav>
-      <div>
-        <Link to="/">
-          <img src={logo} alt="" />
-        </Link>
-      </div>
+      <Box>
+        <div>
+          <Link to="/">
+            <img src={logo} alt="" />
+          </Link>
+        </div>
 
-      <HamburgerContainer>
-        <HamburgerMenu
-          isOpen={isOpen}
-          menuClicked={() => setIsOpen(!isOpen)}
-          width={18}
-          height={15}
-          strokeWidth={1}
-          color="black"
-        />
-      </HamburgerContainer>
+        <HamburgerContainer>
+          <HamburgerMenu
+            isOpen={isOpen}
+            menuClicked={() => setIsOpen(!isOpen)}
+            width={18}
+            height={15}
+            strokeWidth={1}
+            color="black"
+          />
+        </HamburgerContainer>
 
-      <Flex isOpen={isOpen}>
-        {routes.map(route => (
-          <NavItem key={route.title} withDropdown={route.title === "about"}>
-            <Link
-              onMouseEnter={() =>
-                route.title === "about" && setShowDropdown(route.title)
-              }
-              activeStyle={{ color: `#009CDE` }}
-              to={route.link}
-            >
-              {route.title}
-            </Link>
-            {route.childrenRoutes
-              ? route.childrenRoutes.map(route => (
-                  <Link className="children-route" to={route.link}>
-                    {route.title}
-                  </Link>
-                ))
-              : ""}
-            {showDropdown && route.title === "about" ? (
-              <DropdownContainer onMouseLeave={() => setShowDropdown(null)}>
-                {dropdownItems[showDropdown].map(el => (
-                  <Link to={el.link}>{el.title}</Link>
-                ))}
-              </DropdownContainer>
-            ) : (
-              ""
-            )}
-          </NavItem>
-        ))}
-      </Flex>
+        <Flex isOpen={isOpen}>
+          {routes.map(route => (
+            <NavItem key={route.title} withDropdown={route.title === "about"}>
+              <Link
+                onMouseEnter={() =>
+                  route.title === "about" && setShowDropdown(route.title)
+                }
+                activeStyle={{ color: `#009CDE` }}
+                to={route.link}
+              >
+                {route.title}
+              </Link>
+              {route.childrenRoutes
+                ? route.childrenRoutes.map(route => (
+                    <Link className="children-route" to={route.link}>
+                      {route.title}
+                    </Link>
+                  ))
+                : ""}
+              {showDropdown && route.title === "about" ? (
+                <DropdownContainer onMouseLeave={() => setShowDropdown(null)}>
+                  {dropdownItems[showDropdown].map(el => (
+                    <Link to={el.link}>{el.title}</Link>
+                  ))}
+                </DropdownContainer>
+              ) : (
+                ""
+              )}
+            </NavItem>
+          ))}
+        </Flex>
+      </Box>
     </Nav>
   )
 }

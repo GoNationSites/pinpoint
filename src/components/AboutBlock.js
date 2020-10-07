@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { device } from "../global-styles"
+import Img from "react-cloudinary-lazy-image"
 
 import Title from "./Title"
 import AboutHeader from "../assets/about-header.png"
@@ -44,7 +45,7 @@ const ContentRight = styled.div`
   > div {
     margin-top: 0;
     @media ${device.laptopL} {
-      margin-top: 9rem;
+      margin-top: 12rem;
     }
   }
   img {
@@ -65,6 +66,9 @@ const AboutText = styled.p`
     color === "secondary" ? theme.secondary : "white"};
   font-weight: ${({ weight }) => (weight === "bold" ? "bold" : 100)};
   max-width: 675px;
+  @media ${device.laptopL} {
+    max-width: 725px;
+  }
 `
 
 const AboutBlock = () => {
@@ -102,7 +106,21 @@ const AboutBlock = () => {
       </ContentLeft>
       <ContentRight>
         <div>
-          <img src={AboutHeader} alt="The Beginning Of Pinpoint" />
+          <Img
+            cloudName={"gonation"}
+            imageName={`/sites/pinpoint/about-header.png`}
+            fluid={{
+              maxWidth: 1206,
+              // height: 700,
+            }}
+            style={{
+              width: "100%",
+              height: "100%",
+              display: "flex",
+            }}
+            alt="About Us"
+          />
+          {/* <img src={AboutHeader} alt="The Beginning Of Pinpoint" /> */}
         </div>
       </ContentRight>
     </AboutRow>

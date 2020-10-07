@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
-      <main>{children}</main>
+      <main style={{ maxWidth: "2000px", margin: "auto" }}>{children}</main>
       <Footer />
     </>
   )

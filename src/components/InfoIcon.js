@@ -17,7 +17,7 @@ const Box = styled.div`
     color: #1e242b;
     text-align: center;
     @media ${device.laptop} {
-      font-size: 30px;
+      font-size: 22px;
     }
   }
 `

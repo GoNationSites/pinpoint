@@ -42,7 +42,7 @@ const MeetTheTeam = ({ data }) => {
   return (
     <Layout>
       <SEO title="Meet The Team" />
-      <HeaderBlock title="Meet The Team" content={content} img={Team} />
+      <HeaderBlock title="Meet The Team" content={content} img={"team.png"} />
       <Element name="activeMember">
         {activeMember !== null ? (
           <ActiveMember setActiveMember={setActiveMember} data={activeMember} />

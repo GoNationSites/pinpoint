@@ -74,7 +74,10 @@ const HPText = styled.p`
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <Hero img={img} text="Full Service Agency" />
+    <Hero
+      img={"https://via.placeholder.com/1920x1080"}
+      text="Full Service Agency"
+    />
     <Section>
       <HpContentBlock />
     </Section>

@@ -23,13 +23,13 @@ const Btn = styled.button`
   transition: all 0.4s;
   text-align: ${({ centerText }) => (centerText ? "center" : "left")};
   @media ${device.tablet} {
-    font-size: 30px;
+    font-size: 22px;
     padding: 15px 63px;
     letter-spacing: 3px;
   }
 
   @media ${device.laptop} {
-    font-size: 30px;
+    font-size: 25px;
     padding: 15px 63px;
     letter-spacing: 3px;
   }
