@@ -96,7 +96,10 @@ const Button = ({
           ""
         ) : (
           <span className="icon">
-            <Right fill={iconColor ? iconColor : getIconFill()} />
+            <Right
+              width={"35px"}
+              fill={iconColor ? iconColor : getIconFill()}
+            />
           </span>
         )}
       </Btn>

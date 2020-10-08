@@ -39,7 +39,7 @@ const ContentRight = styled.div`
   @media ${device.laptopL} {
     order: 1;
     position: absolute;
-    width: auto;
+    width: 50%;
   }
   @media ${device.desktop} {
     position: relative;
@@ -50,6 +50,7 @@ const ContentRight = styled.div`
 
   > div {
     margin-top: 0;
+    /* width: 100%; */
     @media ${device.laptopL} {
       margin-top: 12rem;
     }
@@ -59,8 +60,10 @@ const ContentRight = styled.div`
   }
   img {
     width: 100%;
-    max-width: 678px;
     display: flex;
+    @media ${device.mobileL} {
+      max-width: 678px;
+    }
     @media ${device.laptopL} {
       max-width: 50%;
       margin-left: auto;

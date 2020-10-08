@@ -114,7 +114,7 @@ const ButtonBlocks = ({ data }) => {
         autoPlay={false}
         autoPlaySpeed={2000}
         infinite={true}
-        arrows={true}
+        arrows={false}
         centerMode={size.width > 1024}
         containerClass="carousel-container"
         itemClass="carousel-item"

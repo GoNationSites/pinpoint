@@ -26,7 +26,7 @@ const Button = styled.button`
   height: ${({ isActive }) => (isActive ? "90px" : "34px")};
   @media ${device.mobileL} {
     width: ${({ isActive }) => (isActive ? "110px" : "54px")};
-  height: ${({ isActive }) => (isActive ? "110px" : "54px")};v
+    height: ${({ isActive }) => (isActive ? "110px" : "54px")};
   }
   display: flex;
   justify-content: center;

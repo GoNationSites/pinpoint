@@ -14,6 +14,9 @@ const HeroHeader = styled.header`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  @media ${device.mobileL} {
+    padding: 0 2rem;
+  }
   @media ${device.tablet} {
     height: 914px;
   }

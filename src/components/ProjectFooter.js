@@ -25,8 +25,9 @@ const Wrapper = styled.div`
     }
     > div {
       width: 100%;
-      padding: 2rem;
+      padding: 0.25rem;
       @media ${device.tablet} {
+        padding: 2rem;
         width: 25%;
         padding: 0;
       }

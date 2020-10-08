@@ -12,6 +12,8 @@ import ActiveMember from "../../components/ActiveMember"
 import Title from "../../components/Title"
 import Button from "../../components/button"
 import Banner from "../../components/Banner"
+import PinpointHeader from "../../components/PinpointHeader"
+
 import Team from "../../assets/team.png"
 
 const MemberWrapper = styled.div`
@@ -39,14 +41,22 @@ const Box = styled.div`
 const MeetTheTeam = ({ data }) => {
   const [activeMember, setActiveMember] = useState(null)
   const teamMembers = data.allSanityTeamMember.edges
-  const content = [
-    "You’ll work with a diverse crew of listeners, brainstormers, creatives, go-getters, and implementors with an ownership mentality. Many of us have multidisciplinary backgrounds, which provides a smoother and more efficient project experience.",
-  ]
+
+  const headerProps = {
+    title: "Meet the Team",
+    text: [
+      "You’ll work with a diverse crew of listeners, brainstormers, creatives, go-getters, and implementors with an ownership mentality. Many of us have multidisciplinary backgrounds, which provides a smoother and more efficient project experience.",
+    ],
+    // tagline: "We’re Pinpoint. We’ve got you. Let’s create Remarkable!",
+    img: "/sites/pinpoint/team.png",
+    // taglineColor: "secondary",
+  }
 
   return (
     <Layout>
       <SEO title="Meet The Team" />
-      <HeaderBlock title="Meet The Team" content={content} img={"team.png"} />
+      <PinpointHeader {...headerProps} />
+      {/* <HeaderBlock title="Meet The Team" content={content} img={"team.png"} /> */}
       <Element name="activeMember">
         {activeMember !== null ? (
           <ActiveMember setActiveMember={setActiveMember} data={activeMember} />

@@ -27,9 +27,14 @@ const CategoryPill = styled.span`
   border-radius: 24px;
   font-weight: 500;
   border: 1px solid ${theme.text};
-  padding: 0.75rem 2rem;
-  margin: 1rem 2rem 1rem 0;
+  padding: 0.25rem 1rem;
+  margin: .5rem .5rem .5rem 0;
   cursor: pointer;
+
+  @media ${device.tablet} {
+    padding: 0.75rem 2rem;
+    margin: 1rem 2rem 1rem 0;v
+  }
 
   &:hover {
     background: ${theme.alternate};

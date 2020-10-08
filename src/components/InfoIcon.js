@@ -8,7 +8,7 @@ const Box = styled.div`
   align-items: center;
 
   img {
-    max-width: 169px;
+    max-width: 130px;
     margin: auto;
   }
   p {

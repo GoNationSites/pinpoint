@@ -95,7 +95,7 @@ const HeaderBlock = ({ title, content, img }) => {
         ))}
       </ContentLeft>
       <ContentRight>
-        <div>
+        <div style={{ width: "100%" }}>
           <Img
             cloudName={"gonation"}
             imageName={`sites/pinpoint/${img}`}

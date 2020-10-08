@@ -17,7 +17,6 @@ import { device } from "../global-styles"
 import img from "../assets/cover-video.png"
 
 const Section = styled.section`
-  /* padding: 2rem 0; */
   @media ${device.tablet} {
     padding: ${({ padding }) => padding};
   }
@@ -48,7 +47,7 @@ const HPText = styled.p`
   color: ${({ theme }) => theme.light2};
   font-size: 30px;
   font-family: ${({ theme }) => theme.fonts.headingFont};
-  padding: 1.5rem;
+  padding: 3rem 1.5rem;
   margin: 0;
   @media ${device.mobileL} {
     font-size: 32px;

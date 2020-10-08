@@ -19,7 +19,7 @@ const Nav = styled.nav`
   box-shadow: 2px 5px 10px #00000029;
   padding: 0.75rem;
   position: relative;
-  z-index: 9;
+  z-index: 9999999999;
   @media ${device.laptop} {
     padding: 40px 140px;
   }
@@ -97,6 +97,7 @@ const Flex = styled.div`
 
 const DropdownContainer = styled.div`
   position: absolute;
+  z-index: 9999999999999;
   top: 5rem;
   /* left: 5rem; */
   right: 3rem;

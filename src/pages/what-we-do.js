@@ -13,6 +13,7 @@ import Banner from "../components/Banner"
 import Title from "../components/Title"
 import Button from "../components/button"
 import ButtonBlocks from "../components/ButtonBlocks"
+import PinpointHeader from "../components/PinpointHeader"
 import HideMobile from "../components/HideMobile"
 import img from "../assets/WhatWeDo.png"
 
@@ -166,10 +167,22 @@ const WhatWeDo = ({ data }) => {
     },
   ]
 
+  const headerProps = {
+    title: "What We Do",
+    text: [
+      "As a full-service promotional marketing agency, we team up with brands and organizations that need to make a remarkable impact on their customers. We come alongside our clients to help them imagine what could be, and then empower them to actualize their true potential in their marketing communication.",
+      "We provide experienced problem-solving, creative ideas, and the advantages of in-house production so that companies can easily communicate their brand message effectively in any medium, anywhere, at any time.",
+    ],
+    // tagline: "We’re Pinpoint. We’ve got you. Let’s create Remarkable!",
+    img: "/sites/pinpoint/WhatWeDo.png",
+    // taglineColor: "secondary",
+  }
+
   return (
     <Layout>
       <SEO title="What We Do" />
-      <HeaderBlock title="What We Do" content={content} img={"WhatWeDo.png"} />
+      <PinpointHeader {...headerProps} />
+      {/* <HeaderBlock title="What We Do" content={content} img={"WhatWeDo.png"} /> */}
       <Section>
         <GrayBox>
           <Flex>

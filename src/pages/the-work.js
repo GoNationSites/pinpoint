@@ -59,7 +59,7 @@ const ProjectTitle = styled.h4`
   color: ${({ theme }) => theme.text};
   position: absolute;
   bottom: 0.25rem;
-  left: 0.25rem;
+  left: 0rem;
   font-size: 18px;
   background: rgba(255, 255, 255, 0.8);
   padding: 1rem 2rem;
