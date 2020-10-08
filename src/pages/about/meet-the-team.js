@@ -10,7 +10,7 @@ import HeaderBlock from "../../components/HeaderBlock"
 import TeamCard from "../../components/TeamCard"
 import ActiveMember from "../../components/ActiveMember"
 import Title from "../../components/Title"
-import Button from "../../components/Button"
+import Button from "../../components/button"
 import Banner from "../../components/Banner"
 import Team from "../../assets/team.png"
 
