@@ -30,15 +30,15 @@ const About = () => {
       <SEO title="About" />
       <AboutBlock />
       <Section padding="0">
-        <PhilosophyBox />
+        <div id="philosophy">
+          <PhilosophyBox />
+        </div>
       </Section>
-
       <Section>
         <Title color="#D0D2D3">We make the dream a reality</Title>
       </Section>
-
+      ">
       <AboutButtonRow></AboutButtonRow>
-
       <Banner fillColor="secondary">
         <Title>Who will be working on your project?</Title>
         <div style={{ textAlign: "center" }}>
