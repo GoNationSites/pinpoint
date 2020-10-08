@@ -18,6 +18,12 @@ const MemberContainer = styled.section`
     padding: 4.5rem;
   }
 
+  @media ${device.laptopL} {
+    margin-top: 9rem;
+    max-width: 1400px;
+    margin-left: auto;
+  }
+
   span {
     position: absolute;
     right: 2rem;

@@ -28,8 +28,11 @@ const Box = styled.div`
 
 const Circle = styled.span`
   border-radius: 100%;
-  display: inline-block;
-  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
   border: 3px solid ${theme.pink};
   margin-top: 1rem;
 `

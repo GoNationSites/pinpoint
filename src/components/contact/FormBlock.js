@@ -48,7 +48,8 @@ const FormBlock = () => {
   return (
     <GrayBox>
       <Title margin="0 0 2rem 0" color={theme.pink}>
-        Tell us about your project and let’s create remarkable® together.
+        Tell us about your project and let’s create remarkable<sup>®</sup>{" "}
+        together.
       </Title>
 
       <form>

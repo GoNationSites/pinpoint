@@ -41,11 +41,20 @@ const ContentRight = styled.div`
     position: absolute;
     width: auto;
   }
+  @media ${device.desktop} {
+    position: relative;
+    top: 2rem;
+    display: block;
+    z-index: 9999999;
+  }
 
   > div {
     margin-top: 0;
     @media ${device.laptopL} {
       margin-top: 12rem;
+    }
+    @media ${device.desktop} {
+      margin-top: 0rem;
     }
   }
   img {
@@ -54,6 +63,10 @@ const ContentRight = styled.div`
     display: flex;
     @media ${device.laptopL} {
       max-width: 50%;
+      margin-left: auto;
+    }
+    @media ${device.laptopL} {
+      max-width: 1300px;
       margin-left: auto;
     }
   }

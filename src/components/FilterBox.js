@@ -25,7 +25,7 @@ const CategoryPill = styled.span`
   display: inline-block;
   color: ${theme.text};
   border-radius: 24px;
-  font-weight: 300;
+  font-weight: 500;
   border: 1px solid ${theme.text};
   padding: 0.75rem 2rem;
   margin: 1rem 2rem 1rem 0;

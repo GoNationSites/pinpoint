@@ -14,8 +14,14 @@ const ContentWrapper = styled.div`
   a {
     color: white;
     font-weight: 100;
+    line-height: 1.75;
+    &:hover {
+      color: ${({ theme }) => theme.primary};
+      transition: all 0.3s ease;
+    }
   }
   a {
+    font-size: 17px;
     &:hover {
       color: ${({ theme }) => theme.primary};
       transition: all 0.3s ease;

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { device } from "../global-styles"
+import { device, theme } from "../global-styles"
 import HamburgerMenu from "react-hamburger-menu"
 
 import logo from "../assets/logo.svg"
@@ -65,7 +65,7 @@ const NavItem = styled.div`
     }
 
     &:hover {
-      color: ${({ theme }) => theme.secondary};
+      color: ${({ theme, route }) => getColor(route)};
       transition: all 0.5s;
     }
   }
@@ -101,12 +101,30 @@ const DropdownContainer = styled.div`
   /* left: 5rem; */
   right: 3rem;
   background: #f7f7f7;
+  box-shadow: 2px 5px 10px #00000029;
   width: 300px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   padding: 0.75rem;
   cursor: pointer;
+
+  .arrow-up {
+    display: none;
+    @media ${device.mobileL} {
+      display: block;
+    }
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 25px solid #f7f7f7;
+    /* box-shadow: 2px 5px 10px #00000029; */
+
+    position: absolute;
+    top: -25px;
+    right: 59px;
+  }
 
   a {
     display: inline-block;
@@ -141,6 +159,19 @@ const HamburgerContainer = styled.div`
     display: none;
   }
 `
+
+const getColor = title => {
+  switch (title) {
+    case "What we do":
+      return theme.third
+    case "the work":
+      return theme.alternate
+    case "contact":
+      return theme.pink
+    default:
+      return theme.secondary
+  }
+}
 
 const routes = [
   {
@@ -195,6 +226,7 @@ const dropdownItems = {
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
+
   return (
     <Nav>
       <Box>
@@ -215,12 +247,16 @@ const Navbar = () => {
         </HamburgerContainer>
         <Flex isOpen={isOpen}>
           {routes.map(route => (
-            <NavItem key={route.title} withDropdown={route.title === "about"}>
+            <NavItem
+              route={route.title}
+              key={route.title}
+              withDropdown={route.title === "about"}
+            >
               <Link
                 onMouseEnter={() =>
                   route.title === "about" && setShowDropdown(route.title)
                 }
-                activeStyle={{ color: `#009CDE` }}
+                activeStyle={{ color: getColor(route.title) }}
                 to={route.link}
               >
                 {route.title}
@@ -234,9 +270,12 @@ const Navbar = () => {
                 : ""}
               {showDropdown && route.title === "about" ? (
                 <DropdownContainer onMouseLeave={() => setShowDropdown(null)}>
-                  {dropdownItems[showDropdown].map(el => (
-                    <Link to={el.link}>{el.title}</Link>
-                  ))}
+                  <>
+                    <div class="arrow-up"></div>
+                    {dropdownItems[showDropdown].map(el => (
+                      <Link to={el.link}>{el.title}</Link>
+                    ))}
+                  </>
                 </DropdownContainer>
               ) : (
                 ""

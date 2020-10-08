@@ -29,7 +29,7 @@ const Btn = styled.button`
   }
 
   @media ${device.laptop} {
-    font-size: 25px;
+    font-size: 23px;
     padding: 15px 63px;
     letter-spacing: 3px;
   }

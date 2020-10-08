@@ -9,6 +9,9 @@ import SEO from "../../components/seo"
 import HeaderBlock from "../../components/HeaderBlock"
 import TeamCard from "../../components/TeamCard"
 import ActiveMember from "../../components/ActiveMember"
+import Title from "../../components/Title"
+import Button from "../../components/Button"
+import Banner from "../../components/Banner"
 import Team from "../../assets/team.png"
 
 const MemberWrapper = styled.div`
@@ -18,6 +21,7 @@ const MemberWrapper = styled.div`
   margin: auto;
   justify-content: space-evenly;
   padding: 2rem 1.5rem;
+  max-width: 1800px;
   @media ${device.laptop} {
     padding: 8rem 1.5rem;
   }
@@ -51,14 +55,25 @@ const MeetTheTeam = ({ data }) => {
         )}
       </Element>
       <MemberWrapper>
-        {teamMembers.map(({ node }) => (
-          <Box>
-            <Link to={"activeMember"} smooth duration={500} delay={250}>
-              <TeamCard data={node} setActiveMember={setActiveMember} />
-            </Link>
-          </Box>
-        ))}
+        {teamMembers
+          .sort((a, b) => (a.node.createdAt > b.node.createdAt ? 1 : -1))
+          .map(({ node }) => (
+            <Box>
+              <Link to={"activeMember"} smooth duration={500} delay={250}>
+                <TeamCard data={node} setActiveMember={setActiveMember} />
+              </Link>
+            </Box>
+          ))}
       </MemberWrapper>
+
+      <Banner fillColor="secondary">
+        <Title>Want to pick our brains about a project?</Title>
+        <div style={{ textAlign: "center" }}>
+          <Button to="/contact" color="#fff">
+            Let's Talk
+          </Button>
+        </div>
+      </Banner>
     </Layout>
   )
 }
@@ -83,6 +98,7 @@ export const query = graphql`
             bio
           }
           memberName
+          _createdAt
         }
       }
     }

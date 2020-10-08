@@ -15,6 +15,13 @@ const Card = styled.div`
   max-width: 485px;
   margin: auto;
 
+  &:hover {
+    .name {
+      color: ${({ theme }) => theme.alternate};
+      transition: all 0.3s;
+    }
+  }
+
   img {
     width: 100%;
   }
@@ -41,6 +48,48 @@ const ShadowBox = styled.div`
   }
 `
 
+const TeamName = styled.h2`
+  font-family: ${({ theme }) => theme.fonts.headingFont};
+  font-weight: bold;
+  font-size: 18px;
+  color: ${({ color, theme }) => theme.secondary};
+  margin: ${({ margin }) => (margin ? margin : 0)};
+
+  @media ${device.mobileS} {
+    font-size: 30px;
+  }
+
+  @media ${device.mobileM} {
+    font-size: 30px;
+  }
+
+  @media ${device.mobileL} {
+    font-size: 38px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 42px;
+  }
+`
+
+const TeamTitle = styled.h4`
+  font-family: ${({ theme }) => theme.fonts.bodyFont};
+  font-weight: bold;
+  font-size: 14px;
+  color: ${({ theme, color }) => theme.dark};
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  @media ${device.tablet} {
+    font-size: 18px;
+    letter-spacing: 4.5px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 20px;
+  }
+`
+
 const TeamCard = ({ data, setActiveMember }) => {
   const { memberName } = data
   const { position, bio } = data.person
@@ -51,11 +100,11 @@ const TeamCard = ({ data, setActiveMember }) => {
         <img src={img} alt={memberName} />
       </div>
       <ShadowBox>
-        <Title margin="0 0 .5rem 0" color="secondary">
-          {memberName}
-        </Title>
+        <TeamName margin="0 0 .5rem 0" color="secondary">
+          <span className="name">{memberName}</span>
+        </TeamName>
 
-        <Subtitle
+        <TeamTitle
           style={{
             fontWeight: "bold",
             margin: 0,
@@ -63,7 +112,7 @@ const TeamCard = ({ data, setActiveMember }) => {
           color="#5C666F"
         >
           {position}
-        </Subtitle>
+        </TeamTitle>
       </ShadowBox>
     </Card>
   )

@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { device, theme } from "../global-styles"
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.svg"
 
 const Box = styled.div`
   background: ${theme.light2};
@@ -21,6 +21,9 @@ const Box = styled.div`
     padding: 6rem;
     margin-top: 4rem;
   }
+  img {
+    max-width: 300px;
+  }
 `
 
 const BoldText = styled.span`
@@ -38,14 +41,14 @@ const StyledText = styled.p`
   color: ${theme.glass};
   font-weight: 400;
   @media ${device.laptopL} {
-    font-size: 30px;
+    font-size: 25px;
   }
   a {
     font-size: 20px;
     color: ${theme.glass};
     font-weight: 400;
     @media ${device.laptopL} {
-      font-size: 30px;
+      font-size: 25px;
     }
   }
 `

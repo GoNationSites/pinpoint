@@ -11,7 +11,7 @@ const Row = styled.div`
   margin-bottom: 3rem;
   @media ${device.laptop} {
     margin-bottom: 0;
-    width: 500px;
+    width: 900px;
   }
 `
 

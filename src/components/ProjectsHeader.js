@@ -7,16 +7,24 @@ import Subtitle from "../components/Subtitle"
 
 const Header = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
 `
 
 const Box = styled.div`
-  width: 75%;
-  height: 915px;
+  width: 100%;
+
   display: flex;
   align-items: center;
-  padding: 0 6rem;
+  padding: 2rem 1.5rem;
   background: ${theme.text};
   color: white;
+
+  @media ${device.laptop} {
+    width: 75%;
+    padding: 0 6rem;
+    height: 915px;
+  }
 
   p {
     max-width: 600px;
@@ -28,13 +36,22 @@ const Box = styled.div`
 `
 
 const ImgRight = styled.div`
-  position: absolute;
+  position: static;
   top: 10px;
   right: 0;
-  width: 50%;
-  width: 50%;
-  margin-left: auto;
-  margin-top: 4rem;
+  order: -1;
+  img {
+    display: flex;
+  }
+
+  @media ${device.laptop} {
+    order: unset;
+    position: absolute;
+    width: 50%;
+    width: 50%;
+    margin-left: auto;
+    margin-top: 4rem;
+  }
 `
 
 const StyledHeader = ({ title, subtitle, content, img }) => {

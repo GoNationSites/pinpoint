@@ -24,6 +24,10 @@ const Container = styled.div`
     @media ${device.tablet} {
       padding: 1.5rem;
     }
+
+    @media ${device.laptopL} {
+      padding: 3.5rem;
+    }
   }
   @media ${device.laptop} {
     flex-direction: row;

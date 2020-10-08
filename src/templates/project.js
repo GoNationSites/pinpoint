@@ -1,18 +1,25 @@
 import React from "react"
 import styled from "styled-components"
-import { theme } from "../global-styles"
+import { theme, device } from "../global-styles"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ProjectsHeader from "../components/ProjectsHeader"
 import ProjectFooter from "../components/ProjectFooter"
+import Button from "../components/button"
+import Title from "../components/Title"
+import Banner from "../components/Banner"
 
 const ContainerSmall = styled.div`
   max-width: 1068px;
   margin: auto;
   text-align: center;
-  padding: 4rem 0;
+  padding: 2rem 1.5rem;
   line-height: 1.75;
+
+  @media ${device.tablet} {
+    padding: 4rem 0;
+  }
   p {
     font-size: 18.5px;
     font-weight: 300;
@@ -68,6 +75,12 @@ const Project = ({ pageContext }) => {
         <p>{data.footerBlurb}</p>
       </ContainerSmall>
       <ProjectFooter data={data.stats} />
+      <Banner fillColor={theme.alternate}>
+        <Title color="#fff">What challenges do you face on your project?</Title>
+        <Button to="/contact" color="#fff">
+          TELL US ABOUT IT
+        </Button>
+      </Banner>
       {/* <pre>{JSON.stringify(data, 2, 2)}</pre> */}
     </Layout>
   )

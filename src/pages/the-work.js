@@ -31,6 +31,7 @@ const Section = styled.div`
 
 const ProjectImage = styled.div`
   padding: 0 0 1.5rem 0;
+  position: relative;
   @media ${device.mobileL} {
     flex: 0 1 50%;
     padding: 1.5rem;
@@ -54,6 +55,16 @@ const Flex = styled.div`
   }
 `
 
+const ProjectTitle = styled.h4`
+  color: ${({ theme }) => theme.text};
+  position: absolute;
+  bottom: 0.25rem;
+  left: 0.25rem;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1rem 2rem;
+`
+
 const TheWork = ({ data }) => {
   const { edges } = data.allSanityProject
   return (
@@ -68,6 +79,7 @@ const TheWork = ({ data }) => {
               <Link to={`/the-work/${node.slug.current}`}>
                 <img src={node.mainImage.asset.url} alt={node.title} />
               </Link>
+              <ProjectTitle>{node.title}</ProjectTitle>
             </ProjectImage>
           ))}
         </Flex>

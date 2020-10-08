@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { theme, device } from "../global-styles"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -68,7 +69,8 @@ const Section = styled.section`
   }
 `
 
-const WhatWeDo = () => {
+const WhatWeDo = ({ data }) => {
+  const projects = data.allSanityProject.edges
   const showcaseData = [
     {
       title: "Working Together",
@@ -83,6 +85,42 @@ const WhatWeDo = () => {
       subtitle: "Strategy + Planning",
       description: [
         "This is the bridge between where you are and where you need to be. We connect the dots of your story to develop concepts and ideas that begin to frame the solution. We keep connected with you to stay aligned.",
+      ],
+      img: whatwedoB,
+    },
+
+    {
+      title: "Working Together",
+      subtitle: "CREATIVE DEVELOPMENT",
+      description: [
+        "You can see the strategy take shape. Here's where we crank out mood boards, color palettes, headlines, copy, layouts, renderings—whatever the agreed-upon scope requires. We communicate with you throughout to ensure the final product is exactly right.",
+      ],
+      img: whatwedoB,
+    },
+
+    {
+      title: "Working Together",
+      subtitle: "PRODUCTION + EXECUTION",
+      description: [
+        "The creative comes to life! Our in-house team works tirelessly to assemble all aspects of production. Structures built, vinyl printed, products procured—you name it. It's all hands on deck to ensure a remarkable finished product.",
+      ],
+      img: whatwedoB,
+    },
+
+    {
+      title: "Working Together",
+      subtitle: "DELIVERY + DISTRIBUTION + MANAGEMENT",
+      description: [
+        "We provide you with final campaign deliverables, on-site installation, and event management. Problem-solving to the end, we speed your project over the finish line.",
+      ],
+      img: whatwedoB,
+    },
+
+    {
+      title: "Working Together",
+      subtitle: "EVALUATION + OPTIMIZATION",
+      description: [
+        "Like a championship team, we love celebrating the win. And we review the process to tweak our game plan for the future, to continually improve the experience.",
       ],
       img: whatwedoB,
     },
@@ -155,7 +193,7 @@ const WhatWeDo = () => {
       <HideMobile>
         <Section padding="4rem 0">
           <HPText>Project Preview</HPText>
-          <ButtonBlocks />
+          <ButtonBlocks data={projects} />
         </Section>
       </HideMobile>
 
@@ -174,3 +212,26 @@ const WhatWeDo = () => {
 }
 
 export default WhatWeDo
+
+export const query = graphql`
+  {
+    allSanityProject {
+      edges {
+        node {
+          title
+          subtitle
+          slug {
+            current
+          }
+          mainImage {
+            asset {
+              fixed(width: 800) {
+                src
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
