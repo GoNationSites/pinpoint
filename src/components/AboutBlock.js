@@ -53,7 +53,8 @@ const ContentRight = styled.div`
     max-width: 678px;
     display: flex;
     @media ${device.laptopL} {
-      max-width: 950px;
+      max-width: 50%;
+      margin-left: auto;
     }
   }
 `
@@ -67,6 +68,9 @@ const AboutText = styled.p`
   font-weight: ${({ weight }) => (weight === "bold" ? "bold" : 100)};
   max-width: 675px;
   @media ${device.laptopL} {
+    max-width: 545px;
+  }
+  @media ${device.laptopXL} {
     max-width: 725px;
   }
 `

@@ -15,6 +15,11 @@ const Container = styled.div`
     padding: 100px 50px;
   }
 
+  @media ${device.laptop} {
+    max-width: 1300px;
+    width: 85%;
+  }
+
   p {
     color: ${({ theme }) => theme.text};
     font-weight: normal;

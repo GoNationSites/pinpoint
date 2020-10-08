@@ -8,7 +8,7 @@ import Right from "./icons/right"
 const Btn = styled.button`
   color: ${({ color, theme }) => getColor(color, theme)};
   border-radius: 49px;
-  padding: 15px 23px;
+  padding: 14px 23px;
   border: 4px solid ${({ color, theme }) => getColor(color, theme)};
   font-size: 18px;
   background: ${({ variation, bg }) =>
@@ -22,7 +22,7 @@ const Btn = styled.button`
   text-transform: uppercase;
   transition: all 0.4s;
   text-align: ${({ centerText }) => (centerText ? "center" : "left")};
-  @media ${device.tablet} {
+  @media ${device.mobileL} {
     font-size: 22px;
     padding: 15px 63px;
     letter-spacing: 3px;

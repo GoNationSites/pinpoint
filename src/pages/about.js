@@ -33,13 +33,11 @@ const About = () => {
         <PhilosophyBox />
       </Section>
 
-      <HideMobile>
-        <Section>
-          <Title color="#D0D2D3">We make the dream a reality</Title>
-        </Section>
+      <Section>
+        <Title color="#D0D2D3">We make the dream a reality</Title>
+      </Section>
 
-        <AboutButtonRow></AboutButtonRow>
-      </HideMobile>
+      <AboutButtonRow></AboutButtonRow>
 
       <Banner fillColor="secondary">
         <Title>Who will be working on your project?</Title>

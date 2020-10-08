@@ -2,13 +2,28 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { device } from "../../global-styles"
 
+import { Transition } from "react-transition-group"
+
 import Lets from "../../assets/lets-ico.png"
 import Remarkable from "../../assets/remarkable.png"
 import Create from "../../assets/create.png"
-
 import LetsActive from "../../assets/lets-ico-active.png"
 import RemarkableActive from "../../assets/remarkable-active.png"
 import CreateActive from "../../assets/create-active.png"
+
+const duration = 500
+
+const defaultStyle = {
+  transition: `opacity ${duration}ms ease-in-out`,
+  opacity: 0,
+}
+
+const transitionStyles = {
+  entering: { opacity: 1 },
+  entered: { opacity: 1 },
+  exiting: { opacity: 0 },
+  exited: { opacity: 0 },
+}
 
 const Box = styled.div`
   background: ${({ theme }) => theme.text};
@@ -38,6 +53,9 @@ const ItemBox = styled.div`
     color: ${({ isActive, theme }) => (isActive ? theme.primary : "white")};
     margin: 0;
     @media ${device.tablet} {
+      font-size: 25px;
+    }
+    @media ${device.laptopXL} {
       font-size: 30px;
     }
     span {
@@ -49,6 +67,7 @@ const ItemBox = styled.div`
     font-size: 18.5px;
     line-height: 1.75;
     max-width: 800px;
+    margin: 0.5rem 0 0 0;
   }
 `
 
@@ -59,11 +78,25 @@ const Title = styled.h3`
   font-size: 30px;
 
   @media ${device.tablet} {
+    font-size: 32px;
+  }
+
+  @media ${device.laptop} {
+    font-size: 35px;
+  }
+
+  @media ${device.laptop} {
+    margin-bottom: 0;
+  }
+
+  @media ${device.laptopXL} {
     font-size: 62px;
   }
 `
 
 const ProjectsContent = ({ activeTab, setActiveTab, items }) => {
+  const [inProp, setInProp] = useState(false)
+
   const getIco = title => {
     const isActive = title === activeTab.title
     switch (title) {
@@ -76,13 +109,18 @@ const ProjectsContent = ({ activeTab, setActiveTab, items }) => {
     }
   }
 
+  const handleClick = item => {
+    setActiveTab(item)
+    // setInProp(true)
+  }
+
   const renderItems = () =>
     items.map(item => {
       const isActive = activeTab.title === item.title
       return (
         <ItemBox
           key={item.title}
-          onClick={() => setActiveTab(item)}
+          onClick={() => handleClick(item)}
           isActive={isActive}
         >
           <h4>
@@ -93,13 +131,30 @@ const ProjectsContent = ({ activeTab, setActiveTab, items }) => {
             />{" "}
             <span>{item.title}</span>
           </h4>
-          {isActive ? <p>{item.desc}</p> : ""}
+          {/* {isActive ? ( */}
+          <Transition in={isActive} timeout={duration}>
+            {state => {
+              return item.desc.map(txt => (
+                <p
+                  style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state],
+                  }}
+                >
+                  {isActive ? txt : ""}
+                </p>
+              ))
+            }}
+          </Transition>
+          {/* ) : (
+            ""
+          )} */}
         </ItemBox>
       )
     })
   return (
     <Box>
-      <Title>Projects and Partnerships</Title>
+      <Title>Projects are Partnerships</Title>
       {renderItems()}
     </Box>
   )

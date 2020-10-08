@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import ReactTextRotator from "react-text-rotator"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -71,37 +72,87 @@ const HPText = styled.p`
   }
 `
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <Hero
-      img={"https://via.placeholder.com/1920x1080"}
-      text="Full Service Agency"
-    />
-    <Section>
-      <HpContentBlock />
-    </Section>
+const rotatingTextData = [
+  {
+    text: "conceptualize",
+    animation: "fade",
+    className: "rotating-text",
+  },
+  {
+    text: "design",
+    animation: "fade",
+    className: "rotating-text",
+  },
+  {
+    text: "fabricate",
+    animation: "fade",
+    className: "rotating-text",
+  },
+]
 
-    <ProjectsBox />
+const IndexPage = ({ data }) => {
+  const projects = data.allSanityProject.edges
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <Hero
+        img={"https://via.placeholder.com/1920x1080"}
+        text={rotatingTextData}
+        mainHero
+      />
+      <Section>
+        <HpContentBlock />
+      </Section>
 
-    <Section tagline>
-      <HPText>
-        Everything we <span className="primary">conceptualize</span> is done{" "}
-        <span className="italic underline">intentionally</span>
-      </HPText>
-      {/* <ButtonBlocks /> */}
-    </Section>
+      <ProjectsBox />
 
-    <Banner fillColor={"primary"}>
-      <Title>Ready to make an impact</Title>
-      <div style={{ textAlign: "center" }}>
-        <Button to="/contact" color="#fff">
-          TELL US ABOUT YOUR NEEDS
-        </Button>
-      </div>
-    </Banner>
-    <Testimonials />
-  </Layout>
-)
+      <Section tagline>
+        <HPText>
+          Everything we{" "}
+          <ReactTextRotator
+            content={rotatingTextData}
+            time={5000}
+            startDelay={250}
+          />{" "}
+          is done <span className="italic">intentionally</span>
+        </HPText>
+        <ButtonBlocks data={projects} />
+      </Section>
+
+      <Banner fillColor={"primary"}>
+        <Title>Ready to make an impact?</Title>
+        <div style={{ textAlign: "center" }}>
+          <Button to="/contact" color="#fff">
+            TELL US ABOUT YOUR NEEDS
+          </Button>
+        </div>
+      </Banner>
+      <Testimonials />
+    </Layout>
+  )
+}
 
 export default IndexPage
+
+export const query = graphql`
+  {
+    allSanityProject {
+      edges {
+        node {
+          title
+          subtitle
+          slug {
+            current
+          }
+          mainImage {
+            asset {
+              fixed(width: 800) {
+                src
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

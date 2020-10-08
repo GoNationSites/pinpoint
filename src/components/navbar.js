@@ -85,6 +85,8 @@ const Flex = styled.div`
   left: 0;
   background: white;
   padding: 1rem;
+  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+  flex-direction: column;
   @media ${device.laptop} {
     position: static;
     flex-direction: row;
@@ -118,8 +120,9 @@ const DropdownContainer = styled.div`
 `
 
 const Box = styled.div`
-  flex-direction: column;
-  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+  display: flex;
+  align-items: center;
+  flex-direction: row;
   justify-content: space-between;
   width: 100%;
   max-width: 1600px;
@@ -128,7 +131,6 @@ const Box = styled.div`
     position: static;
     flex-direction: row;
     justify-content: flex-end;
-    align-items: center;
     display: flex;
   }
 `
@@ -201,7 +203,6 @@ const Navbar = () => {
             <img src={logo} alt="" />
           </Link>
         </div>
-
         <HamburgerContainer>
           <HamburgerMenu
             isOpen={isOpen}
@@ -212,7 +213,6 @@ const Navbar = () => {
             color="black"
           />
         </HamburgerContainer>
-
         <Flex isOpen={isOpen}>
           {routes.map(route => (
             <NavItem key={route.title} withDropdown={route.title === "about"}>

@@ -1,9 +1,13 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
+import Carousel from "react-multi-carousel"
+import "react-multi-carousel/lib/styles.css"
+import { Link } from "gatsby"
 
 import BravoCon from "../assets/bravo.png"
 import Family from "../assets/family.png"
 import { device } from "../global-styles"
+import useWindowSize from "../hooks/useWindowSize"
 
 const Container = styled.div`
   max-width: 1600px;
@@ -13,15 +17,26 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
+  .carousel-container {
+    width: 100%;
+  }
+  .carousel-item {
+    @media ${device.tablet} {
+      padding: 1.5rem;
+    }
+  }
   @media ${device.laptop} {
     flex-direction: row;
   }
 `
 
 const Block = styled.div`
-  max-width: 50%;
   position: relative;
   margin-bottom: 2rem;
+
+  img {
+    max-width: 650px;
+  }
 `
 
 const TextContainer = styled.div`
@@ -52,7 +67,9 @@ const TextContainer = styled.div`
   }
 `
 
-const ButtonBlocks = () => {
+const ButtonBlocks = ({ data }) => {
+  const [hovered, setHovered] = useState(false)
+  const size = useWindowSize()
   const blocks = [
     {
       title: "BravoCon",
@@ -63,18 +80,61 @@ const ButtonBlocks = () => {
       img: Family,
     },
   ]
+
+  const blockData = data ? data : blocks
+
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 2,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 2,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  }
+
   return (
     <Container>
-      {blocks.map(block => (
-        <Block>
-          <div>
-            <img src={block.img} alt={block.title} />
-          </div>
-          <TextContainer>
-            <p>{block.title}</p>
-          </TextContainer>
-        </Block>
-      ))}
+      <Carousel
+        responsive={responsive}
+        autoPlay={false}
+        autoPlaySpeed={2000}
+        infinite={true}
+        arrows={true}
+        centerMode={size.width > 1024}
+        containerClass="carousel-container"
+        itemClass="carousel-item"
+      >
+        {blockData.map(block => (
+          <Link
+            sx={{ display: "block" }}
+            to={`/the-work/${block.node.slug.current}`}
+          >
+            <Block key={block.node.title}>
+              {console.log("rendering")}
+              <div>
+                <img
+                  src={block.node.mainImage.asset.fixed.src}
+                  alt={block.node.title}
+                />
+              </div>
+              <TextContainer>
+                <p>{block.node.title}</p>
+              </TextContainer>
+            </Block>
+          </Link>
+        ))}
+      </Carousel>
     </Container>
   )
 }

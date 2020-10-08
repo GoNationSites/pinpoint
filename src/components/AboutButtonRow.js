@@ -1,9 +1,12 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
+import { useSpring, animated } from "react-spring"
 
 import Presence from "../assets/presence.png"
 import Annual from "../assets/annual.png"
 import Activation from "../assets/activation.png"
+import States from "../assets/states.png"
+
 import { device } from "../global-styles"
 
 const Row = styled.div`
@@ -12,12 +15,12 @@ const Row = styled.div`
   flex-wrap: wrap;
 
   > div {
-    flex: 1 1;
+    flex: 1 1 100%;
     padding: 1rem;
-    @media ${device.tablet} {
+    @media ${device.mobileL} {
       flex: 1 1 50%;
     }
-    @media ${device.tablet} {
+    @media ${device.laptop} {
       flex: 1 1;
     }
 
@@ -48,6 +51,14 @@ const Content = styled.div`
   background: transparent linear-gradient(0deg, #1e242b80 0%, #1e242b00 100%) 0%
     0% no-repeat padding-box;
 
+  ${({ isActive }) =>
+    isActive
+      ? `
+    background: rgba(0,0,0,.75); 
+    transition: background .25s;
+  `
+      : ``}
+
   p {
     color: white;
     font-size: 30px;
@@ -58,34 +69,87 @@ const Content = styled.div`
   }
 `
 
+const ActiveContent = styled.div`
+  text-align: center;
+  padding: 0.5rem;
+  img {
+    max-width: 100px;
+    margin: auto;
+  }
+  h4 {
+    color: ${({ theme }) => theme.secondary};
+    font-size: 32px;
+  }
+  p {
+    font-size: 16px;
+  }
+`
+
 const AboutButtonRow = () => {
+  const [activeBtn, setActiveBtn] = useState(null)
+  const props = useSpring({ number: 3500, from: { number: 0 } })
   const data = [
     {
       title: "Activations and onsite installations",
       bg: Activation,
-      activeText: "",
     },
     {
       title: "Annual projects",
       bg: Annual,
-      activeText: "",
     },
     {
       title: "Presence of Pinpoint’s products or services",
       bg: Presence,
-      activeText: "",
     },
   ]
+
+  const getActiveText = btn => {
+    switch (btn.title) {
+      case "Activations and onsite installations":
+        return (
+          <ActiveContent>
+            <img src={States} alt={btn.title} />
+            <h4>26 states</h4>
+            <p>{btn.title}</p>
+          </ActiveContent>
+        )
+      case "Annual projects":
+        return (
+          <ActiveContent>
+            <h4>
+              {console.log("this is happening in the background")}
+              <animated.span>
+                {props.number.interpolate(val => Math.floor(val))}
+              </animated.span>
+              +
+            </h4>
+            <p>{btn.title}</p>
+          </ActiveContent>
+        )
+      default:
+        return
+    }
+  }
+
+  const getContent = btn => {
+    if (btn.title === activeBtn) {
+      return <Content isActive>{getActiveText(btn)}</Content>
+    } else {
+      return (
+        <Content>
+          <p>{btn.title}</p>
+        </Content>
+      )
+    }
+  }
 
   return (
     <Row>
       {data.map(btn => (
-        <Box>
+        <Box onClick={() => setActiveBtn(btn.title)}>
           <div style={{ position: "relative" }}>
             <img src={btn.bg} alt={btn.title} />
-            <Content>
-              <p>{btn.title}</p>
-            </Content>
+            {getContent(btn)}
           </div>
         </Box>
       ))}

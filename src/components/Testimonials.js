@@ -112,6 +112,8 @@ const Logo = styled.div`
   }
   img {
     filter: grayscale(1);
+    max-height: 150px;
+    object-fit: contain;
     &:hover {
       filter: grayscale(0);
       transition: all 0.5s;
