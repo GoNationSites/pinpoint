@@ -22,8 +22,8 @@ const Button = styled.button`
   background: white;
   border: 4px solid ${({ theme }) => theme.text};
   border-radius: 100%;
-  width: ${({ isActive }) => (isActive ? "90px" : "34px")};
-  height: ${({ isActive }) => (isActive ? "90px" : "34px")};
+  width: ${({ isActive }) => (isActive ? "90px" : "50px")};
+  height: ${({ isActive }) => (isActive ? "90px" : "50px")};
   @media ${device.mobileL} {
     width: ${({ isActive }) => (isActive ? "110px" : "54px")};
     height: ${({ isActive }) => (isActive ? "110px" : "54px")};
@@ -46,8 +46,8 @@ const Button = styled.button`
     ${({ isActive, theme, color }) => `
         background: ${isActive ? getColor(color, theme) : ""};
         border-radius: ${isActive ? "100%" : ""};
-        width: ${isActive ? "50px" : "auto"};
-        height: ${isActive ? "50px" : "auto"};
+        width: ${isActive ? "40px" : "auto"};
+        height: ${isActive ? "40px" : "auto"};
 
         @media ${device.tablet} {
           width: ${isActive ? "112px" : "auto"};
