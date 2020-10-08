@@ -27,11 +27,12 @@ const HeroHeader = styled.header`
     font-weight: bold;
     text-shadow: 2px 5px 10px #0000004d;
     margin-bottom: 0;
+    text-align: center;
     @media ${device.mobileL} {
       font-size: 65px;
     }
     @media ${device.laptop} {
-      font-size: 84px;
+      font-size: 70px;
     }
   }
 
@@ -64,7 +65,7 @@ const Hero = ({ img, text, mainHero }) => {
   if (mainHero) {
     return (
       <HeroHeader img={img}>
-        <h2>Full-service agency</h2>
+        <h2>WE CREATE REMARKABLE BRAND EXPERIENCES</h2>
         <h3>
           Everything we{" "}
           <ReactTextRotator content={text} time={5000} startDelay={500} /> is

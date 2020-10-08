@@ -95,7 +95,10 @@ const PhilosophyBox = () => {
       case 1:
         return (
           <>
-            <Subtitle>LET'S</Subtitle>
+            <Subtitle color={theme.text}>
+              <span style={{ color: theme.secondary }}>LET'S</span> CREATE
+              REMARKABLE
+            </Subtitle>
             <TextContainer>
               <div>
                 <Text>
@@ -109,7 +112,10 @@ const PhilosophyBox = () => {
       case 2:
         return (
           <>
-            <Subtitle>CREATE</Subtitle>
+            <Subtitle color={theme.text}>
+              LET'S <span style={{ color: theme.secondary }}>CREATE</span>{" "}
+              REMARKABLE
+            </Subtitle>
             <TextContainer>
               <div>
                 <Text>
@@ -133,7 +139,10 @@ const PhilosophyBox = () => {
       case 3:
         return (
           <>
-            <Subtitle>REMARKABLE</Subtitle>
+            <Subtitle color={theme.text}>
+              LET'S CREATE{" "}
+              <span style={{ color: theme.secondary }}>REMARKABLE</span>
+            </Subtitle>
             <TextContainer>
               <div>
                 <Text>
