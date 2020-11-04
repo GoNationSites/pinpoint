@@ -128,7 +128,7 @@ const IndexPage = ({ data }) => {
         </div>
       </Banner>
       <Testimonials />
-      <CTABanner></CTABanner>
+      {/* <CTABanner></CTABanner> */}
     </Layout>
   )
 }
