@@ -12,7 +12,7 @@ const Container = styled.div`
   margin: auto;
 
   @media ${device.tablet} {
-    padding: 100px 50px;
+    padding: 100px;
   }
 
   @media ${device.laptop} {
@@ -31,7 +31,7 @@ const Container = styled.div`
       margin-bottom: 40.5px;
     }
     @media ${device.laptop} {
-      font-size: 30px;
+      font-size: 28px;
       margin-bottom: 84.5px;
     }
   }

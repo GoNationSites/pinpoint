@@ -32,7 +32,7 @@ const Section = styled.section`
 
 const About = () => {
   const headerProps = {
-    title: "Beginnings",
+    title: "Our Story",
     text: [
       "Pinpoint began by helping small businesses in southern Connecticut promote themselves through graphic design, printing, and promotional products.",
       "But Steve Gentile never quit networking and learning everything there is to know about everything. TJ Andrews never stopped implementing new products and delivering remarkable things in some remarkable situations. Clients felt like we had their back. So Pinpoint grew.",

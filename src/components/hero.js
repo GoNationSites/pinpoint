@@ -24,15 +24,13 @@ const HeroHeader = styled.header`
     color: white;
     font-family: ${({ theme }) => theme.fonts.headingFont};
     font-size: 30px;
-    font-weight: bold;
+    font-weight: 400;
     text-shadow: 2px 5px 10px #0000004d;
     margin-bottom: 0;
     text-align: center;
+    letter-spacing: 1px;
     @media ${device.mobileL} {
-      font-size: 65px;
-    }
-    @media ${device.laptop} {
-      font-size: 70px;
+      font-size: 60px;
     }
   }
 

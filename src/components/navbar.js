@@ -21,7 +21,7 @@ const Nav = styled.nav`
   position: relative;
   z-index: 9999999999;
   @media ${device.laptop} {
-    padding: 40px 140px;
+    padding: 20px 140px;
   }
 
   img {
@@ -57,10 +57,6 @@ const NavItem = styled.div`
 
     @media ${device.laptop} {
       font-size: 18px;
-      margin-bottom: 0;
-    }
-    @media ${device.laptopL} {
-      font-size: 22px;
       margin-bottom: 0;
     }
 
@@ -242,8 +238,8 @@ const Navbar = () => {
             menuClicked={() => setIsOpen(!isOpen)}
             width={18}
             height={15}
-            strokeWidth={1}
-            color="black"
+            strokeWidth={3}
+            color="#5C666F"
           />
         </HamburgerContainer>
         <Flex isOpen={isOpen}>

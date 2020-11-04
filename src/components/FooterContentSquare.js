@@ -13,8 +13,10 @@ const ContentWrapper = styled.div`
   p,
   a {
     color: white;
-    font-weight: 100;
+    font-weight: 300;
     line-height: 1.75;
+    /* text-transform: uppercase; */
+    /* text-transform: capitalize; */
     &:hover {
       color: ${({ theme }) => theme.primary};
       transition: all 0.3s ease;

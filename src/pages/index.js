@@ -12,6 +12,7 @@ import Banner from "../components/Banner"
 import Testimonials from "../components/Testimonials"
 import Title from "../components/Title"
 import Button from "../components/button"
+import CTABanner from "../components/CTABanner"
 import { device } from "../global-styles"
 
 import img from "../assets/cover-video.png"
@@ -127,6 +128,7 @@ const IndexPage = ({ data }) => {
         </div>
       </Banner>
       <Testimonials />
+      <CTABanner></CTABanner>
     </Layout>
   )
 }

@@ -8,16 +8,17 @@ import Subtitle from "./Subtitle"
 import Numbers from "./Numbers"
 
 const Box = styled.div`
-  background: url(${({ activeImage }) => activeImage});
+  /* background: url(${({ activeImage }) => activeImage}); */
+  background-color: ${({ theme }) => theme.third};
+  color: white;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  position: relative;
   padding: 2rem 1.5rem;
   position: relative;
-  padding-bottom: 9rem;
+
   @media ${device.laptopL} {
-    padding: 81px 140px;
+    width: 65%;
   }
 `
 
@@ -45,16 +46,16 @@ const Text = styled.p`
 `
 
 const NumbersContainer = styled.div`
-  position: absolute;
+  /* position: absolute; */
+  position: relative;
   bottom: -20px;
   left: 0;
   z-index: 3;
   width: 100%;
   padding: 0 1rem;
   @media ${device.laptop} {
-    padding: 0;
+    padding: 0 1.5rem;
     width: 100%;
-    left: 140px;
   }
 `
 
@@ -70,11 +71,25 @@ const TextContainer = styled.div`
   }
 `
 
+const Flex = styled.div`
+  @media ${device.laptop} {
+    display: flex;
+    align-items: stretch;
+    .img-container {
+      flex: 1;
+      img {
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+  }
+`
+
 const ShowcaseBox = ({ data, color, activeShowcase, setActiveShowcase }) => {
   const getActiveContent = () => {
     return (
       <>
-        <Subtitle color={theme.third}>{activeShowcase.subtitle}</Subtitle>
+        <Subtitle color={"white"}>{activeShowcase.subtitle}</Subtitle>
         <TextContainer>
           <div>
             <Text>{activeShowcase.description}</Text>
@@ -85,21 +100,25 @@ const ShowcaseBox = ({ data, color, activeShowcase, setActiveShowcase }) => {
   }
 
   return (
-    <Box activeImage={activeShowcase.img}>
-      <Title margin="0 2rem 0 0" color={"text"}>
-        {activeShowcase.title}
-      </Title>
-      {getActiveContent()}
-
-      <NumbersContainer>
-        <Numbers
-          data={data}
-          setActiveBox={setActiveShowcase}
-          activeBox={activeShowcase}
-          color={theme.third}
-        />
-      </NumbersContainer>
-    </Box>
+    <Flex>
+      <Box activeImage={activeShowcase.img}>
+        <Title margin="0 2rem 0 0" color={"text"}>
+          {activeShowcase.title}
+        </Title>
+        <NumbersContainer>
+          <Numbers
+            data={data}
+            setActiveBox={setActiveShowcase}
+            activeBox={activeShowcase}
+            color={theme.third}
+          />
+        </NumbersContainer>
+        {getActiveContent()}
+      </Box>
+      <div className="img-container">
+        <img src={activeShowcase.img} alt="What We Do" />
+      </div>
+    </Flex>
   )
 }
 

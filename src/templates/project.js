@@ -74,7 +74,7 @@ const Project = ({ pageContext }) => {
       <ContainerSmall>
         <p>{data.footerBlurb}</p>
       </ContainerSmall>
-      <ProjectFooter data={data.stats} />
+      {/* <ProjectFooter data={data.stats} /> */}
       <Banner fillColor={theme.alternate}>
         <Title color="#fff">What challenges do you face on your project?</Title>
         <Button to="/contact" color="#fff">

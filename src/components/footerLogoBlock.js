@@ -22,22 +22,22 @@ const FooterLogoBlock = () => {
   const socials = [
     {
       name: "Linked In",
-      link: "",
+      link: "https://www.linkedin.com/company/pinpoint-promotions",
       img: LinkedIn,
     },
     {
       name: "Instagram",
-      link: "",
+      link: "https://www.instagram.com/pinpointpromotions/",
       img: Instagram,
     },
     {
       name: "Facebook",
-      link: "",
+      link: "https://www.facebook.com/PinpointPromos",
       img: Facebook,
     },
     {
       name: "Youtube",
-      link: "",
+      link: "https://www.youtube.com/channel/UC-rnCZznttkZmWVhTOvBmLw",
       img: Youtube,
     },
   ]

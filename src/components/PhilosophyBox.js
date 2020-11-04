@@ -12,15 +12,17 @@ import Numbers from "./Numbers"
 import { theme } from "../global-styles"
 
 const Box = styled.div`
-  background: url(${({ activeImage }) => activeImage});
+  /* background: url(${({ activeImage }) => activeImage}); */
+  background-color: ${({ theme }) => theme.secondary};
+  color: white;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   padding: 2rem 1.5rem;
   position: relative;
-  padding-bottom: 9rem;
+
   @media ${device.laptopL} {
-    padding: 81px 140px;
+    width: 65%;
   }
 `
 
@@ -49,16 +51,16 @@ const Text = styled.p`
 `
 
 const NumbersContainer = styled.div`
-  position: absolute;
+  /* position: absolute; */
+  position: relative;
   bottom: -20px;
   left: 0;
   z-index: 3;
   width: 100%;
   padding: 0 1rem;
   @media ${device.laptop} {
-    padding: 0;
+    padding: 0 1.5rem;
     width: 100%;
-    left: 140px;
   }
 `
 
@@ -71,6 +73,20 @@ const TextContainer = styled.div`
 
   > div {
     flex: 1 1;
+  }
+`
+
+const Flex = styled.div`
+  @media ${device.laptop} {
+    display: flex;
+    align-items: stretch;
+    .img-container {
+      flex: 1;
+      img {
+        object-fit: cover;
+        height: 100%;
+      }
+    }
   }
 `
 
@@ -95,9 +111,8 @@ const PhilosophyBox = () => {
       case 1:
         return (
           <>
-            <Subtitle color={theme.text}>
-              <span style={{ color: theme.secondary }}>LET'S</span> CREATE
-              REMARKABLE
+            <Subtitle color={"white"}>
+              <span style={{ color: "white" }}>LET'S</span> CREATE REMARKABLE
             </Subtitle>
             <TextContainer>
               <div>
@@ -112,9 +127,8 @@ const PhilosophyBox = () => {
       case 2:
         return (
           <>
-            <Subtitle color={theme.text}>
-              LET'S <span style={{ color: theme.secondary }}>CREATE</span>{" "}
-              REMARKABLE
+            <Subtitle color={"white"}>
+              LET'S <span style={{ color: "white" }}>CREATE</span> REMARKABLE
             </Subtitle>
             <TextContainer>
               <div>
@@ -139,9 +153,8 @@ const PhilosophyBox = () => {
       case 3:
         return (
           <>
-            <Subtitle color={theme.text}>
-              LET'S CREATE{" "}
-              <span style={{ color: theme.secondary }}>REMARKABLE</span>
+            <Subtitle color={"white"}>
+              LET'S CREATE <span style={{ color: "white" }}>REMARKABLE</span>
             </Subtitle>
             <TextContainer>
               <div>
@@ -168,20 +181,24 @@ const PhilosophyBox = () => {
   }
 
   return (
-    <Box activeImage={getActiveImage()}>
-      <Title margin="0 2rem 0 0" color={"text"}>
-        Philosophy
-      </Title>
-      {getActiveContent()}
-
-      <NumbersContainer>
-        <Numbers
-          color={theme.secondary}
-          setActiveBox={setActiveBox}
-          activeBox={activeBox}
-        />
-      </NumbersContainer>
-    </Box>
+    <Flex>
+      <Box activeImage={getActiveImage()}>
+        <Title margin="0 2rem 0 0" color={"white"}>
+          Philosophy
+        </Title>
+        <NumbersContainer>
+          <Numbers
+            color={theme.secondary}
+            setActiveBox={setActiveBox}
+            activeBox={activeBox}
+          />
+        </NumbersContainer>
+        {getActiveContent()}
+      </Box>
+      <div className="img-container">
+        <img src={getActiveImage()} alt="Philosophy" />
+      </div>
+    </Flex>
   )
 }
 

@@ -90,31 +90,66 @@ const TeamTitle = styled.h4`
   }
 `
 
-const TeamCard = ({ data, setActiveMember }) => {
+//
+
+const Flex = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    font-size: 2rem;
+    margin: 1rem 0 1rem 0;
+    color: ${({ theme }) => theme.secondary};
+    @media ${device.laptop} {
+      font-size: 4rem;
+    }
+  }
+  h4 {
+    font-size: 1.5rem;
+    margin: 0;
+    @media ${device.laptop} {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    line-height: 1.75rem;
+  }
+
+  @media ${device.laptop} {
+    .team-text {
+      order: ${({ idx }) => (idx % 2 === 0 ? "-1" : 1)};
+    }
+
+    flex-direction: row;
+    > div {
+      width: 50%;
+    }
+  }
+`
+
+const Section = styled.div`
+  padding: 2rem 1.5rem;
+`
+
+const TeamCard = ({ data, setActiveMember, idx }) => {
   const { memberName } = data
   const { position, bio } = data.person
   const img = data.person.image.asset.fluid.src
   return (
-    <Card onClick={() => setActiveMember(data)}>
-      <div>
-        <img src={img} alt={memberName} />
-      </div>
-      <ShadowBox>
-        <TeamName margin="0 0 .5rem 0" color="secondary">
-          <span className="name">{memberName}</span>
-        </TeamName>
-
-        <TeamTitle
-          style={{
-            fontWeight: "bold",
-            margin: 0,
-          }}
-          color="#5C666F"
-        >
-          {position}
-        </TeamTitle>
-      </ShadowBox>
-    </Card>
+    <Section>
+      <Flex idx={idx}>
+        <div className="team-image">
+          <img src={img} alt={memberName} />
+        </div>
+        <div className="team-text">
+          <h3>{memberName}</h3>
+          <h4>{position}</h4>
+          <p>{bio}</p>
+        </div>
+      </Flex>
+    </Section>
   )
 }
 

@@ -22,6 +22,14 @@ const InputContainer = styled.div`
   flex-direction: column;
   width: 100%;
 
+  textarea {
+    max-height: 200px;
+  }
+
+  label {
+    font-size: 18px;
+  }
+
   @media ${device.mobileL} {
     flex-direction: row;
     flex-wrap: wrap;
@@ -46,7 +54,7 @@ const InputContainer = styled.div`
 
 const FormBlock = () => {
   return (
-    <GrayBox>
+    <GrayBox noMargin>
       <Title margin="0 0 2rem 0" color={theme.pink}>
         Tell us about your project and let’s create remarkable<sup>®</sup>{" "}
         together.

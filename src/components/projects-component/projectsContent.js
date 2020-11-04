@@ -76,6 +76,7 @@ const Title = styled.h3`
   color: white;
   font-family: ${({ theme }) => theme.fonts.headingFont};
   font-size: 30px;
+  font-weight: 400;
 
   @media ${device.tablet} {
     font-size: 32px;

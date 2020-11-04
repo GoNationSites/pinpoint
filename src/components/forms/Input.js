@@ -4,7 +4,7 @@ import { device } from "../../global-styles"
 
 const Label = styled.label`
   color: #5c666f;
-  font-size: 25px;
+  font-size: 18px;
   text-transform: uppercase;
   font-weight: bold;
 
@@ -22,7 +22,7 @@ const StyledInput = styled.input`
   font-size: 25px;
   padding: 0 1rem;
   @media ${device.laptopL} {
-    height: 73px;
+    height: 63px;
   }
 `
 

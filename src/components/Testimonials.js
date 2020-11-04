@@ -29,6 +29,7 @@ const Section = styled.section`
     color: ${({ theme }) => theme.light2};
     font-family: ${({ theme }) => theme.fonts.headingFont};
     margin: 0 auto 42px auto;
+    font-weight: 500;
 
     @media ${device.tablet} {
       font-size: 42px;

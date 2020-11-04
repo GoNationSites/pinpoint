@@ -12,11 +12,14 @@ const Container = styled.section`
     margin-top: 4rem;
     padding: 4.5rem;
     margin-left: 9.5rem;
+    ${({ noMargin }) =>
+      noMargin ? "margin: 0; max-width: 1200px; margin-left: auto;" : ""}
   }
+  ${({ noMargin }) => (noMargin ? "margin: 0;" : "")}
 `
 
-const GrayBox = ({ children }) => {
-  return <Container>{children}</Container>
+const GrayBox = ({ children, noMargin }) => {
+  return <Container noMargin>{children}</Container>
 }
 
 export default GrayBox

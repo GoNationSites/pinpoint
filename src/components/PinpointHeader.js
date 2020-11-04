@@ -24,7 +24,7 @@ const Box = styled.div`
   p {
     line-height: 1.75rem;
     font-size: 18px;
-    font-weight: 100;
+    font-weight: 300;
     max-width: 674px;
   }
 

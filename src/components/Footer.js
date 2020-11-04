@@ -118,7 +118,7 @@ const Footer = () => {
           </FooterContentSquare>
         </div>
         <div>
-          <FooterContentSquare title="Stay connected">
+          <FooterContentSquare title="Stay Connected">
             <p>Subscribe to our newsletter for share-worthy experiences</p>
             <InputWrapper>
               <input type="text" />

@@ -64,17 +64,11 @@ const MeetTheTeam = ({ data }) => {
           ""
         )}
       </Element>
-      <MemberWrapper>
-        {teamMembers
-          .sort((a, b) => (a.node.createdAt > b.node.createdAt ? 1 : -1))
-          .map(({ node }) => (
-            <Box>
-              <Link to={"activeMember"} smooth duration={500} delay={250}>
-                <TeamCard data={node} setActiveMember={setActiveMember} />
-              </Link>
-            </Box>
-          ))}
-      </MemberWrapper>
+      {teamMembers
+        .sort((a, b) => (a.node.createdAt > b.node.createdAt ? 1 : -1))
+        .map(({ node }, idx) => (
+          <TeamCard data={node} idx={idx} setActiveMember={setActiveMember} />
+        ))}
 
       <Banner fillColor="secondary">
         <Title>Want to pick our brains about a project?</Title>

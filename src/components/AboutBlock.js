@@ -95,7 +95,7 @@ const AboutBlock = () => {
   return (
     <AboutRow>
       <ContentLeft>
-        <Title>Beginnings</Title>
+        <Title>Our Story</Title>
         <AboutText>
           Pinpoint began by helping small businesses in southern Connecticut
           promote themselves through graphic design, printing, and promotional
