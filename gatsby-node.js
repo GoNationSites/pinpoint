@@ -25,10 +25,6 @@ exports.createPages = async ({ graphql, actions }) => {
                 url
               }
             }
-            stats {
-              headingTitle
-              bulletPoints
-            }
           }
         }
       }

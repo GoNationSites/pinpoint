@@ -38,6 +38,11 @@ const Box = styled.div`
   }
 `
 
+const Container = styled.div`
+  max-width: 1600px;
+  margin: auto;
+`
+
 const MeetTheTeam = ({ data }) => {
   const [activeMember, setActiveMember] = useState(null)
   const teamMembers = data.allSanityTeamMember.edges
@@ -64,11 +69,13 @@ const MeetTheTeam = ({ data }) => {
           ""
         )}
       </Element>
-      {teamMembers
-        .sort((a, b) => (a.node.createdAt > b.node.createdAt ? 1 : -1))
-        .map(({ node }, idx) => (
-          <TeamCard data={node} idx={idx} setActiveMember={setActiveMember} />
-        ))}
+      <Container>
+        {teamMembers
+          .sort((a, b) => (a.node.createdAt > b.node.createdAt ? 1 : -1))
+          .map(({ node }, idx) => (
+            <TeamCard data={node} idx={idx} setActiveMember={setActiveMember} />
+          ))}
+      </Container>
 
       <Banner fillColor="secondary">
         <Title>Want to pick our brains about a project?</Title>
@@ -86,23 +93,20 @@ export default MeetTheTeam
 
 export const query = graphql`
   {
-    allSanityTeamMember {
+    allSanityTeamMember(sort: { fields: _createdAt }) {
       edges {
         node {
-          person {
-            position
-            image {
-              asset {
-                fluid {
-                  src
-                  srcWebp
-                }
+          memberName
+          memberImage {
+            asset {
+              fluid {
+                src
+                srcSetWebp
               }
             }
-            bio
           }
-          memberName
-          _createdAt
+          bio
+          position
         }
       }
     }

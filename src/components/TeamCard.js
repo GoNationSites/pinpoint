@@ -135,8 +135,8 @@ const Section = styled.div`
 
 const TeamCard = ({ data, setActiveMember, idx }) => {
   const { memberName } = data
-  const { position, bio } = data.person
-  const img = data.person.image.asset.fluid.src
+  const { position, bio } = data
+  const img = data.memberImage.asset.fluid.src
   return (
     <Section>
       <Flex idx={idx}>

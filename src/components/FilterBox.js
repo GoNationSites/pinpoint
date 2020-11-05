@@ -28,12 +28,21 @@ const CategoryPill = styled.span`
   font-weight: 500;
   border: 1px solid ${theme.text};
   padding: 0.25rem 1rem;
-  margin: .5rem .5rem .5rem 0;
+  margin: 0.5rem 0.5rem 0.5rem 0;
   cursor: pointer;
+
+  ${({ isActive }) =>
+    isActive
+      ? `
+    background: ${theme.alternate};
+    color: white;
+    border-color: ${theme.alternate};
+  `
+      : ""}
 
   @media ${device.tablet} {
     padding: 0.75rem 2rem;
-    margin: 1rem 2rem 1rem 0;v
+    margin: 1rem 2rem 1rem 0;
   }
 
   &:hover {
@@ -54,15 +63,17 @@ const ClearFiltersPill = styled.span`
   cursor: pointer;
 `
 
-const FilterBox = () => {
-  const categories = [
-    "Branding + Experiential",
-    "Creative Services",
-    "Fabrication",
-    "Signs & Vinyl Graphics",
-    "Promotional Products + apparel",
-    "Print Collateral + Direct Mail",
-  ]
+const FilterBox = ({ setActiveFilters, activeFilters, categories }) => {
+  const handleClick = category => {
+    if (activeFilters.includes(category)) {
+      // remove it
+      setActiveFilters([...activeFilters].filter(f => f !== category))
+    } else {
+      setActiveFilters([...activeFilters, category])
+      //add it
+    }
+  }
+
   return (
     <Box>
       <Title
@@ -83,11 +94,18 @@ const FilterBox = () => {
       </Title>
       <CategoriesContainer>
         {categories.map(category => (
-          <CategoryPill>{category}</CategoryPill>
+          <CategoryPill
+            isActive={activeFilters.includes(category)}
+            onClick={() => handleClick(category)}
+          >
+            {category}
+          </CategoryPill>
         ))}
       </CategoriesContainer>
       <div>
-        <ClearFiltersPill>Clear Filters</ClearFiltersPill>
+        <ClearFiltersPill onClick={() => setActiveFilters([])}>
+          Clear Filters
+        </ClearFiltersPill>
       </div>
     </Box>
   )

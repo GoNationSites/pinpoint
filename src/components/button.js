@@ -36,7 +36,6 @@ const Btn = styled.button`
 
   &:hover {
     background: ${({ color, theme }) => getColor(color, theme)};
-    ${({ color }) => console.log(color)};
     color: ${({ color, theme }) => (color !== "primary" ? theme.text : "#fff")};
     transition: all 0.4s;
   }
