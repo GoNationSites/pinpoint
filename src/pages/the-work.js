@@ -56,15 +56,32 @@ const Flex = styled.div`
 `
 
 const ProjectTitle = styled.h4`
-  color: ${({ theme }) => theme.text};
+  color: white;
   position: absolute;
   bottom: 0.25rem;
   left: 0rem;
   font-size: 18px;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 1rem 2rem;
+  margin: 0;
+  color: white;
+  font-family: ${({ theme }) => theme.fonts.bodyFont};
+  font-size: 33px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 2rem;
+  @media ${device.laptop} {
+    font-size: 33px;
+  }
 `
 
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #00000033;
+`
 const TheWork = ({ data }) => {
   const [activeFilters, setActiveFilters] = useState([])
   const { edges } = data.allSanityProject
