@@ -84,12 +84,21 @@ const Logo = styled.div`
 const TestimonialFilterContainer = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  @media ${device.laptop} {
+    flex-direction: row;
+  }
 `
 
 const FilterTag = styled.a`
   margin: 0 1rem;
   cursor: pointer;
   text-transform: capitalize;
+  margin-bottom: 1rem;
+  @media ${device.laptop} {
+    margin-bottom: 0;
+    flex-direction: row;
+  }
   ${({ active, theme }) =>
     active
       ? `
@@ -133,16 +142,10 @@ const Testimonials = () => {
     },
   }
 
-  const handleFilterClick = tag => {
-    if (activeFilters.includes(tag)) {
-      // remove it
-      const removedItem = activeFilters.filter(flt => flt !== tag)
-      setActiveFilters(removedItem)
-    } else {
-      setActiveFilters([...activeFilters, tag])
-      // add it
-    }
-  }
+  const handleFilterClick = tag =>
+    activeFilters.includes(tag)
+      ? activeFilters.filter(flt => flt !== tag)
+      : setActiveFilters([...activeFilters, tag])
 
   return (
     <Section>

@@ -3,6 +3,8 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import Slide from "react-reveal/Slide"
 
+import { device } from "../global-styles"
+
 const Banner = styled.div`
   display: flex;
   justify-content: center;
@@ -12,6 +14,7 @@ const Banner = styled.div`
   transition: all 0.5s;
   min-height: 200px;
   cursor: pointer;
+  padding: 2rem 1.5rem;
 
   > div {
   }
@@ -20,11 +23,14 @@ const Banner = styled.div`
     text-align: center;
     color: white;
     font-family: ${({ theme }) => theme.fonts.bodyFont};
-    font-size: 2rem;
+    font-size: 1.5rem;
     transition: ease all 0.3s;
     text-transform: uppercase;
     font-weight: 600;
     transition: all 0.5s;
+    @media ${device.tablet} {
+      font-size: 2rem;
+    }
   }
   img {
     transition: ease all 0.3s;

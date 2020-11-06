@@ -34,6 +34,12 @@ const Section = styled.section`
     padding: 0 1rem 2rem 1rem;
   }
 
+  @media (min-width: 768px) {
+    .mobile-break {
+      display: none;
+    }
+  }
+
   /* gross... */
   ${({ tagline }) =>
     tagline
@@ -121,10 +127,12 @@ const IndexPage = ({ data }) => {
       </Section>
 
       <Banner fillColor={"primary"}>
-        <Title>Ready to make an impact?</Title>
+        <Title>
+          Ready to make <br className="mobile-break" /> an impact?
+        </Title>
         <div style={{ textAlign: "center" }}>
           <Button to="/contact" color="#fff">
-            TELL US ABOUT YOUR NEEDS
+            TELL US ABOUT YOUR NEXT PROJECT
           </Button>
         </div>
       </Banner>

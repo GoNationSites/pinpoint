@@ -98,9 +98,10 @@ const Flex = styled.div`
   align-items: center;
 
   h3 {
+    text-transform: uppercase;
     font-size: 2rem;
     margin: 1rem 0 1rem 0;
-    color: ${({ theme }) => theme.secondary};
+
     @media ${device.laptop} {
       font-size: 4rem;
     }
@@ -108,6 +109,8 @@ const Flex = styled.div`
   h4 {
     font-size: 1.5rem;
     margin: 0;
+    margin-bottom: 2rem;
+    color: ${({ theme }) => theme.secondary};
     @media ${device.laptop} {
       font-size: 2rem;
     }
@@ -115,6 +118,7 @@ const Flex = styled.div`
 
   p {
     line-height: 1.75rem;
+    color: #111;
   }
 
   @media ${device.laptop} {
@@ -125,6 +129,7 @@ const Flex = styled.div`
     flex-direction: row;
     > div {
       width: 50%;
+      padding: 1rem;
     }
   }
 `
