@@ -17,12 +17,14 @@ const Banner = styled.div`
   }
 
   h4 {
-    max-width: 350px;
     text-align: center;
     color: white;
     font-family: ${({ theme }) => theme.fonts.bodyFont};
     font-size: 2rem;
     transition: ease all 0.3s;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 0.5s;
   }
   img {
     transition: ease all 0.3s;

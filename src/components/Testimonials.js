@@ -30,6 +30,8 @@ const Section = styled.section`
     font-family: ${({ theme }) => theme.fonts.headingFont};
     margin: 0 auto 42px auto;
     font-weight: 500;
+    max-width: 1200px;
+    margin: auto;
 
     @media ${device.tablet} {
       font-size: 42px;
@@ -59,49 +61,6 @@ const Section = styled.section`
   }
 `
 
-const Flex = styled.div`
-  display: block;
-  justify-content: space-between;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-width: 1500px;
-  margin: auto;
-  align-items: center;
-  text-align: center;
-  @media ${device.mobileL} {
-    flex-direction: row;
-    > div {
-      flex: 1 1 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
-  @media ${device.laptop} {
-    > div {
-      flex: 1 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
-  img {
-    max-width: 200px;
-    width: 100%;
-    margin-bottom: 2.5rem;
-
-    @media ${device.laptopXL} {
-      max-width: 300px;
-    }
-
-    @media ${device.tablet} {
-      margin-bottom: 0;
-    }
-  }
-`
-
 const Logo = styled.div`
   height: 100%;
   display: flex;
@@ -122,17 +81,38 @@ const Logo = styled.div`
   }
 `
 
+const TestimonialFilterContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+const FilterTag = styled.a`
+  margin: 0 1rem;
+  cursor: pointer;
+  text-transform: capitalize;
+  ${({ active, theme }) =>
+    active
+      ? `
+    color: ${theme.primary};
+  `
+      : ""}
+`
+
 const Testimonials = () => {
   const [hovered, setHovered] = useState(false)
+  const [activeFilters, setActiveFilters] = useState([])
   const logos = [
-    { image: Jags, seo: "Jacksonville Jaguars" },
-    { image: LiveNation, seo: "LiveNation" },
-    { image: Mastercard, seo: "Mastercard" },
-    { image: Yale, seo: "Yale" },
-    { image: Comcast, seo: "Comcast" },
-    { image: AEW, seo: "AEW" },
-    { image: IHeart, seo: "iHeart" },
+    { image: Jags, seo: "Jacksonville Jaguars", tag: "sports" },
+    { image: LiveNation, seo: "LiveNation", tag: "entertainment" },
+    { image: Mastercard, seo: "Mastercard", tag: "retail" },
+    { image: Yale, seo: "Yale", tag: "collegiate" },
+    { image: Comcast, seo: "Comcast", tag: "entertainment" },
+    { image: AEW, seo: "AEW", tag: "entertainment" },
+    { image: IHeart, seo: "iHeart", tag: "entertainment" },
   ]
+
+  const filterTags = ["sports", "entertainment", "retail", "collegiate"]
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -152,6 +132,18 @@ const Testimonials = () => {
       items: 1,
     },
   }
+
+  const handleFilterClick = tag => {
+    if (activeFilters.includes(tag)) {
+      // remove it
+      const removedItem = activeFilters.filter(flt => flt !== tag)
+      setActiveFilters(removedItem)
+    } else {
+      setActiveFilters([...activeFilters, tag])
+      // add it
+    }
+  }
+
   return (
     <Section>
       <h3>
@@ -159,7 +151,7 @@ const Testimonials = () => {
         thick or thin.
       </h3>
       <p>
-        Don’t believe us? Ask them{" "}
+        Don’t believe us? Ask them
         <span>
           <Down fill="#D50032" />
         </span>
@@ -176,13 +168,33 @@ const Testimonials = () => {
           infinite={true}
           arrows={false}
         >
-          {logos.map(({ image, seo }) => (
-            <Logo>
-              <img src={image} alt={seo} />
-            </Logo>
-          ))}
+          {logos
+            .filter(({ tag }) =>
+              !activeFilters.length ? tag : activeFilters.includes(tag)
+            )
+            .map(({ image, seo }) => (
+              <Logo>
+                <img src={image} alt={seo} />
+              </Logo>
+            ))}
         </Carousel>
       </div>
+      <TestimonialFilterContainer>
+        <FilterTag
+          onClick={() => setActiveFilters([])}
+          active={!activeFilters.length}
+        >
+          All
+        </FilterTag>
+        {filterTags.map(tag => (
+          <FilterTag
+            onClick={() => handleFilterClick(tag)}
+            active={activeFilters.includes(tag)}
+          >
+            {tag}
+          </FilterTag>
+        ))}
+      </TestimonialFilterContainer>
     </Section>
   )
 }
