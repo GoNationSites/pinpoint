@@ -119,6 +119,7 @@ const Flex = styled.div`
   p {
     line-height: 1.75rem;
     color: #111;
+    white-space: break-spaces;
   }
 
   @media ${device.laptop} {
