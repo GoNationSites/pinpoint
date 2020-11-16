@@ -112,15 +112,21 @@ const Testimonials = () => {
   const [activeFilters, setActiveFilters] = useState([])
   const logos = [
     { image: Jags, seo: "Jacksonville Jaguars", tag: "sports" },
-    { image: LiveNation, seo: "LiveNation", tag: "entertainment" },
+    { image: LiveNation, seo: "LiveNation", tag: "music" },
     { image: Mastercard, seo: "Mastercard", tag: "retail" },
-    { image: Yale, seo: "Yale", tag: "collegiate" },
+    { image: Yale, seo: "Yale", tag: "higher education" },
     { image: Comcast, seo: "Comcast", tag: "entertainment" },
     { image: AEW, seo: "AEW", tag: "entertainment" },
     { image: IHeart, seo: "iHeart", tag: "entertainment" },
   ]
 
-  const filterTags = ["sports", "entertainment", "retail", "collegiate"]
+  const filterTags = [
+    "sports",
+    "entertainment",
+    "retail",
+    "higher education",
+    "music",
+  ]
 
   const responsive = {
     superLargeDesktop: {

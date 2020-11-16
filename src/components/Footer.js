@@ -57,6 +57,9 @@ const InputWrapper = styled.div`
     border-radius: 30px;
     color: white;
     font-size: 18px;
+    &::placeholder {
+      color: ${({ theme }) => theme.glass};
+    }
   }
   span {
     position: absolute;
@@ -121,7 +124,7 @@ const Footer = () => {
           <FooterContentSquare title="Stay Connected">
             <p>Subscribe to our newsletter for share-worthy experiences</p>
             <InputWrapper>
-              <input type="text" />
+              <input type="text" placeholder="Enter your email" />
               <span>
                 <Right fill="#1E242B" width={"30px"} />
               </span>

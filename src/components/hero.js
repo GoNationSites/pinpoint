@@ -14,6 +14,21 @@ const HeroHeader = styled.header`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .video-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
   @media ${device.mobileL} {
     padding: 0 2rem;
   }
@@ -29,6 +44,7 @@ const HeroHeader = styled.header`
     margin-bottom: 0;
     text-align: center;
     letter-spacing: 1px;
+    z-index: 9;
     @media ${device.mobileL} {
       font-size: 60px;
     }
@@ -46,6 +62,7 @@ const HeroHeader = styled.header`
     font-weight: bold;
     text-shadow: 2px 5px 10px #0000004d;
     text-align: center;
+    z-index: 9;
     @media ${device.mobileL} {
       font-size: 35px;
     }
@@ -69,6 +86,19 @@ const Hero = ({ img, text, mainHero }) => {
           <ReactTextRotator content={text} time={5000} startDelay={500} /> is
           done <span>intentionally</span>
         </h3>
+        <div className="video-container">
+          <video autoPlay muted playsInline>
+            <source
+              src="https://player.vimeo.com/external/142151259.hd.mp4?s=ae370a00b1f0433bfccf9c96106260f704112b3f&profile_id=113"
+              type="video/mp4"
+            />
+            <source
+              src="https://player.vimeo.com/external/142151259.hd.mp4?s=ae370a00b1f0433bfccf9c96106260f704112b3f&profile_id=113"
+              type="video/ogg"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </HeroHeader>
     )
   }

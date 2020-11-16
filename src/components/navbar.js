@@ -22,6 +22,7 @@ const Nav = styled.nav`
   z-index: 9999999999;
   @media ${device.laptop} {
     padding: 20px 140px;
+    align-items: center;
   }
 
   img {
@@ -34,7 +35,7 @@ const Nav = styled.nav`
 
 const NavItem = styled.div`
   &:not(:last-of-type) {
-    padding-right: 90px;
+    padding-right: 60px;
   }
   .children-route {
     font-size: 20px;
@@ -47,7 +48,7 @@ const NavItem = styled.div`
   }
   a {
     font-size: 20px;
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme, cta }) => (cta ? "white" : theme.text)};
     text-transform: uppercase;
     text-decoration: none;
     font-weight: 600;
@@ -55,6 +56,8 @@ const NavItem = styled.div`
     display: inline-block;
     margin-bottom: 1rem;
     background: ${({ theme, cta }) => (cta ? theme.primary : "none")};
+    padding: ${({ theme, cta }) => (cta ? "1rem 2rem" : "")};
+    border-radius: ${({ cta }) => (cta ? "49px" : "")};
 
     @media ${device.laptop} {
       font-size: 18px;
@@ -62,7 +65,7 @@ const NavItem = styled.div`
     }
 
     &:hover {
-      color: ${({ theme, route }) => getColor(route)};
+      color: ${({ theme, route, cta }) => (cta ? "white" : getColor(route))};
       transition: all 0.5s;
     }
   }
@@ -89,6 +92,7 @@ const Flex = styled.div`
     flex-direction: row;
     justify-content: flex-end;
     display: flex;
+    align-items: center;
   }
 `
 
@@ -256,7 +260,6 @@ const Navbar = () => {
                 route={route.title}
                 key={route.title}
                 withDropdown={route.title === "about"}
-                cta={route.cta}
               >
                 <Link
                   onMouseEnter={() =>
@@ -292,6 +295,7 @@ const Navbar = () => {
                 route={route.title}
                 key={route.title}
                 withDropdown={route.title === "about"}
+                cta={route.cta}
               >
                 <a
                   key={route.title}
