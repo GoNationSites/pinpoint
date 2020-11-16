@@ -79,6 +79,34 @@ const Button = ({
     }
   }
 
+  if (to.includes("http")) {
+    return (
+      <a href={to} target="_blank" rel="noopener noreferrer">
+        <Btn
+          bg={bg}
+          variation={variation}
+          color={color}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          centerText
+          style={style}
+        >
+          <span>{children}</span>
+          {noArrow ? (
+            ""
+          ) : (
+            <span className="icon">
+              <Right
+                width={"35px"}
+                fill={iconColor ? iconColor : getIconFill()}
+              />
+            </span>
+          )}
+        </Btn>
+      </a>
+    )
+  }
+
   return (
     <Link to={to}>
       <Btn

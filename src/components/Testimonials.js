@@ -143,9 +143,7 @@ const Testimonials = () => {
   }
 
   const handleFilterClick = tag =>
-    activeFilters.includes(tag)
-      ? activeFilters.filter(flt => flt !== tag)
-      : setActiveFilters([...activeFilters, tag])
+    activeFilters.includes(tag) ? setActiveFilters([]) : setActiveFilters([tag])
 
   return (
     <Section>

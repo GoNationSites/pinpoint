@@ -54,6 +54,7 @@ const NavItem = styled.div`
     transition: all 0.5s;
     display: inline-block;
     margin-bottom: 1rem;
+    background: ${({ theme, cta }) => (cta ? theme.primary : "none")};
 
     @media ${device.laptop} {
       font-size: 18px;
@@ -205,6 +206,7 @@ const routes = [
     title: "Promo Store",
     link:
       "https://experiencepinpoint.espwebsite.com/?referrerPage=ProductResults&refPgId=524572643&PCUrl=1",
+    cta: true,
   },
 ]
 
@@ -254,6 +256,7 @@ const Navbar = () => {
                 route={route.title}
                 key={route.title}
                 withDropdown={route.title === "about"}
+                cta={route.cta}
               >
                 <Link
                   onMouseEnter={() =>

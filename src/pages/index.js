@@ -131,7 +131,7 @@ const IndexPage = ({ data }) => {
           Ready to make <br className="mobile-break" /> an impact?
         </Title>
         <div style={{ textAlign: "center" }}>
-          <Button to="/contact" color="#fff">
+          <Button to="https://www.typeform.com/" color="#fff">
             TELL US ABOUT YOUR NEXT PROJECT
           </Button>
         </div>
