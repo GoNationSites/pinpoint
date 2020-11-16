@@ -55,7 +55,8 @@ const NumbersContainer = styled.div`
   padding: 0 1rem;
   @media ${device.laptop} {
     padding: 0 1.5rem;
-    width: 100%;
+    /* width: 100%; */
+    width: calc(100% + 138px);
   }
 `
 

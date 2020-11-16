@@ -22,7 +22,7 @@ const Box = styled.div`
   position: relative;
 
   @media ${device.laptopL} {
-    width: 65%;
+    width: 50%;
   }
 `
 
@@ -60,7 +60,8 @@ const NumbersContainer = styled.div`
   padding: 0 1rem;
   @media ${device.laptop} {
     padding: 0 1.5rem;
-    width: 100%;
+    /* width: 100%; */
+    width: calc(100% + 185px);
   }
 `
 

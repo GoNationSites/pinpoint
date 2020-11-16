@@ -57,7 +57,11 @@ const ClickBanner = ({ text = "Explore the pinpoint promo store" }) => {
     </Slide>
   )
   return (
-    <Link to="/contact">
+    <a
+      href="https://experiencepinpoint.espwebsite.com/?referrerPage=ProductResults&refPgId=524572643&PCUrl=1"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <Banner
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -65,7 +69,7 @@ const ClickBanner = ({ text = "Explore the pinpoint promo store" }) => {
       >
         {!isHovered ? nonHoverContent() : hoverContent()}
       </Banner>
-    </Link>
+    </a>
   )
 }
 

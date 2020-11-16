@@ -201,6 +201,11 @@ const routes = [
     title: "contact",
     link: "/contact",
   },
+  {
+    title: "Promo Store",
+    link:
+      "https://experiencepinpoint.espwebsite.com/?referrerPage=ProductResults&refPgId=524572643&PCUrl=1",
+  },
 ]
 
 const dropdownItems = {
@@ -243,42 +248,59 @@ const Navbar = () => {
           />
         </HamburgerContainer>
         <Flex isOpen={isOpen}>
-          {routes.map(route => (
-            <NavItem
-              route={route.title}
-              key={route.title}
-              withDropdown={route.title === "about"}
-            >
-              <Link
-                onMouseEnter={() =>
-                  route.title === "about" && setShowDropdown(route.title)
-                }
-                activeStyle={{ color: getColor(route.title) }}
-                to={route.link}
+          {routes.map(route =>
+            !route.link.includes("http") ? (
+              <NavItem
+                route={route.title}
+                key={route.title}
+                withDropdown={route.title === "about"}
               >
-                {route.title}
-              </Link>
-              {route.childrenRoutes
-                ? route.childrenRoutes.map(route => (
-                    <Link className="children-route" to={route.link}>
-                      {route.title}
-                    </Link>
-                  ))
-                : ""}
-              {showDropdown && route.title === "about" ? (
-                <DropdownContainer onMouseLeave={() => setShowDropdown(null)}>
-                  <>
-                    <div class="arrow-up"></div>
-                    {dropdownItems[showDropdown].map(el => (
-                      <Link to={el.link}>{el.title}</Link>
-                    ))}
-                  </>
-                </DropdownContainer>
-              ) : (
-                ""
-              )}
-            </NavItem>
-          ))}
+                <Link
+                  onMouseEnter={() =>
+                    route.title === "about" && setShowDropdown(route.title)
+                  }
+                  activeStyle={{ color: getColor(route.title) }}
+                  to={route.link}
+                >
+                  {route.title}
+                </Link>
+                {route.childrenRoutes
+                  ? route.childrenRoutes.map(route => (
+                      <Link className="children-route" to={route.link}>
+                        {route.title}
+                      </Link>
+                    ))
+                  : ""}
+                {showDropdown && route.title === "about" ? (
+                  <DropdownContainer onMouseLeave={() => setShowDropdown(null)}>
+                    <>
+                      <div class="arrow-up"></div>
+                      {dropdownItems[showDropdown].map(el => (
+                        <Link to={el.link}>{el.title}</Link>
+                      ))}
+                    </>
+                  </DropdownContainer>
+                ) : (
+                  ""
+                )}
+              </NavItem>
+            ) : (
+              <NavItem
+                route={route.title}
+                key={route.title}
+                withDropdown={route.title === "about"}
+              >
+                <a
+                  key={route.title}
+                  href={route.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {route.title}
+                </a>
+              </NavItem>
+            )
+          )}
         </Flex>
       </Box>
     </Nav>
