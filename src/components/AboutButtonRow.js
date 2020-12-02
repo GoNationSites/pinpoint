@@ -117,13 +117,21 @@ const AboutButtonRow = () => {
         return (
           <ActiveContent>
             <h4>
-              {console.log("this is happening in the background")}
               <animated.span>
                 {props.number.interpolate(val => Math.floor(val))}
               </animated.span>
               +
             </h4>
             <p>{btn.title}</p>
+          </ActiveContent>
+        )
+      case "Presence of Pinpoint’s products or services":
+        return (
+          <ActiveContent>
+            <p>Presence of Pinpoint's products or services:</p>
+            <h4>
+              <animated.span>37 States</animated.span>+
+            </h4>
           </ActiveContent>
         )
       default:

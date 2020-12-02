@@ -137,8 +137,6 @@ const IndexPage = ({ data }) => {
         </div>
       </Banner>
       <Testimonials />
-      <ClickBanner></ClickBanner>
-      {/* <CTABanner></CTABanner> */}
     </Layout>
   )
 }

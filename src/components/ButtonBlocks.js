@@ -43,7 +43,7 @@ const TextContainer = styled.div`
   position: absolute;
   /* height: 100%; */
   left: 0px;
-  bottom: 0;
+  bottom: 5px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -53,9 +53,9 @@ const TextContainer = styled.div`
 
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 
-  @media ${device.laptopXL} {
+  /* @media ${device.laptopXL} {
     left: -100px;
-  }
+  } */
   p {
     margin: 0;
     color: white;

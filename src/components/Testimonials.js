@@ -14,6 +14,18 @@ import Yale from "../assets/yale.png"
 import Comcast from "../assets/comcast.svg"
 import AEW from "../assets/aew.svg"
 import IHeart from "../assets/iheart.png"
+import Genesis from "../assets/genesis.png"
+import IPG from "../assets/ipg.png"
+import Planet_Fitness from "../assets/planet-fitness.png"
+import Toyota from "../assets/toyota.png"
+import Verbo from "../assets/vrbo.png"
+import Washington from "../assets/washington.png"
+import Holberton from "../assets/holberton.png"
+import CTF from "../assets/ctf.png"
+import AHA from "../assets/aha.png"
+import PG from "../assets/p_g.png"
+import PetParadise from "../assets/pet-paradise.png"
+import Pirelli from "../assets/pirelli.png"
 
 const Section = styled.section`
   padding: 2rem 1.5rem;
@@ -112,20 +124,33 @@ const Testimonials = () => {
   const [activeFilters, setActiveFilters] = useState([])
   const logos = [
     { image: Jags, seo: "Jacksonville Jaguars", tag: "sports" },
-    { image: LiveNation, seo: "LiveNation", tag: "music" },
-    { image: Mastercard, seo: "Mastercard", tag: "retail" },
+    { image: LiveNation, seo: "LiveNation", tag: "entertainment" },
+    { image: Mastercard, seo: "Mastercard", tag: "consumer + other" },
     { image: Yale, seo: "Yale", tag: "higher education" },
-    { image: Comcast, seo: "Comcast", tag: "entertainment" },
+    { image: Comcast, seo: "Comcast", tag: "media" },
     { image: AEW, seo: "AEW", tag: "entertainment" },
     { image: IHeart, seo: "iHeart", tag: "entertainment" },
+    { image: Genesis, seo: "Genesis", tag: "consumer + other" },
+    { image: IPG, seo: "IPG", tag: "media" },
+    { image: Planet_Fitness, seo: "Planet Fitness", tag: "sports" },
+    { image: Toyota, seo: "Toyota", tag: "consumer + other" },
+    { image: Verbo, seo: "Verbo", tag: "consumer + other" },
+    { image: Washington, seo: "Washington", tag: "sports" },
+    { image: Holberton, seo: "Holberton", tag: "higher education" },
+    { image: CTF, seo: "ctf", tag: "non-profits" },
+    { image: AHA, seo: "aha", tag: "non-profits" },
+    { image: PG, seo: "pg", tag: "consumer + other" },
+    { image: PetParadise, seo: "pet paradise", tag: "consumer + other" },
+    { image: Pirelli, seo: "pirelli", tag: "consumer + other" },
   ]
 
   const filterTags = [
     "sports",
     "entertainment",
-    "retail",
+    "media",
+    "non-profits",
     "higher education",
-    "music",
+    "consumer + other",
   ]
 
   const responsive = {

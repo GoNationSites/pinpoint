@@ -12,6 +12,7 @@ import "../index.css"
 
 import Footer from "../components/Footer"
 import Navbar from "../components/navbar"
+import ClickBanner from "../components/ClickBanner"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -28,6 +29,7 @@ const Layout = ({ children }) => {
     <>
       <Navbar />
       <main style={{ maxWidth: "2000px", margin: "auto" }}>{children}</main>
+      <ClickBanner></ClickBanner>
       <Footer />
     </>
   )
