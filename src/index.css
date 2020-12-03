@@ -47,3 +47,25 @@ pre {
     opacity: 0;
     transition: opacity 200ms;
 }
+
+
+/* CONSTANT CONTACT */
+
+#___gatsby div.ctct-form-embed form.ctct-form-custom input.ctct-form-element {
+    width: 100%;
+    background: transparent;
+    border: 4px solid #5C666F;
+    padding: 12px;
+    border-radius: 30px;
+    color: white;
+    font-size: 18px;
+    background-color: transparent;
+}
+
+#___gatsby div.ctct-form-embed div.ctct-form-defaults p.ctct-gdpr-text {
+    display: none;
+}
+
+#___gatsby div.ctct-form-embed form.ctct-form-custom label.ctct-form-label {
+    display: none;
+}

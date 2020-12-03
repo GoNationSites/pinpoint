@@ -123,12 +123,18 @@ const Footer = () => {
         <div>
           <FooterContentSquare title="Stay Connected">
             <p>Subscribe to our newsletter for share-worthy experiences</p>
-            <InputWrapper>
+
+            <div
+              class="ctct-inline-form"
+              data-form-id="319e010b-d0e2-4465-9b08-844027b9bb66"
+            ></div>
+
+            {/* <InputWrapper>
               <input type="text" placeholder="Enter your email" />
               <span>
                 <Right fill="#1E242B" width={"30px"} />
               </span>
-            </InputWrapper>
+            </InputWrapper> */}
           </FooterContentSquare>
         </div>
       </Container>
