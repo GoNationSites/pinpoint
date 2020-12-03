@@ -41,6 +41,20 @@ const Box = styled.div`
 const Container = styled.div`
   max-width: 1200px;
   margin: auto;
+
+  h3 {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    @media ${device.laptop} {
+      font-size: 2.75rem;
+    }
+  }
+  .quote {
+    text-align: center;
+    color: white;
+    font-style: italic;
+  }
 `
 
 const MeetTheTeam = ({ data }) => {
@@ -69,6 +83,16 @@ const MeetTheTeam = ({ data }) => {
           ""
         )}
       </Element>
+      <Banner fillColor="primary">
+        <Container mt>
+          <h3>WE BRING BRANDS TO LIFE</h3>
+          <p className="quote">
+            Every product we make is designed with intention. Every experience
+            we create is devised to captivate audiences.{" "}
+          </p>
+        </Container>
+      </Banner>
+
       <Container>
         {teamMembers
           .sort((a, b) => (a.node.createdAt > b.node.createdAt ? 1 : -1))

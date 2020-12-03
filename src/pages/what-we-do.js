@@ -26,8 +26,14 @@ import Signs from "../assets/what-we-do/signs.png"
 import Strategy from "../assets/what-we-do/strategy.png"
 import Mail from "../assets/what-we-do/mail.png"
 
-import whatwedoA from "../assets/whatwedo_1.png"
-import whatwedoB from "../assets/whatwedo_2.png"
+import whatwedoA from "../assets/whatwedo_1.jpg"
+import whatwedoB from "../assets/whatwedo_2.jpg"
+import whatwedoC from "../assets/whatwedo_3.jpg"
+import whatwedoD from "../assets/whatwedo_4.jpg"
+import whatwedoE from "../assets/whatwedo_5.jpg"
+import whatwedoF from "../assets/whatwedo_6.jpg"
+import whatwedoG from "../assets/whatwedo_7.jpg"
+import whatwedoH from "../assets/whatwedo_8.jpg"
 
 const HPText = styled.p`
   color: ${({ theme }) => theme.light2};
@@ -96,7 +102,7 @@ const WhatWeDo = ({ data }) => {
       description: [
         "You can see the strategy take shape. Here's where we crank out mood boards, color palettes, headlines, copy, layouts, renderings—whatever the agreed-upon scope requires. We communicate with you throughout to ensure the final product is exactly right.",
       ],
-      img: whatwedoB,
+      img: whatwedoC,
     },
 
     {
@@ -105,7 +111,7 @@ const WhatWeDo = ({ data }) => {
       description: [
         "The creative comes to life! Our in-house team works tirelessly to assemble all aspects of production. Structures built, vinyl printed, products procured—you name it. It's all hands on deck to ensure a remarkable finished product.",
       ],
-      img: whatwedoB,
+      img: whatwedoD,
     },
 
     {
@@ -114,7 +120,7 @@ const WhatWeDo = ({ data }) => {
       description: [
         "We provide you with final campaign deliverables, on-site installation, and event management. Problem-solving to the end, we speed your project over the finish line.",
       ],
-      img: whatwedoB,
+      img: whatwedoE,
     },
 
     {
@@ -123,7 +129,7 @@ const WhatWeDo = ({ data }) => {
       description: [
         "Like a championship team, we love celebrating the win. And we review the process to tweak our game plan for the future, to continually improve the experience.",
       ],
-      img: whatwedoB,
+      img: whatwedoF,
     },
   ]
   const [activeShowcase, setActiveShowcase] = useState(showcaseData[0])
