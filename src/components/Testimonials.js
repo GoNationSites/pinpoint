@@ -27,7 +27,7 @@ import PG from "../assets/p_g.png"
 import PetParadise from "../assets/pet-paradise.png"
 import Pirelli from "../assets/pirelli.png"
 import Manhatan from "../assets/manhattan-center.png"
-
+// rename pg
 const Section = styled.section`
   padding: 2rem 1.5rem;
   text-align: center;
