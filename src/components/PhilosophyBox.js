@@ -2,9 +2,9 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { device } from "../global-styles"
 
-import LetsAbout from "../assets/lets_about.png"
-import RemarkableAbout from "../assets/remarkable_about.png"
-import CreateAbout from "../assets/create_about.png"
+import LetsAbout from "../assets/lets_about.jpg"
+import RemarkableAbout from "../assets/remarkable_about.jpg"
+import CreateAbout from "../assets/create_about.jpg"
 
 import Title from "./Title"
 import Subtitle from "./Subtitle"
