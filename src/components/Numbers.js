@@ -61,7 +61,6 @@ const Button = styled.button`
 `
 
 const getColor = (color, theme) => {
-  console.log(color)
   return color ? color : theme.primary
 }
 

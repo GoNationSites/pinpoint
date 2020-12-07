@@ -8,7 +8,6 @@ import logo from "../assets/logo.svg"
 
 const MyText = styled.p`
   color: red;
-  ${props => console.log(props)}
 `
 
 const Nav = styled.nav`

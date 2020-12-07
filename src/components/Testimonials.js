@@ -179,7 +179,6 @@ const Testimonials = () => {
     activeFilters.includes(tag) ? setActiveFilters([]) : setActiveFilters([tag])
 
   const getTags = tag => {
-    console.log("getting tag for: ", tag)
     if (Array.isArray(tag)) {
       return activeFilters.filter(filter => filter === tag).length
     } else {
