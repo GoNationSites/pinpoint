@@ -112,6 +112,7 @@ const Overlay = styled.div`
 
 const ButtonBlocks = ({ data }) => {
   const [hovered, setHovered] = useState(false)
+  const [isMoving, setIsMoving] = useState(false)
   const size = useWindowSize()
   const blocks = [
     {
@@ -157,9 +158,16 @@ const ButtonBlocks = ({ data }) => {
         centerMode={size.width > 1024}
         containerClass="carousel-container"
         itemClass="carousel-item"
+        beforeChange={() => setIsMoving(true)}
+        afterChange={() => setIsMoving(false)}
       >
         {blockData.map((block, idx) => (
           <Link
+            onClick={e => {
+              if (isMoving) {
+                e.preventDefault()
+              }
+            }}
             sx={{ display: "block" }}
             to={`/the-work/${block.node.slug.current}`}
           >
