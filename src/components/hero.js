@@ -53,6 +53,11 @@ const HeroHeader = styled.header`
   .rotating-text {
     transition: all 0.2s;
     font-style: normal;
+    display: inline-block;
+
+    @media ${device.laptop} {
+      min-width: 275.3px;
+    }
   }
 
   h3 {
@@ -83,11 +88,16 @@ const Hero = ({ img, text, mainHero }) => {
         <h2>WE CREATE REMARKABLE BRAND EXPERIENCES</h2>
         <h3>
           Everything we{" "}
-          <ReactTextRotator content={text} time={5000} startDelay={500} /> is
-          done <span>intentionally</span>
+          <ReactTextRotator
+            content={text}
+            time={5000}
+            startDelay={500}
+            transitionTime={100}
+          />{" "}
+          is done <span>intentionally</span>
         </h3>
         <div className="video-container">
-          <video autoPlay muted playsInline>
+          <video autoPlay muted playsInline loop>
             <source
               src="https://player.vimeo.com/external/142151259.hd.mp4?s=ae370a00b1f0433bfccf9c96106260f704112b3f&profile_id=113"
               type="video/mp4"
