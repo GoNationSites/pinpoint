@@ -19,14 +19,14 @@ const Nav = styled.nav`
   padding: 0.75rem;
   position: relative;
   z-index: 9999999999;
-  @media ${device.laptop} {
+  @media ${device.laptopL} {
     padding: 0px 140px;
     align-items: center;
   }
 
   img {
     max-width: 115px;
-    @media ${device.laptop} {
+    @media ${device.laptopL} {
       max-width: 175px;
     }
   }
@@ -47,7 +47,8 @@ const NavItem = styled.div`
     color: ${({ theme }) => theme.glass};
     margin-left: 1rem;
     display: block;
-    @media ${device.laptop} {
+    /* breakpoint */
+    @media ${device.laptopL} {
       display: none;
     }
   }
@@ -56,7 +57,7 @@ const NavItem = styled.div`
     transition: all 0.25s;
     ${({ route }) => `border-top: 3px solid ${getColor(route)}`};
   }
-  @media ${device.laptop} {
+  @media ${device.laptopL} {
     display: flex;
   }
   a {
@@ -72,7 +73,7 @@ const NavItem = styled.div`
     padding: ${({ theme, cta }) => (cta ? "1rem 2rem" : "")};
     border-radius: ${({ cta }) => (cta ? "49px" : "")};
 
-    @media ${device.laptop} {
+    @media ${device.laptopL} {
       font-size: 18px;
       margin-bottom: 0;
       padding: 2rem 0;
@@ -98,7 +99,7 @@ const Flex = styled.div`
   padding: 1rem;
   display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   flex-direction: column;
-  @media ${device.laptop} {
+  @media ${device.laptopL} {
     padding: 0;
     position: static;
     flex-direction: row;
@@ -160,7 +161,7 @@ const Box = styled.div`
   width: 100%;
   max-width: 1600px;
   margin: auto;
-  @media ${device.laptop} {
+  @media ${device.laptopL} {
     position: static;
     flex-direction: row;
     justify-content: flex-end;
@@ -170,7 +171,8 @@ const Box = styled.div`
 
 const HamburgerContainer = styled.div`
   display: block;
-  @media ${device.laptop} {
+  /* breakpoint */
+  @media ${device.laptopL} {
     display: none;
   }
 `
