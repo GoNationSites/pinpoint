@@ -20,7 +20,7 @@ const Nav = styled.nav`
   position: relative;
   z-index: 9999999999;
   @media ${device.laptop} {
-    padding: 20px 140px;
+    padding: 0px 140px;
     align-items: center;
   }
 
@@ -33,8 +33,14 @@ const Nav = styled.nav`
 `
 
 const NavItem = styled.div`
+  align-items: center;
+
+  .nav-item__active {
+    ${({ route }) => `border-top: 3px solid ${getColor(route)}`};
+  }
+
   &:not(:last-of-type) {
-    padding-right: 60px;
+    margin-right: 60px;
   }
   .children-route {
     font-size: 20px;
@@ -44,6 +50,14 @@ const NavItem = styled.div`
     @media ${device.laptop} {
       display: none;
     }
+  }
+  &:hover {
+    color: ${({ theme, route, cta }) => (cta ? "white" : getColor(route))};
+    transition: all 0.25s;
+    ${({ route }) => `border-top: 3px solid ${getColor(route)}`};
+  }
+  @media ${device.laptop} {
+    display: flex;
   }
   a {
     font-size: 20px;
@@ -61,11 +75,9 @@ const NavItem = styled.div`
     @media ${device.laptop} {
       font-size: 18px;
       margin-bottom: 0;
-    }
-
-    &:hover {
-      color: ${({ theme, route, cta }) => (cta ? "white" : getColor(route))};
-      transition: all 0.5s;
+      padding: 2rem 0;
+      ${({ cta }) => (cta ? "padding: 1rem 2rem" : "")};
+      display: flex;
     }
   }
 
@@ -87,20 +99,21 @@ const Flex = styled.div`
   display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   flex-direction: column;
   @media ${device.laptop} {
+    padding: 0;
     position: static;
     flex-direction: row;
     justify-content: flex-end;
     display: flex;
-    align-items: center;
+    align-items: stretch;
   }
 `
 
 const DropdownContainer = styled.div`
   position: absolute;
   z-index: 9999999999999;
-  top: 5rem;
+  top: 6rem;
   /* left: 5rem; */
-  right: 3rem;
+  right: -3rem;
   background: #f7f7f7;
   box-shadow: 2px 5px 10px #00000029;
   width: 300px;
@@ -129,6 +142,7 @@ const DropdownContainer = styled.div`
 
   a {
     display: inline-block;
+    padding: 0 1rem;
 
     color: ${({ theme }) => theme.glass};
     text-align: right;
@@ -265,6 +279,7 @@ const Navbar = () => {
                     route.title === "about" && setShowDropdown(route.title)
                   }
                   activeStyle={{ color: getColor(route.title) }}
+                  activeClassName="nav-item__active"
                   to={route.link}
                 >
                   {route.title}
