@@ -20,7 +20,7 @@ const Box = styled.div`
   background: ${theme.text};
   color: white;
 
-  @media ${device.laptop} {
+  @media ${device.laptopL} {
     width: 75%;
     padding: 0 6rem;
     height: 915px;
@@ -44,7 +44,7 @@ const ImgRight = styled.div`
     display: flex;
   }
 
-  @media ${device.laptop} {
+  @media ${device.laptopL} {
     order: unset;
     position: absolute;
     width: 50%;

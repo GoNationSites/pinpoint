@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { theme, device } from "../global-styles"
+import Slide from "react-reveal/Slide"
 
 import Title from "./Title"
 import Up from "./icons/Up"
@@ -11,7 +12,7 @@ const Box = styled.div`
   background: #f7f7f7;
   padding: 2rem 1.5rem;
   @media ${device.tablet} {
-    padding: 4rem 5rem;
+    padding: 1rem 5rem;
   }
 `
 
@@ -64,6 +65,8 @@ const ClearFiltersPill = styled.span`
 `
 
 const FilterBox = ({ setActiveFilters, activeFilters, categories }) => {
+  const [showFilter, setShowFilter] = useState(false)
+
   const handleClick = category => {
     if (activeFilters.includes(category)) {
       // remove it
@@ -84,29 +87,55 @@ const FilterBox = ({ setActiveFilters, activeFilters, categories }) => {
           textTransform: "uppercase",
           display: "flex",
           alignItems: "center",
+          cursor: "pointer",
         }}
         color={theme.text}
       >
-        <Up fill={theme.alternate} width={"50px"}></Up>
-        <span style={{ paddingLeft: ".5rem", display: "inline-block" }}>
+        <span
+          style={{
+            transform: !showFilter ? "" : "rotate(180deg)",
+            transition: "all .3s",
+          }}
+        >
+          <Up
+            onClick={() => setShowFilter(!showFilter)}
+            fill={theme.alternate}
+            width={"50px"}
+          ></Up>
+        </span>
+
+        <span
+          onClick={() => setShowFilter(!showFilter)}
+          style={{ paddingLeft: ".5rem", display: "inline-block" }}
+        >
           Filter By category
         </span>
       </Title>
-      <CategoriesContainer>
-        {categories.map(category => (
-          <CategoryPill
-            isActive={activeFilters.includes(category)}
-            onClick={() => handleClick(category)}
-          >
-            {category}
-          </CategoryPill>
-        ))}
-      </CategoriesContainer>
-      <div>
-        <ClearFiltersPill onClick={() => setActiveFilters([])}>
-          Clear Filters
-        </ClearFiltersPill>
-      </div>
+
+      <Slide bottom when={showFilter} duration={1000}>
+        {showFilter ? (
+          <Box>
+            <CategoriesContainer>
+              {categories.map(category => (
+                <CategoryPill
+                  isActive={activeFilters.includes(category)}
+                  onClick={() => handleClick(category)}
+                >
+                  {category}
+                </CategoryPill>
+              ))}
+            </CategoriesContainer>
+
+            <div>
+              <ClearFiltersPill onClick={() => setActiveFilters([])}>
+                Clear Filters
+              </ClearFiltersPill>
+            </div>
+          </Box>
+        ) : (
+          ""
+        )}
+      </Slide>
     </Box>
   )
 }
