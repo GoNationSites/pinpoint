@@ -58,10 +58,12 @@ const Flex = styled.div`
     @media ${device.mobileL} {
       width: 50%;
     }
+    @media ${device.tablet} {
+      width: 33.333%;
+    }
     @media ${device.laptopL} {
       width: 25%;
     }
-  }
 `
 
 const Section = styled.section`
