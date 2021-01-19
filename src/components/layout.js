@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
     <>
       <Navbar />
       <main style={{ maxWidth: "2000px", margin: "auto" }}>{children}</main>
-      <ClickBanner></ClickBanner>
+      {/* <ClickBanner></ClickBanner> */}
       <Footer />
     </>
   )

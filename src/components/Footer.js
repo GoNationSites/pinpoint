@@ -118,6 +118,15 @@ const Footer = () => {
             <p>
               <Link to="/contact">Contact</Link>
             </p>
+            <p>
+              <a
+                href="https://experiencepinpoint.espwebsite.com/?referrerPage=ProductResults&refPgId=524572643&PCUrl=1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Promo Store
+              </a>
+            </p>
           </FooterContentSquare>
         </div>
         <div>
