@@ -34,7 +34,7 @@ const Box = styled.div`
   }
 
   > div {
-    @media ${device.laptop} {
+    @media ${device.laptopL} {
       max-width: 75%;
     }
   }
@@ -56,7 +56,7 @@ const ImageBox = styled.div`
   order: -1;
 
   height: 100%;
-  @media ${device.laptop} {
+  @media ${device.laptopL} {
     order: unset;
     position: absolute;
     width: 45%;

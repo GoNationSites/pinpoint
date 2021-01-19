@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { useSpring, animated } from "react-spring"
+import CountUp from "react-countup"
 
 import Presence from "../assets/presence.png"
 import Annual from "../assets/annual.png"
@@ -109,7 +110,10 @@ const AboutButtonRow = () => {
         return (
           <ActiveContent>
             <img src={States} alt={btn.title} />
-            <h4>26 states</h4>
+            {/* <h4>26 states</h4> */}
+            <h4>
+              <CountUp start={0} end={26} duration={3}></CountUp> states
+            </h4>
             <p>{btn.title}</p>
           </ActiveContent>
         )
@@ -117,9 +121,10 @@ const AboutButtonRow = () => {
         return (
           <ActiveContent>
             <h4>
-              <animated.span>
+              <CountUp start={0} end={3500} duration={3}></CountUp>
+              {/* <animated.span>
                 {props.number.interpolate(val => Math.floor(val))}
-              </animated.span>
+              </animated.span> */}
               +
             </h4>
             <p>{btn.title}</p>
@@ -130,7 +135,10 @@ const AboutButtonRow = () => {
           <ActiveContent>
             <p>Presence of Pinpoint's products or services:</p>
             <h4>
-              <animated.span>37 States</animated.span>+
+              <animated.span>
+                <CountUp start={0} end={37} duration={3}></CountUp> States
+              </animated.span>
+              +
             </h4>
           </ActiveContent>
         )

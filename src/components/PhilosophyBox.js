@@ -113,7 +113,8 @@ const PhilosophyBox = () => {
         return (
           <>
             <Subtitle color={"white"}>
-              <span style={{ color: "white" }}>LET'S</span> CREATE REMARKABLE
+              <span style={{ color: theme.text }}>LET'S</span>{" "}
+              <span>CREATE</span> <span>REMARKABLE</span>
             </Subtitle>
             <TextContainer>
               <div>
@@ -129,7 +130,7 @@ const PhilosophyBox = () => {
         return (
           <>
             <Subtitle color={"white"}>
-              LET'S <span style={{ color: "white" }}>CREATE</span> REMARKABLE
+              LET'S <span style={{ color: theme.text }}>CREATE</span> REMARKABLE
             </Subtitle>
             <TextContainer>
               <div>
@@ -155,7 +156,7 @@ const PhilosophyBox = () => {
         return (
           <>
             <Subtitle color={"white"}>
-              LET'S CREATE <span style={{ color: "white" }}>REMARKABLE</span>
+              LET'S CREATE <span style={{ color: theme.text }}>REMARKABLE</span>
             </Subtitle>
             <TextContainer>
               <div>
