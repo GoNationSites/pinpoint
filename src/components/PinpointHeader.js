@@ -66,6 +66,10 @@ const ImageBox = styled.div`
   }
   img {
     height: auto;
+    max-height: 275px;
+    @media ${device.tablet} {
+      max-height: none;
+    }
   }
 `
 
