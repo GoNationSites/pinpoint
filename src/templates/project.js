@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { theme, device } from "../global-styles"
 import {
@@ -91,6 +91,7 @@ const getWidth = idx => {
 }
 
 const Project = ({ pageContext }) => {
+  const [isShowingMore, setIsShowingMore] = useState(false)
   const { data } = pageContext
   const { nextProject, previousProject } = pageContext
   const hasNextProject = nextProject
@@ -124,12 +125,25 @@ const Project = ({ pageContext }) => {
         <p>{data.bodyTextBlurb}</p>
       </ContainerSmall>
       <ImagesContainer>
-        {data.projectImages.map(({ asset }, idx) => (
-          <ImgWrap idx={idx}>
-            <img src={asset.url} alt={`${data.title} showcase`} />
-          </ImgWrap>
-        ))}
+        {data.projectImages
+          .slice(0, isShowingMore ? data.projectImages.length : 3)
+          .map(({ asset }, idx) => (
+            <ImgWrap idx={idx}>
+              <img src={asset.url} alt={`${data.title} showcase`} />
+            </ImgWrap>
+          ))}
       </ImagesContainer>
+      <ContainerSmall>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Button
+            onClick={() => setIsShowingMore(!isShowingMore)}
+            color="#fff"
+            style={{ background: "#FFA400" }}
+          >
+            Show {isShowingMore ? "less" : "more"}
+          </Button>
+        </div>
+      </ContainerSmall>
       <ContainerSmall>
         <p>{data.footerBlurb}</p>
       </ContainerSmall>

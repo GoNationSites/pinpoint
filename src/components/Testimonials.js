@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Down from "./icons/down"
 
@@ -75,6 +76,7 @@ const Section = styled.section`
 `
 
 const Logo = styled.div`
+  pointer-events: none;
   height: 100%;
   display: flex;
   align-items: center;
@@ -123,37 +125,73 @@ const FilterTag = styled.a`
 const Testimonials = () => {
   const [hovered, setHovered] = useState(false)
   const [activeFilters, setActiveFilters] = useState([])
-  const logos = [
-    { image: Jags, seo: "Jacksonville Jaguars", tag: "sports" },
-    { image: LiveNation, seo: "LiveNation", tag: ["entertainment", "media"] },
-    { image: Mastercard, seo: "Mastercard", tag: "consumer + other" },
-    { image: Yale, seo: "Yale", tag: "higher education" },
-    { image: Comcast, seo: "Comcast", tag: "media" },
-    { image: AEW, seo: "AEW", tag: ["sports", "entertainment"] },
-    { image: IHeart, seo: "iHeart", tag: ["entertainment", "media"] },
-    { image: Genesis, seo: "Genesis", tag: "consumer + other" },
-    { image: IPG, seo: "IPG", tag: "media" },
-    { image: Planet_Fitness, seo: "Planet Fitness", tag: "sports" },
-    { image: Toyota, seo: "Toyota", tag: "consumer + other" },
-    { image: Verbo, seo: "Verbo", tag: "consumer + other" },
-    { image: Washington, seo: "Washington Football Team", tag: "sports" },
-    { image: Holberton, seo: "Holberton", tag: "higher education" },
-    { image: CTF, seo: "ctf", tag: "non-profits" },
-    { image: AHA, seo: "aha", tag: "non-profits" },
-    { image: PG, seo: "pg", tag: "consumer + other" },
-    { image: PetParadise, seo: "pet paradise", tag: "consumer + other" },
-    { image: Pirelli, seo: "pirelli", tag: "consumer + other" },
-    { image: Manhatan, seo: "Manhattan Center", tag: "entertainment" },
-  ]
 
-  const filterTags = [
-    "sports",
-    "entertainment",
-    "media",
-    "non-profits",
-    "higher education",
-    "consumer + other",
-  ]
+  const data = useStaticQuery(graphql`
+    query HeaderQuery {
+      allSanityTestimonial {
+        edges {
+          node {
+            businessLogo {
+              asset {
+                fluid {
+                  src
+                }
+              }
+            }
+            businessName
+            tag
+          }
+        }
+      }
+    }
+  `)
+
+  const logos = data.allSanityTestimonial.edges
+
+  // const logos = [
+  //   { image: Jags, seo: "Jacksonville Jaguars", tag: "sports" },
+  //   { image: LiveNation, seo: "LiveNation", tag: ["entertainment", "media"] },
+  //   { image: Mastercard, seo: "Mastercard", tag: "consumer + other" },
+  //   { image: Yale, seo: "Yale", tag: "higher education" },
+  //   { image: Comcast, seo: "Comcast", tag: "media" },
+  //   { image: AEW, seo: "AEW", tag: ["sports", "entertainment"] },
+  //   { image: IHeart, seo: "iHeart", tag: ["entertainment", "media"] },
+  //   { image: Genesis, seo: "Genesis", tag: "consumer + other" },
+  //   { image: IPG, seo: "IPG", tag: "media" },
+  //   { image: Planet_Fitness, seo: "Planet Fitness", tag: "sports" },
+  //   { image: Toyota, seo: "Toyota", tag: "consumer + other" },
+  //   { image: Verbo, seo: "Verbo", tag: "consumer + other" },
+  //   { image: Washington, seo: "Washington Football Team", tag: "sports" },
+  //   { image: Holberton, seo: "Holberton", tag: "higher education" },
+  //   { image: CTF, seo: "ctf", tag: "non-profits" },
+  //   { image: AHA, seo: "aha", tag: "non-profits" },
+  //   { image: PG, seo: "pg", tag: "consumer + other" },
+  //   { image: PetParadise, seo: "pet paradise", tag: "consumer + other" },
+  //   { image: Pirelli, seo: "pirelli", tag: "consumer + other" },
+  //   { image: Manhatan, seo: "Manhattan Center", tag: "entertainment" },
+  // ]
+
+  // const filterTags = [
+  //   "sports",
+  //   "entertainment",
+  //   "media",
+  //   "non-profits",
+  //   "higher education",
+  //   "consumer + other",
+  // ]
+
+  // const filterTags = logos.filter(
+  //   (logo, id, ar) => ar.indexOf(logo.filterTags) === id
+  // )
+
+  const filterTags = logos
+    .map(({ node }) => node.tag.map(tag => tag))
+    .flat()
+    .filter((item, i, ar) => ar.indexOf(item) === i)
+  console.log(
+    "🚀 ~ file: Testimonials.js ~ line 185 ~ Testimonials ~ filterTags",
+    filterTags
+  )
 
   const responsive = {
     superLargeDesktop: {
@@ -179,10 +217,11 @@ const Testimonials = () => {
     activeFilters.includes(tag) ? setActiveFilters([]) : setActiveFilters([tag])
 
   const getTags = tag => {
-    if (Array.isArray(tag)) {
+    console.log("tag is: ", tag)
+    if (tag.length > 1) {
       return activeFilters.filter(filter => filter === tag).length
     } else {
-      return activeFilters.includes(tag)
+      return activeFilters.includes(tag[0])
     }
   }
 
@@ -209,12 +248,18 @@ const Testimonials = () => {
           autoPlaySpeed={2000}
           infinite={true}
           arrows={false}
+          swipeable
         >
           {logos
-            .filter(({ tag }) => (!activeFilters.length ? tag : getTags(tag)))
-            .map(({ image, seo }) => (
+            .filter(({ node }) =>
+              !activeFilters.length ? node.tag[0] : getTags(node.tag)
+            )
+            .map(({ node }) => (
               <Logo>
-                <img src={image} alt={seo} />
+                <img
+                  src={node.businessLogo.asset.fluid.src}
+                  alt={node.businessName}
+                />
               </Logo>
             ))}
         </Carousel>

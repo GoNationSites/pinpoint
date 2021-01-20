@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { device, theme } from "../global-styles"
+import { Link } from "react-scroll"
 
 import PinpointContactDetails from "../components/PinpointContactDetails"
 import Title from "../components/Title"
@@ -43,9 +44,11 @@ const StyledHeader = () => {
       <Box>
         <div>
           <Title style={{ marginBottom: "1.5rem" }}>Let's get started</Title>
-          <Circle>
-            <Right fill={theme.pink} />
-          </Circle>
+          <Link to="started" smooth={true}>
+            <Circle>
+              <Right fill={theme.pink} />
+            </Circle>
+          </Link>
         </div>
       </Box>
       <PinpointContactDetails />

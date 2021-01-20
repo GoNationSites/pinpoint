@@ -62,6 +62,7 @@ const Button = ({
   iconColor,
   bg,
   centerText,
+  onClick,
   style = {},
 }) => {
   const [hovered, setHovered] = useState(false)
@@ -104,6 +105,33 @@ const Button = ({
           )}
         </Btn>
       </a>
+    )
+  }
+
+  if (onClick) {
+    return (
+      <Btn
+        onClick={onClick}
+        bg={bg}
+        variation={variation}
+        color={color}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        centerText
+        style={style}
+      >
+        <span>{children}</span>
+        {noArrow ? (
+          ""
+        ) : (
+          <span className="icon">
+            <Right
+              width={"35px"}
+              fill={iconColor ? iconColor : getIconFill()}
+            />
+          </span>
+        )}
+      </Btn>
     )
   }
 
