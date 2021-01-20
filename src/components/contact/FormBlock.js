@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import Dropdown from "react-dropdown"
 
@@ -49,10 +49,10 @@ const InputContainer = styled.div`
 
 const FormBlock = () => {
   const formOptions = [
-    'Contact Reason 1', 
-    'Contact Reason 2',
-    'Contact Reason 3', 
-    'Other'
+    "Contact Reason 1",
+    "Contact Reason 2",
+    "Contact Reason 3",
+    "Other",
   ]
   const defaultOption = formOptions[0]
   return (
@@ -77,7 +77,7 @@ const FormBlock = () => {
               name="reason"
               id="reason"
             />
-            <Dropdown options= ></Dropdown>
+            {/* <Dropdown options= ></Dropdown> */}
             <Input label="Name" type="text" name="name" id="name" />
             <Input label="Email" type="email" name="email" id="email" />
             <Input label="Phone" type="phone" name="phone" id="phone" />
