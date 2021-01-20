@@ -1,7 +1,8 @@
-import React from "react"
+import React, {useState} from "react"
 import styled from "styled-components"
-import { theme, device } from "../../global-styles"
+import Dropdown from "react-dropdown"
 
+import { theme, device } from "../../global-styles"
 import Input from "../forms/Input"
 import TextArea from "../forms/TextArea"
 import GrayBox from "../GrayBox"
@@ -38,12 +39,6 @@ const InputContainer = styled.div`
     }
   }
 
-  /* @media ${device.laptop} {
-    width: 50%;
-    ${({ textArea }) =>
-    textArea ? "padding: 0 0 0 2rem" : ""};
-  } */
-
   @media ${device.laptopL} {
     width: 100%;
     ${({ textArea }) => (textArea ? "padding: 0 " : "")};
@@ -53,6 +48,13 @@ const InputContainer = styled.div`
 `
 
 const FormBlock = () => {
+  const formOptions = [
+    'Contact Reason 1', 
+    'Contact Reason 2',
+    'Contact Reason 3', 
+    'Other'
+  ]
+  const defaultOption = formOptions[0]
   return (
     <GrayBox noMargin>
       <Title margin="0 0 2rem 0" color={theme.pink}>
@@ -60,16 +62,28 @@ const FormBlock = () => {
         together.
       </Title>
 
-      <form>
+      <form
+        name="Pinpoint Contact Form"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="Pinpoint Contact Form" />
         <FormsContainer>
           <InputContainer>
-            <Input label="Contact Reason" type="dropdown" name="reason" />
-            <Input label="Name" type="text" name="name" />
-            <Input label="Email" type="email" name="email" />
-            <Input label="Phone" type="phone" name="phone" />
+            <Input
+              label="Contact Reason"
+              type="dropdown"
+              name="reason"
+              id="reason"
+            />
+            <Dropdown options= ></Dropdown>
+            <Input label="Name" type="text" name="name" id="name" />
+            <Input label="Email" type="email" name="email" id="email" />
+            <Input label="Phone" type="phone" name="phone" id="phone" />
           </InputContainer>
           <InputContainer textArea>
-            <TextArea label="Message" name="phone" />
+            <TextArea label="Message" name="message" id="message" />
           </InputContainer>
           <Button
             iconColor={"#fff"}

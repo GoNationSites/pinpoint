@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { theme, device } from "../global-styles"
+import BlockContent from "@sanity/block-content-to-react"
 
 const Wrapper = styled.div`
   height: auto;
@@ -44,6 +45,59 @@ const Wrapper = styled.div`
     letter-spacing: 0.18px;
     color: ${theme.alternate};
   }
+  .footer-stats-wrapper {
+    @media ${device.tablet} {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+    strong,
+    p {
+      display: block;
+      width: 100%;
+      /* @media ${device.tablet} {
+        padding: 2rem;
+        width: 50%;
+        padding: 0;
+      } */
+    }
+    strong {
+      color: ${theme.alternate};
+    }
+    p,
+    ul {
+      @media ${device.tablet} {
+        padding: 0;
+      }
+    }
+    ul {
+      width: 100%;
+      @media ${device.tablet} {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+          width: 50%;
+          padding-right: 0.75rem;
+        }
+      }
+      @media ${device.laptop} {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+          width: 33%;
+          padding-right: 0.75rem;
+        }
+      }
+      @media ${device.laptopL} {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+          width: 25%;
+          padding-right: 0.75rem;
+        }
+      }
+    }
+  }
 `
 
 const BulletWrapper = styled.div`
@@ -58,18 +112,40 @@ const FooterBlock = styled.div`
 `
 
 const ProjectFooter = ({ data }) => {
-  const renderBullets = bullets => bullets.map(bullet => <li>{bullet}</li>)
+  // const renderBullets = bullets => bullets.map(bullet => <li>{bullet}</li>)
+
+  const BlockRenderer = props => {
+    const { style = "normal" } = props.node
+    console.log("all props are: ", props)
+
+    // if (/^h\d/.test(style)) {
+    //   const level = style.replace(/[^\d]/g, "")
+    //   return React.createElement(
+    //     style,
+    //     { className: `heading-${level}` },
+    //     props.children
+    //   )
+    // }
+
+    // if (style === "blockquote") {
+    //   return <blockquote>- {props.children}</blockquote>
+    // }
+
+    // Fall back to default handling
+    return BlockContent.defaultSerializers.types.block(props)
+  }
 
   return (
     <Wrapper>
-      <div>
-        {data.map(stat => (
-          <div>
-            <h2>{stat.headingTitle}</h2>
-            <BulletWrapper>{renderBullets(stat.bulletPoints)}</BulletWrapper>
-          </div>
-        ))}
-      </div>
+      {data && (
+        <BlockContent
+          blocks={data}
+          className="footer-stats-wrapper"
+          projectId="q1fbqg96"
+          dataset="production"
+          serializers={{ types: { block: BlockRenderer } }}
+        />
+      )}
 
       {/* <pre>{JSON.stringify(data, "", 2)}</pre> */}
     </Wrapper>

@@ -162,7 +162,7 @@ const Project = ({ pageContext }) => {
         </ArrowContainer>
       </ContainerLarge>
 
-      {/* <ProjectFooter data={data.stats} /> */}
+      <ProjectFooter data={data._rawStats} />
       <Banner fillColor={theme.alternate}>
         <Title color="#fff">What challenges do you face on your project?</Title>
         <Button to="/contact" color="#fff">

@@ -25,6 +25,20 @@ exports.createPages = async ({ graphql, actions }) => {
                 url
               }
             }
+            stats {
+              _key
+              _type
+              style
+              list
+              _rawChildren
+              children {
+                text
+                marks
+                _type
+                _key
+              }
+            }
+            _rawStats
           }
         }
       }
